@@ -23,7 +23,6 @@
 namespace MediaWiki\Skins\Vector\FeatureManagement;
 
 use MediaWiki\Context\IContextSource;
-use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
@@ -42,14 +41,16 @@ use MediaWiki\User\Options\UserOptionsLookup;
  */
 class FeatureManagerFactory {
 
+	private UserOptionsLookup $userOptionsLookup;
+
 	public function __construct(
-		private readonly ConfigHelper $configHelper,
-		private readonly UserOptionsLookup $userOptionsLookup,
+		UserOptionsLookup $userOptionsLookup
 	) {
+		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	public function createFeatureManager( IContextSource $context ): FeatureManager {
-		$featureManager = new FeatureManager( $this->configHelper, $this->userOptionsLookup, $context );
+		$featureManager = new FeatureManager( $this->userOptionsLookup, $context );
 
 		$request = $context->getRequest();
 		$config = $context->getConfig();
@@ -210,7 +211,6 @@ class FeatureManagerFactory {
 		$featureManager->registerRequirement(
 			new LimitedWidthContentRequirement(
 				$config,
-				$this->configHelper,
 				$request,
 				$title
 			)
@@ -266,6 +266,26 @@ class FeatureManagerFactory {
 			]
 		);
 
+		// Feature: Night mode (T355065)
+		// ============================================
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$config,
+				$user,
+				$request,
+				Constants::CONFIG_KEY_NIGHT_MODE,
+				Constants::REQUIREMENT_NIGHT_MODE
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_NIGHT_MODE,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_NIGHT_MODE
+			]
+		);
+
 		// Preference: Night mode (T355065)
 		// ============================================
 		$featureManager->registerRequirement(
@@ -283,6 +303,7 @@ class FeatureManagerFactory {
 			Constants::PREF_NIGHT_MODE,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_NIGHT_MODE,
 				Constants::REQUIREMENT_PREF_NIGHT_MODE
 			]
 		);

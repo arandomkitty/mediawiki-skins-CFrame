@@ -10,10 +10,29 @@ use MessageLocalizer;
  * VectorSearchBox component
  */
 class VectorComponentSearchBox implements VectorComponent {
+	/** @var MessageLocalizer */
+	private $localizer;
+	/** @var array */
+	private $searchBoxData;
+	/** @var bool */
+	private $isCollapsible;
+	/** @var bool */
+	private $isPrimary;
+	/** @var string */
+	private $formId;
+	/** @var bool */
+	private $autoExpandWidth;
+	/** @var string */
+	private $location;
+	/** @var Config */
+	private $config;
 	private const SEARCH_COLLAPSIBLE_CLASS = 'vector-search-box-collapses';
 	private const SEARCH_SHOW_THUMBNAIL_CLASS = 'vector-search-box-show-thumbnail';
 	private const SEARCH_AUTO_EXPAND_WIDTH_CLASS = 'vector-search-box-auto-expand-width';
 
+	/**
+	 * @return Config
+	 */
 	private function getConfig(): Config {
 		return $this->config;
 	}
@@ -21,10 +40,11 @@ class VectorComponentSearchBox implements VectorComponent {
 	/**
 	 * Returns `true` if Vue search is enabled to show thumbnails and `false` otherwise.
 	 * Note this is only relevant for Vue search experience (not legacy search).
+	 *
+	 * @return bool
 	 */
 	private function doesSearchHaveThumbnails(): bool {
-		$searchOptions = $this->getConfig()->get( 'VectorTypeahead' )['options'];
-		return $searchOptions['showThumbnail'];
+		return $this->getConfig()->get( 'VectorWvuiSearchOptions' )['showThumbnail'];
 	}
 
 	/**
@@ -37,16 +57,34 @@ class VectorComponentSearchBox implements VectorComponent {
 		return $this->location;
 	}
 
+	/**
+	 * @param array $searchBoxData
+	 * @param bool $isCollapsible
+	 * @param bool $isPrimary
+	 * @param string $formId
+	 * @param bool $autoExpandWidth
+	 * @param Config $config
+	 * @param string $location
+	 * @param MessageLocalizer $localizer
+	 */
 	public function __construct(
-		private readonly array $searchBoxData,
-		private readonly bool $isCollapsible,
-		private readonly bool $isPrimary,
-		private readonly string $formId,
-		private readonly bool $autoExpandWidth,
-		private readonly Config $config,
-		private readonly string $location,
-		private readonly MessageLocalizer $localizer,
+		array $searchBoxData,
+		bool $isCollapsible,
+		bool $isPrimary,
+		string $formId,
+		bool $autoExpandWidth,
+		Config $config,
+		string $location,
+		MessageLocalizer $localizer
 	) {
+		$this->searchBoxData = $searchBoxData;
+		$this->isCollapsible = $isCollapsible;
+		$this->isPrimary = $isPrimary;
+		$this->formId = $formId;
+		$this->autoExpandWidth = $autoExpandWidth;
+		$this->location = $location;
+		$this->config = $config;
+		$this->localizer = $localizer;
 	}
 
 	/**

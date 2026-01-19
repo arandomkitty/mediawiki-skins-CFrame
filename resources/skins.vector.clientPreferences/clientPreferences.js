@@ -59,7 +59,6 @@ function getVisibleClientPreferences( config ) {
 function toggleDocClassAndSave( featureName, value, config, userPreferences ) {
 	const pref = config[ featureName ];
 	const callback = pref.callback || ( () => {} );
-	const hook = mw.hook( 'skin-client-preference.change' );
 	if ( mw.user.isNamed() ) {
 		// FIXME: Ideally this would be done in mw.user.clientprefs API.
 		// mw.user.clientPrefs.get is marked as being only stable for anonymous and temporary users.
@@ -88,7 +87,6 @@ function toggleDocClassAndSave( featureName, value, config, userPreferences ) {
 		mw.user.clientPrefs.set( featureName, value );
 		callback();
 	}
-	hook.fire( featureName, value );
 }
 
 /**
@@ -169,7 +167,7 @@ function makeBetaInfoTag() {
 }
 
 /**
- * @param {HTMLElement} parent
+ * @param {Element} parent
  * @param {string} featureName
  * @param {string} value
  * @param {string} currentValue
@@ -200,24 +198,12 @@ function appendRadioToggle( parent, featureName, value, currentValue, config, us
 	input.addEventListener( 'change', () => {
 		toggleDocClassAndSave( featureName, value, config, userPreferences );
 	} );
-
-	// Prevent repeated arrow key navigation when key is held down
-	// to avoid rapid color changes that may trigger photosensitive reactions.
-	// Refer to [[phab:T402285]]
-	input.addEventListener( 'keydown', ( event ) => {
-		if ( event.key.startsWith( 'Arrow' ) && event.repeat ) {
-			event.preventDefault();
-		}
-	} );
 }
 
 /**
  * @param {HTMLElement} betaMessageElement
  */
 function makeFeedbackLink( betaMessageElement ) {
-	if ( !mw.msg( 'vector-night-mode-issue-reporting-notice-url' ) ) {
-		return;
-	}
 	const pageWikiLink = `[https://${ window.location.hostname + mw.util.getUrl( mw.config.get( 'wgPageName' ) ) } ${ mw.config.get( 'wgTitle' ) }]`;
 	const preloadTitle = mw.message( 'vector-night-mode-issue-reporting-preload-title', pageWikiLink ).text();
 	const link = mw.msg( 'vector-night-mode-issue-reporting-notice-url', window.location.host, preloadTitle );
@@ -249,7 +235,7 @@ function makeFeedbackLink( betaMessageElement ) {
 }
 
 /**
- * @param {HTMLElement} form
+ * @param {Element} form
  * @param {string} featureName
  * @param {HTMLElement} labelElement
  * @param {string} currentValue
@@ -281,7 +267,7 @@ function appendToggleSwitch(
 
 /**
  * @param {string} className
- * @return {HTMLElement}
+ * @return {Element}
  */
 function createRow( className ) {
 	const row = document.createElement( 'div' );
@@ -304,7 +290,7 @@ const getFeatureLabelMsg = ( featureName ) => mw.message( `${ featureName }-name
  * @param {string} featureName
  * @param {Record<string,ClientPreference>} config
  * @param {UserPreferencesApi} userPreferences
- * @return {HTMLElement|null}
+ * @return {Element|null}
  */
 function makeControl( featureName, config, userPreferences ) {
 	const pref = config[ featureName ];
@@ -350,7 +336,7 @@ function makeControl( featureName, config, userPreferences ) {
 }
 
 /**
- * @param {HTMLElement} parent
+ * @param {Element} parent
  * @param {string} featureName
  * @param {Record<string,ClientPreference>} config
  * @param {UserPreferencesApi} userPreferences
@@ -432,21 +418,20 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
  * @param {string} selector of element to fill with client preferences
  * @param {Record<string,ClientPreference>} config
  * @param {UserPreferencesApi} [userPreferences]
- * @return {Promise<HTMLElement>}
+ * @return {Promise<Node>}
  */
 function render( selector, config, userPreferences ) {
-	/** @type {HTMLElement|null} */
-	const el = document.querySelector( selector );
-	if ( !el ) {
+	const node = document.querySelector( selector );
+	if ( !node ) {
 		return Promise.reject();
 	}
 	return new Promise( ( resolve ) => {
 		getVisibleClientPreferences( config ).forEach( ( pref ) => {
 			userPreferences = userPreferences || new mw.Api();
-			makeClientPreference( el, pref, config, userPreferences );
+			makeClientPreference( node, pref, config, userPreferences );
 		} );
 		mw.requestIdleCallback( () => {
-			resolve( el );
+			resolve( node );
 		} );
 	} );
 }

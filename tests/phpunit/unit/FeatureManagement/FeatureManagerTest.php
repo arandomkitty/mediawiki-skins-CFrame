@@ -22,7 +22,6 @@
 namespace MediaWiki\Skins\Vector\Tests\Unit\FeatureManagement;
 
 use MediaWiki\Context\RequestContext;
-use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWiki\User\Options\UserOptionsLookup;
 
@@ -41,7 +40,6 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( \LogicException::class );
 
 		$featureManager = new FeatureManager(
-			$this->createMock( ConfigHelper::class ),
 			$this->createMock( UserOptionsLookup::class ),
 			new RequestContext()
 		);
@@ -76,7 +74,6 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( $expectedExceptionType );
 
 		$featureManager = new FeatureManager(
-			$this->createMock( ConfigHelper::class ),
 			$this->createMock( UserOptionsLookup::class ),
 			new RequestContext()
 		);
@@ -89,7 +86,6 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testIsRequirementMet() {
 		$featureManager = new FeatureManager(
-			$this->createMock( ConfigHelper::class ),
 			$this->createMock( UserOptionsLookup::class ),
 			new RequestContext()
 		);
@@ -107,7 +103,6 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( \InvalidArgumentException::class );
 
 		$featureManager = new FeatureManager(
-			$this->createMock( ConfigHelper::class ),
 			$this->createMock( UserOptionsLookup::class ),
 			new RequestContext()
 		);
@@ -121,7 +116,6 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( \LogicException::class );
 
 		$featureManager = new FeatureManager(
-			$this->createMock( ConfigHelper::class ),
 			$this->createMock( UserOptionsLookup::class ),
 			new RequestContext()
 		);
@@ -134,7 +128,6 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testIsFeatureEnabled() {
 		$featureManager = new FeatureManager(
-			$this->createMock( ConfigHelper::class ),
 			$this->createMock( UserOptionsLookup::class ),
 			new RequestContext()
 		);
@@ -169,7 +162,6 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( \InvalidArgumentException::class );
 
 		$featureManager = new FeatureManager(
-			$this->createMock( ConfigHelper::class ),
 			$this->createMock( UserOptionsLookup::class ),
 			new RequestContext()
 		);

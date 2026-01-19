@@ -1,31 +1,17 @@
 /**
- * Vector 2022 (formerly "Vector modern") layout styles for screen
+ * Vector modern layout styles for screen
  *
- * Layout rules divide the page into sections and how VectorComponents should be arranged
- * in the skin.
+ * Layout rules divide the page into sections and how VectorComponents should be arranged in the skin.
  * The rules here should only define the layout, not color or typography.
  */
+
+html {
+	scroll-padding-top: @scroll-padding-top;
+}
 
 body {
 	background-color: @background-color-secondary--modern;
 	color: @color-base;
-}
-
-.client-js.vector-sticky-header-enabled {
-	// T290518: When the sticky header is enabled (feature flag is on, js is
-	// enabled, and viewport is at higher resolutions), add scroll padding to the
-	// root element. This is needed so that the sticky header does not overlap the
-	// top of an element when the URI has a hash fragment (e.g. when the user clicks
-	// a jump link) and when the user tabs through elements in reverse order.
-	//
-	// Please note that this class must be independent of the
-	// .vector-sticky-header-visible class to correctly handle situations where the
-	// sticky header isn't visible yet but we still need scroll padding applied
-	// (e.g. when the user navigates to a page with a hash fragment in the URI).
-	//
-	// As hash fragment scrolling can happen before JS is loaded, we need to
-	// apply this property early, as opposed to in stickyHeader.less (T406114).
-	scroll-padding-top: @height-header;
 }
 
 .mw-body,
@@ -51,18 +37,6 @@ body {
 /* Content */
 .mw-indicators {
 	z-index: @z-index-indicators;
-}
-
-.mw-heading {
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		// T314419 - See the comment on the LESS variable
-		scroll-margin-top: @scroll-margin-heading;
-	}
 }
 
 .vector-page-titlebar {

@@ -11,17 +11,13 @@ use MediaWiki\Title\Title;
  * @coversDefaultClass \MediaWiki\Skins\Vector\ConfigHelper
  */
 class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
-	private function newInstance(): ConfigHelper {
-		return $this->getServiceContainer()->getService( 'Vector.ConfigHelper' );
-	}
-
 	/**
 	 * @covers ::shouldDisable when config is empty
 	 */
 	public function testShouldDisableEmpty() {
 		$request = RequestContext::getMain()->getRequest();
 
-		$this->assertFalse( $this->newInstance()->shouldDisable( [], $request ) );
+		$this->assertFalse( ConfigHelper::shouldDisable( [], $request ) );
 	}
 
 	public static function provideShouldDisableMainPage() {
@@ -39,7 +35,7 @@ class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
 		$request = RequestContext::getMain()->getRequest();
 		$title = Title::makeTitle( NS_MAIN, 'Main Page' );
 
-		$this->assertSame( $this->newInstance()->shouldDisable( $config, $request, $title ), $disable );
+		$this->assertSame( ConfigHelper::shouldDisable( $config, $request, $title ), $disable );
 	}
 
 	/**
@@ -61,7 +57,7 @@ class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
 		] );
 		$title = Title::makeTitle( NS_MAIN, 'Main_Page' );
 
-		$this->assertSame( true, $this->newInstance()->shouldDisable( $config, $request, $title ) );
+		$this->assertSame( true, ConfigHelper::shouldDisable( $config, $request, $title ) );
 	}
 
 	/**
@@ -72,7 +68,7 @@ class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
 		$request = RequestContext::getMain()->getRequest();
 		$title = Title::makeTitle( NS_MAIN, 'Special:AbuseLog' );
 
-		$this->assertTrue( $this->newInstance()->shouldDisable( $config, $request, $title ), true );
+		$this->assertTrue( ConfigHelper::shouldDisable( $config, $request, $title ), true );
 	}
 
 	/**
@@ -83,7 +79,7 @@ class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
 		$request = RequestContext::getMain()->getRequest();
 		$title = Title::makeTitle( NS_MAIN, 'Main Page' );
 
-		$this->assertFalse( $this->newInstance()->shouldDisable( $config, $request, $title ) );
+		$this->assertFalse( ConfigHelper::shouldDisable( $config, $request, $title ) );
 	}
 
 	/**
@@ -94,7 +90,7 @@ class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
 		$request = RequestContext::getMain()->getRequest();
 		$title = Title::makeTitle( NS_MAIN, 'test' );
 
-		$this->assertFalse( $this->newInstance()->shouldDisable( $config, $request, $title ) );
+		$this->assertFalse( ConfigHelper::shouldDisable( $config, $request, $title ) );
 	}
 
 	/**
@@ -105,7 +101,7 @@ class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
 		$request = RequestContext::getMain()->getRequest();
 		$title = Title::makeTitle( NS_MAIN, 'test' );
 
-		$this->assertTrue( $this->newInstance()->shouldDisable( $config, $request, $title ) );
+		$this->assertTrue( ConfigHelper::shouldDisable( $config, $request, $title ) );
 	}
 
 	/**
@@ -116,7 +112,7 @@ class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
 		$request = RequestContext::getMain()->getRequest();
 		$title = Title::makeTitle( NS_SPECIAL, 'test' );
 
-		$this->assertTrue( $this->newInstance()->shouldDisable( $config, $request, $title ) );
+		$this->assertTrue( ConfigHelper::shouldDisable( $config, $request, $title ) );
 	}
 
 	/**
@@ -129,7 +125,7 @@ class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
 
 		$request->setVal( 'action', 'aaatestaaa' );
 
-		$this->assertTrue( $this->newInstance()->shouldDisable( $config, $request, $title ) );
+		$this->assertTrue( ConfigHelper::shouldDisable( $config, $request, $title ) );
 	}
 
 	/**
@@ -142,7 +138,7 @@ class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
 
 		$request->setVal( 'action', 'aaaabbc' );
 
-		$this->assertTrue( $this->newInstance()->shouldDisable( $config, $request, $title ) );
+		$this->assertTrue( ConfigHelper::shouldDisable( $config, $request, $title ) );
 	}
 
 	/**
@@ -155,6 +151,6 @@ class ConfigHelperTest extends \MediaWikiIntegrationTestCase {
 
 		$request->setVal( 'action', 'test' );
 
-		$this->assertTrue( $this->newInstance()->shouldDisable( $config, $request, $title ) );
+		$this->assertTrue( ConfigHelper::shouldDisable( $config, $request, $title ) );
 	}
 }

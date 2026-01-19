@@ -22,11 +22,14 @@ class SkinVectorLegacy extends SkinMustache {
 	private const MENU_TYPE_DROPDOWN = 2;
 	private const MENU_TYPE_PORTAL = 3;
 
+	private LanguageConverterFactory $languageConverterFactory;
+
 	public function __construct(
-		private readonly LanguageConverterFactory $languageConverterFactory,
+		LanguageConverterFactory $languageConverterFactory,
 		array $options
 	) {
 		parent::__construct( $options );
+		$this->languageConverterFactory = $languageConverterFactory;
 	}
 
 	/**
@@ -231,6 +234,8 @@ class SkinVectorLegacy extends SkinMustache {
 				// is primary mode of search
 				true,
 				'searchform',
+				//json_encode($parentData),
+				//json_encode($parentData),
 				true,
 				$this->getConfig(),
 				Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT,

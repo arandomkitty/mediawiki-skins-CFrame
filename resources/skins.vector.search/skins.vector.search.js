@@ -2,52 +2,30 @@
 
 const
 	Vue = require( 'vue' ),
-	{
-		App,
-		restSearchClient,
-		urlGenerator
-	} = require( /** @type {string} */ ( 'mediawiki.skinning.typeaheadSearch' ) );
+	App = require( './App.vue' ),
+	config = require( './config.json' );
 
-const searchConfig = require( './searchConfig.json' );
-// apiUrl defaults to /rest.php if not set
-const searchApiUrl = searchConfig.VectorTypeahead.apiUrl || mw.config.get( 'wgScriptPath' ) + '/rest.php';
-const recommendationApiUrl = searchConfig.VectorTypeahead.recommendationApiUrl;
-const searchOptions = searchConfig.VectorTypeahead.options;
-// The param config must be defined for empty search recommendations to be enabled.
-const showEmptySearchRecommendations = !!recommendationApiUrl;
+const client = require( './restSearchClient.js' );
+const searchApiUrl = mw.config.get( 'wgVectorSearchApiUrl',
+	mw.config.get( 'wgScriptPath' ) + '/rest.php'
+);
+// The config variables enable customization of the URL generator and search client
+// by Wikidata. Note: These must be defined by Wikidata in the page HTML and are not
+// read from LocalSettings.php
+const urlGenerator = mw.config.get(
+	'wgVectorSearchUrlGenerator',
+	require( './urlGenerator.js' )( mw.config.get( 'wgScript' ) )
+);
+const restClient = mw.config.get(
+	'wgVectorSearchClient',
+	client( searchApiUrl, urlGenerator )
+);
 
 /**
- * @param {HTMLElement} searchBox
- * @param {Object} [restClient]
- * @param {Object} [urlGeneratorInstance]
+ * @param {Element} searchBox
  * @return {void}
  */
-function initApp( searchBox, restClient, urlGeneratorInstance ) {
-	// The config variables enable customization of the URL generator and search client
-	// by Wikidata. Note: These must be defined by Wikidata in the page HTML and are not
-	// read from LocalSettings.php
-	const urlGeneratorConfig = mw.config.get(
-		'wgVectorSearchUrlGenerator'
-	);
-	const searchClientConfig = mw.config.get(
-		'wgVectorSearchClient'
-	);
-	if ( urlGeneratorConfig ) {
-		mw.log.warn( `Use of mw.config.get( "wgVectorSearchUrlGenerator") is deprecated.
-Use SkinPageReadyConfig hook to replace the search module (T395641).` );
-	}
-	if ( searchClientConfig ) {
-		mw.log.warn( `Use of mw.config.get( "wgVectorSearchClient") is deprecated.
-Use SkinPageReadyConfig hook to replace the search module (T395641).` );
-	}
-	urlGeneratorInstance = urlGeneratorInstance || urlGeneratorConfig ||
-		urlGenerator( mw.config.get( 'wgScript' ) );
-	restClient = restClient || searchClientConfig ||
-		restSearchClient(
-			searchApiUrl,
-			urlGeneratorInstance,
-			recommendationApiUrl
-		);
+function initApp( searchBox ) {
 	const searchForm = searchBox.querySelector( '.cdx-search-input' ),
 		titleInput = /** @type {HTMLInputElement|null} */ (
 			searchBox.querySelector( 'input[name=title]' )
@@ -71,40 +49,22 @@ Use SkinPageReadyConfig hook to replace the search module (T395641).` );
 			searchAccessKey: search.getAttribute( 'accessKey' ),
 			searchPageTitle,
 			restClient,
-			urlGenerator: urlGeneratorInstance,
+			urlGenerator,
 			searchTitle: search.getAttribute( 'title' ),
 			searchPlaceholder: search.getAttribute( 'placeholder' ),
 			searchQuery: search.value,
-			autoExpandWidth: searchBox ? searchBox.classList.contains( 'vector-search-box-auto-expand-width' ) : false,
-			showEmptySearchRecommendations
+			autoExpandWidth: searchBox ? searchBox.classList.contains( 'vector-search-box-auto-expand-width' ) : false
 		// Pass additional config from server.
-		}, searchOptions )
+		}, config )
 	)
 		.mount( searchContainer );
 }
 /**
  * @param {Document} document
- * @param {Object} [restClient]
- * @param {Object} [urlGeneratorInstance]
  * @return {void}
  */
-function main( document, restClient, urlGeneratorInstance ) {
-	/** @type {NodeListOf<HTMLElement>} */
-	const searchBoxes = document.querySelectorAll( '.vector-search-box' );
-	searchBoxes.forEach( ( node ) => {
-		initApp( node, restClient, urlGeneratorInstance );
-	} );
+function main( document ) {
+	document.querySelectorAll( '.vector-search-box' )
+		.forEach( initApp );
 }
-
-/**
- * @ignore
- * @param {Object} [restClient] used by Wikidata to configure the search API
- * @param {Object} [urlGeneratorInstance] used by Wikidata to configure the search API
- */
-function init( restClient, urlGeneratorInstance ) {
-	main( document, restClient, urlGeneratorInstance );
-}
-
-module.exports = {
-	init
-};
+main( document );

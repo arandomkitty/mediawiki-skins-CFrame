@@ -10,15 +10,24 @@ use MessageLocalizer;
  */
 class VectorComponentAppearance implements VectorComponent {
 
-	private readonly bool $isPinned;
+	/** @var MessageLocalizer */
+	private $localizer;
+
+	/** @var bool */
+	private $isPinned;
 
 	/** @var string */
 	public const ID = 'vector-appearance';
 
+	/**
+	 * @param MessageLocalizer $localizer
+	 * @param FeatureManager $featureManager
+	 */
 	public function __construct(
-		private readonly MessageLocalizer $localizer,
-		FeatureManager $featureManager,
+		MessageLocalizer $localizer,
+		FeatureManager $featureManager
 	) {
+		$this->localizer = $localizer;
 		// FIXME: isPinned is no longer accurate because the appearance menu uses client preferences
 		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_APPEARANCE_PINNED );
 	}
