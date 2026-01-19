@@ -77,6 +77,13 @@ final class Constants {
 	public const REQUIREMENT_LANGUAGE_IN_HEADER = 'LanguageInHeader';
 
 	/**
+	 * Defines whether an A/B test is running.
+	 *
+	 * @var string
+	 */
+	public const CONFIG_WEB_AB_TEST_ENROLLMENT = 'VectorWebABTestEnrollment';
+
+	/**
 	 * The `mediawiki.searchSuggest` protocol piece of the SearchSatisfaction instrumention reads
 	 * the value of an element with the "data-search-loc" attribute and set the event's
 	 * `inputLocation` property accordingly.
@@ -229,6 +236,21 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const CONFIG_KEY_NIGHT_MODE = 'VectorNightMode';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_NIGHT_MODE = 'NightMode';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_NIGHT_MODE = 'NightMode';
+
+	/**
+	 * @var string
+	 */
 	public const PREF_KEY_NIGHT_MODE = 'vector-theme';
 
 	/**
@@ -240,6 +262,18 @@ final class Constants {
 	 * @var string
 	 */
 	public const PREF_NIGHT_MODE = 'PrefNightMode';
+
+	/**
+	 * @var string
+	 */
+	public const VECTOR_2022_BETA_KEY = 'vector-2022-beta-feature';
+
+	/**
+	 * @var array
+	 */
+	public const VECTOR_BETA_FEATURES = [
+		self::CONFIG_KEY_NIGHT_MODE,
+	];
 
 	/**
 	 * This class is for namespacing constants only. Forbid construction.

@@ -4,6 +4,7 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\Html\Html;
 use MediaWiki\Languages\LanguageConverterFactory;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Skin\SkinTemplate;
@@ -21,7 +22,6 @@ use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
 use MediaWiki\Skins\Vector\Components\VectorComponentVariants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManagerFactory;
-use MobileContext;
 use RuntimeException;
 
 /**
@@ -34,16 +34,19 @@ class SkinVector22 extends SkinMustache {
 	/** @var null|array for caching purposes */
 	private $languages;
 
+	private LanguageConverterFactory $languageConverterFactory;
+	private FeatureManagerFactory $featureManagerFactory;
 	private ?FeatureManager $featureManager = null;
 
 	public function __construct(
-		private readonly LanguageConverterFactory $languageConverterFactory,
-		private readonly FeatureManagerFactory $featureManagerFactory,
-		private readonly ?MobileContext $mobFrontContext,
+		LanguageConverterFactory $languageConverterFactory,
+		FeatureManagerFactory $featureManagerFactory,
 		array $options
 	) {
 		parent::__construct( $options );
+		$this->languageConverterFactory = $languageConverterFactory;
 		// Cannot use the context in the constructor, setContext is called after construction
+		$this->featureManagerFactory = $featureManagerFactory;
 	}
 
 	/**
@@ -51,24 +54,6 @@ class SkinVector22 extends SkinMustache {
 	 */
 	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
 		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
-		// For now: disable most icons on view menu.
-		foreach ( $content_navigation['views'] as $key => $view ) {
-			if ( !in_array( $key, [ 'bookmark', 'watch', 'unwatch', 'wikilove' ] ) ) {
-				$content_navigation['views'][ $key ]['icon'] = null;
-			}
-		}
-		$userPage = $content_navigation['user-page']['userpage'] ?? null;
-		if ( $userPage ) {
-			if ( isset( $userPage['class'] ) ) {
-				$userPage['class'] .= ' user-links-collapsible-item';
-			} else {
-				$userPage['class'] = ' user-links-collapsible-item';
-			}
-
-			$content_navigation['user-menu'] = [
-				'user-page' => $userPage,
-			] + $content_navigation['user-menu'];
-		}
 		Hooks::onSkinTemplateNavigation( $skin, $content_navigation );
 	}
 
@@ -81,11 +66,11 @@ class SkinVector22 extends SkinMustache {
 		// For historic reasons, the viewport is added when Vector is loaded on the mobile
 		// domain. This is only possible for 3rd parties or by useskin parameter as there is
 		// no preference for changing mobile skin. Only need to check if $responsive is falsey.
-		if ( !$responsive &&
-			$this->mobFrontContext &&
-			$this->mobFrontContext->shouldDisplayMobileView()
-		) {
-			return true;
+		if ( !$responsive && ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobFrontContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			if ( $mobFrontContext->shouldDisplayMobileView() ) {
+				return true;
+			}
 		}
 		return $responsive;
 	}
@@ -104,6 +89,8 @@ class SkinVector22 extends SkinMustache {
 	 * This should be upstreamed to the Skin class in core once the logic is finalized.
 	 * Returns false if the page is a special page without any languages, or if an action
 	 * other than view is being used.
+	 *
+	 * @return bool
 	 */
 	private function canHaveLanguages(): bool {
 		$action = $this->getActionName();
@@ -182,6 +169,8 @@ class SkinVector22 extends SkinMustache {
 	/**
 	 * Whether or not the languages are out of the sidebar and in the content either at
 	 * the top or the bottom.
+	 *
+	 * @return bool
 	 */
 	final protected function isLanguagesInContent(): bool {
 		return $this->isLanguagesInContentAt( 'top' ) || $this->isLanguagesInContentAt( 'bottom' );
@@ -189,6 +178,8 @@ class SkinVector22 extends SkinMustache {
 
 	/**
 	 * Calls getLanguages with caching.
+	 *
+	 * @return array
 	 */
 	protected function getLanguagesCached(): array {
 		if ( $this->languages === null ) {
@@ -199,6 +190,8 @@ class SkinVector22 extends SkinMustache {
 
 	/**
 	 * Check whether ULS is enabled
+	 *
+	 * @return bool
 	 */
 	final protected function isULSExtensionEnabled(): bool {
 		return ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' );
@@ -226,6 +219,7 @@ class SkinVector22 extends SkinMustache {
 	 * the ULS extension is enabled, and we are on a subect page. Hide it otherwise.
 	 * There is no point in showing the language button if ULS extension is unavailable
 	 * as there is no ways to add languages without it.
+	 * @return bool
 	 */
 	protected function shouldHideLanguages(): bool {
 		$title = $this->getTitle();
@@ -294,6 +288,8 @@ class SkinVector22 extends SkinMustache {
 	/**
 	 * Get the ULS button label, accounting for the number of available
 	 * languages.
+	 *
+	 * @return array
 	 */
 	final protected function getULSLabels(): array {
 		$numLanguages = count( $this->getLanguagesCached() );
@@ -312,18 +308,8 @@ class SkinVector22 extends SkinMustache {
 	}
 
 	/**
-	 * @param array $portlets
-	 * @return bool
+	 * @return array
 	 */
-	private function isReadingListsEnabled( array $portlets ): bool {
-		foreach ( $portlets['data-user-menu']['array-items'] as $item ) {
-			if ( $item['id'] === 'pt-readinglists' ) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public function getTemplateData(): array {
 		$parentData = parent::getTemplateData();
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
@@ -482,7 +468,7 @@ class SkinVector22 extends SkinMustache {
 				'',
 				'appearance',
 				Html::expandAttributes( [
-					'title' => $this->msg( 'vector-appearance-tooltip' )->text(),
+					'title' => $this->msg( 'vector-appearance-tooltip' ),
 				] )
 			),
 			'data-vector-sticky-header' => new VectorComponentStickyHeader(
@@ -511,8 +497,7 @@ class SkinVector22 extends SkinMustache {
 						],
 						'quiet'
 					) : null,
-				$this->isVisualEditorTabPositionFirst( $portlets[ 'data-views' ] ),
-				$this->isReadingListsEnabled( $portlets )
+				$this->isVisualEditorTabPositionFirst( $portlets[ 'data-views' ] )
 			),
 		];
 

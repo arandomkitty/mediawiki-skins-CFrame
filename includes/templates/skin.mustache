@@ -39,6 +39,7 @@
 		</div>
 		{{>ColumnStart}}
 		<div class="mw-content-container">
+			{{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 			<main id="content" class="mw-body">
 				{{>PageTitlebar}}
 				{{>PageToolbar}}
@@ -65,7 +66,7 @@
 	</div> {{! END mw-page-container-inner }}
 </div> {{! END mw-page-container }}
 {{#data-vector-sticky-header}}
-<div class="vector-header-container vector-sticky-header-container no-font-mode-scale">
+<div class="vector-header-container vector-sticky-header-container">
 	{{>StickyHeader}}
 </div>
 {{/data-vector-sticky-header}}

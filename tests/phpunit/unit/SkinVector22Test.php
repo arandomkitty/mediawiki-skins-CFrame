@@ -90,6 +90,7 @@ class SkinVector22Test extends \MediaWikiUnitTestCase {
 			SkinVector22::class,
 			'extractPageToolsFromSidebar'
 		);
+		$extractPageToolsFromSidebar->setAccessible( true );
 		$extractPageToolsFromSidebar->invokeArgs( null, [ &$sidebar, &$pageTools ] );
 		$this->assertEquals( $expectedSidebar, $sidebar );
 		$this->assertEquals( $expectedPageTools, $pageTools, $msg );

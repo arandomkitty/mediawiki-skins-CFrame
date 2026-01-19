@@ -2,16 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Abdul Fatawu 352",
-			"Avenger",
-			"Biema",
 			"Hasslaebetch",
 			"Raizkgh",
-			"Soumaya"
+			"Soumaya",
+			"Avenger",
+			"Biema"
 		]
 	},
 	"vector-skin-desc": "A kõta 2 Vector skin: * 2011 - MonoBook sẽn yaa seb-paalã sẽn yaa seb sẽn yaa sõma n paas n paas n maneg a sẽn tõe n maan bũmb ninsã. * 2022 - B maana Vɛktorã WMF tʋʋm-no-kãnga pʋgẽ [[mw:Desktop Improvements]].",
 	"prefs-vector-enable-vector-1-label": "Sebr- y sẽn yaa \" Legacy Vector \"",
 	"prefs-vector-enable-vector-1-help": "Yʋʋmd  sẽn wan pʋgdã pʋgẽ, d na n toeema Vɛktɛɛrã yĩn-kãnga bilf-bilfu. A Legacy Vector na n kɩtame tɩ y tõe n yã a Vector version sẽn da yaa pĩnd soabã (tõnd sẽn sɩng yʋʋmd 2019 yʋʋm-sar kiuugã). Y sã n dat n bãng bũmb ning sẽn be b sẽn na n le paasgã, bɩ y kẽng tõnd [[mw:Reading/Web/Desktop_Improvements|Project page]].",
+	"vector-opt-out": "Lebg kẽ gẽs kʋdgo",
+	"vector-opt-out-tooltip": "Yãk y sẽn datã n lebg n wa yɩ a meng n yã a meng (Wãk-y n ges a meng)",
 	"vector-action-toggle-sidebar": "Togglɛ bumb be yĩngr",
 	"vector-languages": "Goama",
 	"vector-language-button-aria-label": "Sõng-y n karem gom-biis buud-gomd a to pʋgẽ. D tõe n paama{{PLURAL:$1|$1language|$1languages}}",
@@ -47,6 +49,8 @@
 	"skin-theme-night-label": "Awosin",
 	"skin-theme-os-label": "Doori",
 	"skin-theme-exclusion-notice": "Sanga kɛrɛ ahin awɔrɛ N da wein wɔ",
+	"vector-search-loader": "Sõng-y n ges-y bũmb nins y sẽn dat n maan n bao n bãng bũmb ningã",
+	"vector-searchsuggest-containing": "Bao nemse n tar <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-label": "Sõng sẽn be pʋgẽ",
 	"vector-toc-beginning": "Sɩngr",
@@ -73,5 +77,7 @@
 	"vector-toc-unpinned-popup": "B kɩtame tɩ b tall seb-kãngã n kẽng be.",
 	"vector-page-tools-unpinned-popup": "B kɩtame tɩ b yãk rɩɩb sẽn yaa kãseng n yɩɩd fãa.",
 	"vector-main-menu-unpinned-popup": "B kɩtame tɩ b yãk rɩɩb sẽn yaa kãseng n yɩɩd fãa.",
-	"vector-appearance-unpinned-popup": "B sẽn yã wã, b leb n kẽnga be."
+	"vector-appearance-unpinned-popup": "B sẽn yã wã, b leb n kẽnga be.",
+	"vector-2022-beta-preview-label": "Sõng-y n bãng-y y sẽn tõe n paam n karem bũmb ninsã (vector 2022)",
+	"vector-2022-beta-preview-description": "Bao n bãnge, n bãnge la b bãnge, la b bãng b sẽn tõe n karem to-to wã."
 }

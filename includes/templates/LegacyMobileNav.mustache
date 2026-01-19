@@ -1,0 +1,32 @@
+<div id="mobileDropdown" class="collapsed">
+	{{#data-search-box}}{{>LegacySearchBox}}{{/data-search-box}}
+	<div id="mobilePageLinks">
+        {{#data-portlets}}
+            <nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy vector-menu" aria-labelledby="p-namespaces-label">
+                <div class="vector-menu-content">
+                    <ul class="vector-menu-content-list">
+                        {{#data-namespaces}}
+                            {{#html-items}}{{{.}}}{{/html-items}}
+                        {{/data-namespaces}}
+                        {{#data-views}}
+                            {{#html-items}}{{{.}}}{{/html-items}}
+                        {{/data-views}}
+                        {{#data-mobile-actions}}
+                            {{#html-items}}{{{.}}}{{/html-items}}
+                        {{/data-mobile-actions}}
+                        {{#is-anon}}
+                            {{#data-mobile-create}}
+                                {{#html-item}}{{{.}}}{{/html-item}}
+                            {{/data-mobile-create}}
+                        {{/is-anon}}
+
+                    </ul>
+                </div>
+            </nav>
+        {{/data-portlets}}
+	</div>
+	{{>LegacyMobileNavMenu}}
+	{{^is-anon}}{{>LegacyMobileUserToolsMenu}}{{/is-anon}}
+	{{>LegacyMobilePageToolsMenu}}
+	{{>LegacyMobileExtraNavMenu}}
+</div>

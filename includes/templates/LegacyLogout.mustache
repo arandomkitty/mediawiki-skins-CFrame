@@ -1,0 +1,31 @@
+<div id="logoutContainer">
+{{#data-portlets}}
+    {{^is-anon}}
+        {{#data-user-menu}}
+            {{#array-items.0}}
+                {{#array-links}}
+                    <span>Hi {{text}}</span>
+                {{/array-links}}
+            {{/array-items.0}}
+        {{/data-user-menu}}
+        {{#data-logout}}
+            {{#html-item}}
+                {{{.}}}
+            {{/html-item}}
+        {{/data-logout}}
+    {{/is-anon}}
+    {{#is-anon}}
+        {{#data-create}}
+            {{#html-item}}
+                {{{.}}}{{!
+
+            }}{{/html-item}}{{!
+        }}{{/data-create}}{{!
+        }}{{#data-login}}{{!
+            }}{{#html-item}}{{!
+                }}{{{.}}}
+            {{/html-item}}
+        {{/data-login}}
+    {{/is-anon}}
+{{/data-portlets}}
+</div>

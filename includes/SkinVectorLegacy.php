@@ -22,11 +22,14 @@ class SkinVectorLegacy extends SkinMustache {
 	private const MENU_TYPE_DROPDOWN = 2;
 	private const MENU_TYPE_PORTAL = 3;
 
+	private LanguageConverterFactory $languageConverterFactory;
+
 	public function __construct(
-		private readonly LanguageConverterFactory $languageConverterFactory,
+		LanguageConverterFactory $languageConverterFactory,
 		array $options
 	) {
 		parent::__construct( $options );
+		$this->languageConverterFactory = $languageConverterFactory;
 	}
 
 	/**
@@ -108,8 +111,17 @@ class SkinVectorLegacy extends SkinMustache {
 		if ( $key === 'data-personal' ) {
 			// Set tooltip to empty string for the personal menu for both logged-in and logged-out users
 			// to avoid showing the tooltip for legacy version.
+			$portletData['html-items'] = preg_replace('/<li id="pt-notif.*?<\/li>/', '', $portletData['html-items']);
+			$portletData['html-items'] = preg_replace('/(pt-userpage.*?<span>).*?(?=<\/span>)/', '$1User Page', $portletData['html-items']);
+			array_splice($portletData['array-items'], 1, 2);
 			$portletData['html-tooltip'] = '';
 			$portletData['class'] .= ' vector-user-menu-legacy';
+		}
+
+		if ( $key === 'data-notifications') {
+			$portletData['array-items'] = array_reverse($portletData['array-items']);
+			preg_match_all('/<li id="pt-notif.*?<\/li>/', $portletData['html-items'], $matches, PREG_SET_ORDER);
+			$portletData['html-items'] = $matches[1][0] . $matches[0][0];
 		}
 
 		// Special casing for Variant to change label to selected.
@@ -169,6 +181,52 @@ class SkinVectorLegacy extends SkinMustache {
 	public function getTemplateData(): array {
 		$parentData = $this->decoratePortletsData( parent::getTemplateData() );
 
+		$parentData['data-portlets']['data-logout'] = end($parentData['data-portlets']['data-user-menu']['array-items']);
+		$parentData['data-portlets']['data-logout']['html-item'] = preg_replace('/((?<=<)li(?= id))|((?<=<\/)li(?=>))/', 'div', $parentData['data-portlets']['data-logout']['html-item']);
+
+		$parentData['data-portlets']['data-ca-logout'] = end($parentData['data-portlets']['data-user-menu']['array-items']);
+		$parentData['data-portlets']['data-ca-logout']['html-item'] = preg_replace('/Log out/', 'Logout', $parentData['data-portlets']['data-ca-logout']['html-item']);
+		$parentData['data-portlets']['data-ca-logout']['html-item'] = preg_replace('/pt-logout/', 'ca-logout', $parentData['data-portlets']['data-ca-logout']['html-item']);
+
+		$parentData['data-portlets']['data-login'] = $parentData['data-portlets']['data-user-menu']['array-items'][4];
+		$parentData['data-portlets']['data-login']['html-item'] = preg_replace('/((?<=<)li(?= id))|((?<=<\/)li(?=>))/', 'span', $parentData['data-portlets']['data-login']['html-item']);
+
+		$parentData['data-portlets']['data-ca-login'] = $parentData['data-portlets']['data-user-menu']['array-items'][4];
+		$parentData['data-portlets']['data-ca-login']['html-item'] = preg_replace('/Log in/', 'Login', $parentData['data-portlets']['data-ca-login']['html-item']);
+		$parentData['data-portlets']['data-ca-login']['html-item'] = preg_replace('/pt-login/', 'ca-login', $parentData['data-portlets']['data-ca-login']['html-item']);
+
+		$parentData['data-portlets']['data-create'] = $parentData['data-portlets']['data-user-menu']['array-items'][3];
+		$parentData['data-portlets']['data-create']['html-item'] = preg_replace('/((?<=<)li(?= id))|((?<=<\/)li(?=>))/', 'span', $parentData['data-portlets']['data-create']['html-item']);
+
+		$parentData['data-portlets']['data-namespaces']['html-items'] = preg_replace('/Main Page/', 'Page', $parentData['data-portlets']['data-namespaces']['html-items']);
+
+		$parentData['data-portlets']['data-actions']['html-items'] = $parentData['data-portlets']['data-actions']['html-items'] . preg_replace('/pt-logout/', 'ca-logout', $parentData['data-portlets']['data-logout']['html-item']);
+
+		$parentData['data-portlets']['data-mobile-personal'] = $parentData['data-portlets']['data-personal'];
+		$parentData['data-portlets']['data-mobile-personal'] = preg_replace('/<li id="pt-logout".*?<\/li>/', '', $parentData['data-portlets']['data-mobile-personal']);
+
+		/*Create MobileNavActions*/
+		$parentData['data-portlets']['data-mobile-actions'] = $parentData['data-portlets']['data-actions'];
+		$parentData['data-portlets']['data-mobile-actions']['html-items'] = preg_replace('/((?<=<)div(?= id))|((?<=<\/)div(?=>))/', 'li', $parentData['data-portlets']['data-mobile-actions']['html-items']);
+		$parentData['data-portlets']['data-mobile-actions']['html-items'] = preg_replace('/Log out/', 'Logout', $parentData['data-portlets']['data-mobile-actions']['html-items']);
+		$parentData['data-portlets']['data-mobile-actions']['html-items'] = preg_replace('/Log in/', 'Login', $parentData['data-portlets']['data-mobile-actions']['html-items']);
+
+		/*Create MobileNavCreate*/
+
+		$parentData['data-portlets']['data-mobile-create']['html-item'] = preg_replace('/<span id="pt-create/', '<li id="pt-create', $parentData['data-portlets']['data-create']['html-item']);
+		$parentData['data-portlets']['data-mobile-create']['html-item'] = preg_replace('/<\/span>$/', '</li>', $parentData['data-portlets']['data-mobile-create']['html-item']);
+
+		$parentData['data-portlets']['data-mobile-tb'] = $parentData['data-portlets-sidebar']['array-portlets-rest'][array_search('p-tb', array_column($parentData['data-portlets-sidebar']['array-portlets-rest'], 'id'))];
+
+		$parentData['data-toplinks'] = [];
+
+		$this->addToSidebar($parentData['data-toplinks'], 'toplinks');
+		foreach ($parentData['data-toplinks']['topnav'] as $x => $y) {
+			$parentData['data-toplinks']['topnav'][$x]['id'] = preg_replace('/^n-/', 'topnav-', $y['id']);
+		}
+		$parentData['data-toplinks']['id'] = 'p-toplinks';
+		$parentData['data-toplinks']['class'] = "mw-portlet mw-portlet-personal vector-user-menu-legacy";
+
 		$components = [
 			'data-search-box' => new VectorComponentSearchBox(
 				$parentData['data-search-box'],
@@ -176,6 +234,8 @@ class SkinVectorLegacy extends SkinMustache {
 				// is primary mode of search
 				true,
 				'searchform',
+				//json_encode($parentData),
+				//json_encode($parentData),
 				true,
 				$this->getConfig(),
 				Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT,

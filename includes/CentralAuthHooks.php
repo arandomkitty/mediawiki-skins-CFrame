@@ -12,7 +12,10 @@ use MediaWiki\User\User;
  */
 class CentralAuthHooks implements CentralAuthIsUIReloadRecommendedHook {
 
-	public function __construct( private readonly UserOptionsLookup $userOptionsLookup ) {
+	private UserOptionsLookup $userOptionsLookup;
+
+	public function __construct( UserOptionsLookup $userOptionsLookup ) {
+		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**

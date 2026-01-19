@@ -1,0 +1,18 @@
+{{#data-toplinks}}
+    <nav id="{{id}}" class="{{#class}}{{.}}{{/class}} vector-menu" aria-labelledby="{{id}}-label">
+        <div class="vector-menu-content">
+            {{{html-before-portal}}}
+            <ul class="vector-menu-content-list">
+                {{#topnav}}
+                    <li id="{{id}}" class="mw-list-item">{{!
+                        }}<a href="{{href}}">{{!
+                            }}{{#icon}}{{>Icon}}{{/icon}}{{!
+                            }}<span>{{text}}</span>{{!
+                        }}</a>{{!
+                    }}</li>
+                {{/topnav}}
+            </ul>
+            {{{html-after-portal}}}
+        </div>
+    </nav>
+{{/data-toplinks}}

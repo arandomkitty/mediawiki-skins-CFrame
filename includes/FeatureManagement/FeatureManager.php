@@ -64,11 +64,15 @@ class FeatureManager {
 	 */
 	private $requirements = [];
 
+	private UserOptionsLookup $userOptionsLookup;
+	private IContextSource $context;
+
 	public function __construct(
-		private readonly ConfigHelper $configHelper,
-		private readonly UserOptionsLookup $userOptionsLookup,
-		private readonly IContextSource $context,
+		UserOptionsLookup $userOptionsLookup,
+		IContextSource $context
 	) {
+		$this->userOptionsLookup = $userOptionsLookup;
+		$this->context = $context;
 	}
 
 	/**
@@ -179,7 +183,7 @@ class FeatureManager {
 				// This feature has 3 possible states: 0, 1, 2 and -excluded.
 				// It persists for all users.
 				case CONSTANTS::FEATURE_FONT_SIZE:
-					if ( $this->configHelper->shouldDisable(
+					if ( ConfigHelper::shouldDisable(
 						$config->get( 'VectorFontSizeConfigurableOptions' ), $request, $title
 					) ) {
 						return $prefix . 'clientpref--excluded';
@@ -191,11 +195,7 @@ class FeatureManager {
 				// It persists for all users.
 				case CONSTANTS::PREF_NIGHT_MODE:
 					// if night mode is disabled for the page, add the exclude class instead and return early
-					if ( $this->configHelper->shouldDisable(
-						$config->get( 'VectorNightModeOptions' ),
-						$request,
-						$title
-					) ) {
+					if ( ConfigHelper::shouldDisable( $config->get( 'VectorNightModeOptions' ), $request, $title ) ) {
 						// The additional "-" prefix, makes this an invalid client preference for anonymous users.
 						return 'skin-theme-clientpref--excluded';
 					}
@@ -228,6 +228,7 @@ class FeatureManager {
 				// Server side only feature flags.
 				// Note these classes are fixed and cannot be changed at runtime by JavaScript,
 				// only via modification to LocalSettings.php.
+				case Constants::FEATURE_NIGHT_MODE:
 				case Constants::FEATURE_LIMITED_WIDTH_CONTENT:
 				case Constants::FEATURE_LANGUAGE_IN_HEADER:
 				case Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER:

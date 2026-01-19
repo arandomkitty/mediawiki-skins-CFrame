@@ -24,10 +24,18 @@
 	object data-portlets-main-menu. See MainMenu.mustache for documentation.
 	object data-footer for footer template partial. see Footer.mustache for documentation.
 }}
+<button id="panelCollapseMobile"></button>
+{{>LegacyLogout}}
+{{^is-anon}}
+	{{>LegacyNotif}}
+{{/is-anon}}
+{{>LegacyLogo}}
+
 <div id="mw-page-base" class="noprint"></div>
 <div id="mw-head-base" class="noprint"></div>
 <div id="content" class="mw-body" role="main">
 	<a id="top"></a>
+	{{#data-portlets-main-menu}}{{>LegacySidebar}}{{/data-portlets-main-menu}}
 	{{{html-site-notice}}}
 	{{>Indicators}}
 	{{{html-title-heading}}}
@@ -51,20 +59,22 @@
 <div id="mw-navigation">
 	<h2>{{msg-navigation-heading}}</h2>
 	<div id="mw-head">
+		{{>LegacyTopnav}}
 		{{#data-portlets}}
 		{{>LegacyUserLinks}}
 		<div id="left-navigation">
-			{{#data-namespaces}}{{>LegacyMenu}}{{/data-namespaces}}
-			{{#data-variants}}{{>LegacyMenu}}{{/data-variants}}
+
+			{{#data-search-box}}{{>LegacySearchBox}}{{/data-search-box}}
 		</div>
 		<div id="right-navigation">
 			{{#data-views}}{{>LegacyMenu}}{{/data-views}}
+			{{#data-namespaces}}{{>LegacyMenu}}{{/data-namespaces}}
 			{{#data-actions}}{{>LegacyMenu}}{{/data-actions}}
-			{{#data-search-box}}{{>LegacySearchBox}}{{/data-search-box}}
+			{{#data-variants}}{{>LegacyMenu}}{{/data-variants}}
 		</div>
 		{{/data-portlets}}
 	</div>
-	{{#data-portlets-main-menu}}{{>LegacySidebar}}{{/data-portlets-main-menu}}
 </div>
 {{#data-footer}}{{>Footer}}{{/data-footer}}
 {{>BottomDock}}
+{{>LegacyMobileNav}}

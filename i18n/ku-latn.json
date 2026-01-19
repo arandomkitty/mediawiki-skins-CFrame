@@ -5,8 +5,7 @@
 			"Bikarhêner",
 			"Ferhengvan",
 			"George Animal",
-			"Gomada",
-			"Guherto"
+			"Gomada"
 		]
 	},
 	"skinname-vector": "Vector legacy (2010)",
@@ -15,13 +14,15 @@
 	"vector-skin-desc": "2 rûyên Vectorê peyda dike:\n* 2011 - Guhartoya nûjen a MonoBook bi dîmeneke nû û gelek çêtirkirinên bikaranînê.\n* 2022 - Vektora ku wekî beşeke ji projeya WMF ya [https://www.mediawiki.org/wiki/Desktop_Improvements Desktop Improvements] hatiye çêkirin.",
 	"prefs-vector-enable-vector-1-label": "Legacy Vector Bi Kar Bîne",
 	"prefs-vector-enable-vector-1-help": "Di nav çend salên pêşî de, em ê hêdî hêdî rûyê Vectorê nû bikin. Legacy Vector dê bihêle ku hûn guhartoya kevn a Vectorê (ji kanûna pêşîn 2019an ve) bibînin. Ji bo bêtir agahdarî li ser nûkirinan, herin [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements rûpela projeyê].",
+	"vector-opt-out": "Rûyê kevn biemilîne",
+	"vector-opt-out-tooltip": "Mîhengên xwe biguhêre ji bo vegerîna rûyê kevn (legacy Vector)",
 	"vector.css": "/* Hemû CSS-a li vir dê ji bo bikarhênerên rûyê Vectorê were barkirin */",
 	"vector.js": "/* Hemû JavaScript -a li vir dê ji bo bikarhênerên rûyê Vectorê were barkirin */",
 	"vector-action-toggle-sidebar": "Menuya kêlekê bigire/veke",
 	"vector-languages": "Bi zimanên din",
 	"vector-language-button-aria-label": "Here gotareke bi zimanekî din. Bi {{PLURAL:$1|$1 zimanekî|$1 zimanan}} heye.",
 	"vector-language-button-label": "Bi {{PLURAL:$1|zimanekî din|$1 zimanên din}}",
-	"vector-no-language-button-label": "Zimanan lê zêde bike",
+	"vector-no-language-button-label": "Zimanekî lê zêde bike",
 	"vector-no-language-button-aria-label": "Ev gotar tenê bi vî zimanî heye. Gotarê ji bo zimanên din zêde bikin",
 	"vector-language-variant-switcher-label": "Varyanta zimanî biguhêre",
 	"vector-action-addsection": "Mijarekê lê zêde bike",
@@ -52,7 +53,8 @@
 	"skin-theme-day-label": "Ron",
 	"skin-theme-night-label": "Tarî",
 	"skin-theme-os-label": "Otomatîk",
-	"skin-theme-exclusion-notice": "Ev rûpel her car di moda ron de ye.",
+	"vector-search-loader": "Pêşniyazên lêgerînê tê barkirin",
+	"vector-searchsuggest-containing": "Li rûpelên ku <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> dihewînin bigere",
 	"vector-intro-page": "Help:Gavên pêşîn",
 	"vector-toc-label": "Naverok",
 	"vector-toc-beginning": "Destpêk",
@@ -65,7 +67,7 @@
 	"vector-toc-collapsible-button-label": "Tabloya naverokê bigre/veke",
 	"vector-site-nav-label": "Malper",
 	"vector-main-menu-label": "Menuya esasî",
-	"vector-feature-custom-font-size-exclusion-notice": "Ev rûpel her tim fonta biçûk bi kar tîne",
+	"vector-feature-custom-font-size-exclusion-notice": "Ev rûpel hertim fonta biçûk bi kar tîne",
 	"vector-feature-limited-width-exclusion-notice": "Ji bo paceya geroka te, naverok têra xwe pan e.",
 	"vector-page-tools-label": "Amûr",
 	"vector-page-tools-general-label": "Giştî",
@@ -81,5 +83,6 @@
 	"vector-toc-unpinned-popup": "Tabloya naverokan neqlê vir kirine.",
 	"vector-page-tools-unpinned-popup": "Menûya amûran neqlê vir kirine.",
 	"vector-main-menu-unpinned-popup": "Menûya esasî neqlê vir kirine.",
-	"vector-appearance-unpinned-popup": "Menûya xuyakirinê neqlê vir kirine."
+	"vector-appearance-unpinned-popup": "Menûya xuyakirinê neqlê vir kirine.",
+	"vector-2022-beta-preview-label": "Tercîhên Xwendinê (Vector 2022)"
 }

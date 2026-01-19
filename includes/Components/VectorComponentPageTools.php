@@ -10,8 +10,17 @@ use MessageLocalizer;
  */
 class VectorComponentPageTools implements VectorComponent {
 
-	private readonly bool $isPinned;
-	private readonly VectorComponentPinnableHeader $pinnableHeader;
+	/** @var array */
+	private $menus;
+
+	/** @var MessageLocalizer */
+	private $localizer;
+
+	/** @var bool */
+	private $isPinned;
+
+	/** @var VectorComponentPinnableHeader */
+	private $pinnableHeader;
 
 	/** @var string */
 	public const ID = 'vector-page-tools';
@@ -22,11 +31,18 @@ class VectorComponentPageTools implements VectorComponent {
 	/** @var string */
 	private const ACTIONS_ID = 'p-cactions';
 
+	/**
+	 * @param array $menus
+	 * @param MessageLocalizer $localizer
+	 * @param FeatureManager $featureManager
+	 */
 	public function __construct(
-		private readonly array $menus,
-		private readonly MessageLocalizer $localizer,
-		FeatureManager $featureManager,
+		array $menus,
+		MessageLocalizer $localizer,
+		FeatureManager $featureManager
 	) {
+		$this->menus = $menus;
+		$this->localizer = $localizer;
 		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS_PINNED );
 		$this->pinnableHeader = new VectorComponentPinnableHeader(
 			$localizer,
@@ -40,6 +56,8 @@ class VectorComponentPageTools implements VectorComponent {
 
 	/**
 	 * Revises the labels of the p-tb and p-cactions menus.
+	 *
+	 * @return array
 	 */
 	private function getMenus(): array {
 		return array_map( function ( $menu ) {

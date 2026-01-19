@@ -5,13 +5,30 @@ namespace MediaWiki\Skins\Vector\Components;
  * VectorComponentDropdown component
  */
 class VectorComponentDropdown implements VectorComponent {
-	public function __construct(
-		private readonly string $id,
-		private readonly string $label,
-		private readonly string $class = '',
-		private readonly ?string $icon = null,
-		private readonly string $tooltip = '',
-	) {
+	/** @var string */
+	private $id;
+	/** @var string */
+	private $label;
+	/** @var string */
+	private $class;
+	/** @var string */
+	private $tooltip;
+	/** @var string|null */
+	private $icon;
+
+	/**
+	 * @param string $id
+	 * @param string $label
+	 * @param string $class
+	 * @param string|null $icon
+	 * @param string $tooltip
+	 */
+	public function __construct( string $id, string $label, string $class = '', $icon = null, string $tooltip = '' ) {
+		$this->id = $id;
+		$this->label = $label;
+		$this->class = $class;
+		$this->icon = $icon;
+		$this->tooltip = $tooltip;
 	}
 
 	/**

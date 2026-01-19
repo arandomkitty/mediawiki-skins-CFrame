@@ -11,20 +11,41 @@ use MessageLocalizer;
  */
 class VectorComponentTableOfContents implements VectorComponent {
 
-	private readonly bool $isPinned;
-	private readonly VectorComponentPinnableHeader $pinnableHeader;
+	/** @var array */
+	private $tocData;
+
+	/** @var MessageLocalizer */
+	private $localizer;
+
+	/** @var bool */
+	private $isPinned;
+
+	/** @var Config */
+	private $config;
+
+	/** @var VectorComponentPinnableHeader */
+	private $pinnableHeader;
 
 	/** @var string */
 	public const ID = 'vector-toc';
 
+	/**
+	 * @param array $tocData
+	 * @param MessageLocalizer $localizer
+	 * @param Config $config
+	 * @param FeatureManager $featureManager
+	 */
 	public function __construct(
-		private array $tocData,
-		private readonly MessageLocalizer $localizer,
-		private readonly Config $config,
-		FeatureManager $featureManager,
+		array $tocData,
+		MessageLocalizer $localizer,
+		Config $config,
+		FeatureManager $featureManager
 	) {
+		$this->tocData = $tocData;
+		$this->localizer = $localizer;
 		// FIXME: isPinned is no longer accurate because the appearance menu uses client preferences
 		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_TOC_PINNED );
+		$this->config = $config;
 		$this->pinnableHeader = new VectorComponentPinnableHeader(
 			$this->localizer,
 			$this->isPinned,
@@ -35,6 +56,9 @@ class VectorComponentTableOfContents implements VectorComponent {
 		);
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function isPinned(): bool {
 		return $this->isPinned;
 	}

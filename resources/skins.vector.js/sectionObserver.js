@@ -59,10 +59,6 @@ module.exports = function sectionObserver( props ) {
 		const topMargin = /** @type {number} */ ( props.topMargin );
 
 		entries.forEach( ( entry ) => {
-			if ( entry.boundingClientRect.top === 0 && entry.boundingClientRect.bottom === 0 ) {
-				// Zero height means that it's probably a hidden heading (T330612) - ignore it
-				return;
-			}
 			const top =
 					entry.boundingClientRect.top - topMargin;
 			if (
@@ -87,12 +83,12 @@ module.exports = function sectionObserver( props ) {
 		} );
 
 		const closestTag =
-			/** @type {HTMLElement | undefined} */ ( closestNegativeEntry ?
-				closestNegativeEntry.target :
-				closestPositiveEntry ? closestPositiveEntry.target : undefined );
+			/** @type {HTMLElement} */ ( closestNegativeEntry ? closestNegativeEntry.target :
+				/** @type {IntersectionObserverEntry} */ ( closestPositiveEntry ).target
+			);
 
 		// If the intersection is new, fire the `onIntersection` callback.
-		if ( current !== closestTag && closestTag ) {
+		if ( current !== closestTag ) {
 			props.onIntersection( closestTag );
 		}
 		current = closestTag;

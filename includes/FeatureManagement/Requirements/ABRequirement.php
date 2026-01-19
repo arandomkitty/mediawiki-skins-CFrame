@@ -31,10 +31,19 @@ use MediaWiki\User\UserIdentity;
  * @internal
  */
 class ABRequirement implements Requirement {
+	private Config $config;
+
+	private UserIdentity $user;
+
+	/**
+	 * The name of the experiment
+	 */
+	private string $experimentName;
+
 	/**
 	 * The name of the requirement
 	 */
-	private readonly string $name;
+	private string $name;
 
 	/**
 	 * @param Config $config
@@ -43,11 +52,14 @@ class ABRequirement implements Requirement {
 	 * @param string|null $name The name of the requirement
 	 */
 	public function __construct(
-		private readonly Config $config,
-		private readonly UserIdentity $user,
-		private readonly string $experimentName,
-		?string $name = null,
+		Config $config,
+		UserIdentity $user,
+		string $experimentName,
+		?string $name = null
 	) {
+		$this->config = $config;
+		$this->user = $user;
+		$this->experimentName = $experimentName;
 		$this->name = $name ?? '';
 	}
 

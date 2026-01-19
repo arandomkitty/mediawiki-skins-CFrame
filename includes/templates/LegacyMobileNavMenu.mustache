@@ -1,0 +1,14 @@
+<p id="n-nav">Navigation</p>
+<div class="vector-menu-content">
+    <ul class="vector-menu-content-list">
+        {{#data-toplinks}}
+            {{#topnav}}
+                <li id="{{id}}" class="mw-list-item">{{!
+                    }}<a href="{{href}}" title="{{text}}">{{!
+                        }}<span>{{text}}</span>{{!
+                    }}</a>{{!
+                }}</li>
+            {{/topnav}}
+        {{/data-toplinks}}
+    </ul>
+</div>

@@ -9,8 +9,13 @@ use MediaWiki\StubObject\StubUserLang;
  * VectorComponentVariants component
  */
 class VectorComponentVariants implements VectorComponent {
+	private LanguageConverterFactory $languageConverterFactory;
+	/** @var array */
+	private $menuData;
 	/** @var Language|StubUserLang */
 	private $pageLang;
+	/** @var string */
+	private $ariaLabel;
 
 	/**
 	 * @param LanguageConverterFactory $languageConverterFactory
@@ -19,16 +24,20 @@ class VectorComponentVariants implements VectorComponent {
 	 * @param string $ariaLabel
 	 */
 	public function __construct(
-		private readonly LanguageConverterFactory $languageConverterFactory,
-		private array $menuData,
+		LanguageConverterFactory $languageConverterFactory,
+		array $menuData,
 		$pageLang,
-		private readonly string $ariaLabel,
+		string $ariaLabel
 	) {
+		$this->languageConverterFactory = $languageConverterFactory;
+		$this->menuData = $menuData;
 		$this->pageLang = $pageLang;
+		$this->ariaLabel = $ariaLabel;
 	}
 
 	/**
 	 * Use the selected variant for the dropdown label
+	 * @return string
 	 */
 	private function getDropdownLabel(): string {
 		$converter = $this->languageConverterFactory->getLanguageConverter( $this->pageLang );
