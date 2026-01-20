@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Skins\Vector;
+namespace MediaWiki\Skins\CFrame;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\WebRequest;

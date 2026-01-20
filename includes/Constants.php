@@ -1,12 +1,12 @@
 <?php
-namespace MediaWiki\Skins\Vector;
+namespace MediaWiki\Skins\CFrame;
 
 use MediaWiki\Exception\FatalError;
 
 /**
- * A namespace for Vector constants for internal Vector usage only. **Do not rely on this file as an
+ * A namespace for CFrame constants for internal CFrame usage only. **Do not rely on this file as an
  * API as it may change without warning at any time.**
- * @package Vector
+ * @package CFrame
  * @internal
  */
 final class Constants {
@@ -20,7 +20,7 @@ final class Constants {
 	 * This is tightly coupled to the ValidSkinNames field in skin.json.
 	 * @var string
 	 */
-	public const SKIN_NAME_LEGACY = 'vector';
+	public const SKIN_NAME_LEGACY = 'cframe';
 
 	// These are used to provide different default skin for new users.
 	/**

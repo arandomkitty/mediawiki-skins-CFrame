@@ -23,7 +23,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Skins\Vector\FeatureManagement\FeatureManagerFactory;
+use MediaWiki\Skins\CFrame\FeatureManagement\FeatureManagerFactory;
 
 // PHP unit does not understand code coverage for this file
 // as the @covers annotation cannot cover a specific file

@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Skins\Vector;
+namespace MediaWiki\Skins\CFrame;
 
 use MediaWiki\Auth\Hook\LocalUserCreatedHook;
 use MediaWiki\Config\Config;
@@ -10,7 +10,7 @@ use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader as RL;
 use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
-use MediaWiki\Skins\Vector\Hooks\HookRunner;
+use MediaWiki\Skins\CFrame\Hooks\HookRunner;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
 use RuntimeException;
@@ -20,7 +20,7 @@ use RuntimeException;
  *
  * Hook handler method names should be in the form of:
  *	on<HookName>()
- * @package Vector
+ * @package CFrame
  * @internal
  */
 class Hooks implements
@@ -46,10 +46,7 @@ class Hooks implements
 	 * @return bool
 	 */
 	private static function isVectorSkin( string $skinName ): bool {
-		return (
-			$skinName === Constants::SKIN_NAME_LEGACY ||
-			$skinName === Constants::SKIN_NAME_MODERN
-		);
+		return ($skinName === Constants::SKIN_NAME_LEGACY);
 	}
 
 	/**
@@ -105,7 +102,7 @@ class Hooks implements
 	): array {
 		$vectorSearchConfig = [
 			'highlightQuery' =>
-				VectorServices::getLanguageService()->canWordsBeSplitSafely( $context->getLanguage() )
+				CFrameServices::getLanguageService()->canWordsBeSplitSafely( $context->getLanguage() )
 		];
 
 		$hookRunner = new HookRunner( MediaWikiServices::getInstance()->getHookContainer() );
@@ -192,7 +189,7 @@ class Hooks implements
 				// The vector-tab-noicon class is only used in Vector-22.
 				self::appendClassToItem(
 					$item['class'],
-					[ 'vector-tab-noicon' ]
+					[ 'cframe-tab-noicon' ]
 				);
 			}
 		}
@@ -208,7 +205,7 @@ class Hooks implements
 		foreach ( $content_navigation['associated-pages'] as &$item ) {
 			self::appendClassToItem(
 				$item['class'],
-				[ 'vector-tab-noicon' ]
+				[ 'cframe-tab-noicon' ]
 			);
 		}
 	}
@@ -378,7 +375,7 @@ class Hooks implements
 	 */
 	private static function makeIcon( $name ) {
 		// Html::makeLink will pass this through rawElement
-		return '<span class="vector-icon mw-ui-icon-' . $name . ' mw-ui-icon-wikimedia-' . $name . '"></span>';
+		return '<span class="cframe-icon mw-ui-icon-' . $name . ' mw-ui-icon-wikimedia-' . $name . '"></span>';
 	}
 
 	/**
@@ -472,7 +469,7 @@ class Hooks implements
 			$newItem = $item;
 			self::makeMenuItemCollapsible(
 				$newItem,
-				'vector-more-'
+				'cframe-more-'
 			);
 			$clonedViews['more-' . $key] = $newItem;
 		}
@@ -506,9 +503,6 @@ class Hooks implements
 		}
 
 		self::updateUserLinksItems( $sk, $content_navigation );
-		if ( $skinName === Constants::SKIN_NAME_MODERN ) {
-			self::createMoreOverflowMenu( $content_navigation );
-		}
 
 		// The updating of the views menu happens /after/ the overflow menu has been created
 		// this avoids icons showing in the more overflow menu.
@@ -529,24 +523,6 @@ class Hooks implements
 		$isNightModeEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_NIGHT_MODE );
 
 		$vectorPrefs = [
-			Constants::PREF_KEY_LIMITED_WIDTH => [
-				'type' => 'toggle',
-				'label-message' => 'vector-prefs-limited-width',
-				'section' => 'rendering/skin/skin-prefs',
-				'help-message' => 'vector-prefs-limited-width-help',
-				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
-			],
-			Constants::PREF_KEY_FONT_SIZE => [
-				'type' => 'select',
-				'label-message' => 'vector-feature-custom-font-size-name',
-				'section' => 'rendering/skin/skin-prefs',
-				'options-messages' => [
-					'vector-feature-custom-font-size-0-label' => '0',
-					'vector-feature-custom-font-size-1-label' => '1',
-					'vector-feature-custom-font-size-2-label' => '2',
-				],
-				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
-			],
 			Constants::PREF_KEY_PAGE_TOOLS_PINNED => [
 				'type' => 'api'
 			],
@@ -558,19 +534,7 @@ class Hooks implements
 			],
 			Constants::PREF_KEY_APPEARANCE_PINNED => [
 				'type' => 'api'
-			],
-			Constants::PREF_KEY_NIGHT_MODE => [
-				'type' => $isNightModeEnabled ? 'select' : 'api',
-				'label-message' => 'skin-theme-name',
-				'help-message' => 'skin-theme-description',
-				'section' => 'rendering/skin/skin-prefs',
-				'options-messages' => [
-					'skin-theme-day-label' => 'day',
-					'skin-theme-night-label' => 'night',
-					'skin-theme-os-label' => 'os',
-				],
-				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
-			],
+			]
 		];
 		$prefs += $vectorPrefs;
 	}
@@ -587,8 +551,7 @@ class Hooks implements
 			$this->userOptionsManager->setOption(
 				$user,
 				Constants::PREF_KEY_SKIN,
-				$default === Constants::SKIN_VERSION_LEGACY ?
-					Constants::SKIN_NAME_LEGACY : Constants::SKIN_NAME_MODERN
+				$default === Constants::SKIN_NAME_LEGACY
 			);
 		}
 	}
@@ -610,11 +573,6 @@ class Hooks implements
 	 * @param array &$betaFeatures
 	 */
 	public function onGetBetaFeaturePreferences( User $user, array &$betaFeatures ) {
-		$skinName = RequestContext::getMain()->getSkinName();
-		// Only Vector 2022 is supported for beta features
-		if ( $skinName !== Constants::SKIN_NAME_MODERN ) {
-			return;
-		}
 		// Only add Vector 2022 beta feature if there is at least one beta feature present in config
 		$configHasBeta = false;
 		foreach ( Constants::VECTOR_BETA_FEATURES as $featureName ) {
@@ -627,7 +585,7 @@ class Hooks implements
 			return;
 		}
 		$skinsAssetsPath = $this->config->get( 'StylePath' );
-		$imagesDir = "$skinsAssetsPath/Vector/resources/images";
+		$imagesDir = "$skinsAssetsPath/CFrame/resources/images";
 		$betaFeatures[ Constants::VECTOR_2022_BETA_KEY ] = [
 			'label-message' => 'vector-2022-beta-preview-label',
 			'desc-message' => 'vector-2022-beta-preview-description',

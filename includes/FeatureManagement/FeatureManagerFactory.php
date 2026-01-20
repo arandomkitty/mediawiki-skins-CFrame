@@ -20,15 +20,15 @@
  * @since 1.42
  */
 
-namespace MediaWiki\Skins\Vector\FeatureManagement;
+namespace MediaWiki\Skins\CFrame\FeatureManagement;
 
 use MediaWiki\Context\IContextSource;
-use MediaWiki\Skins\Vector\Constants;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LoggedInRequirement;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirement;
+use MediaWiki\Skins\CFrame\Constants;
+use MediaWiki\Skins\CFrame\FeatureManagement\Requirements\DynamicConfigRequirement;
+use MediaWiki\Skins\CFrame\FeatureManagement\Requirements\LimitedWidthContentRequirement;
+use MediaWiki\Skins\CFrame\FeatureManagement\Requirements\LoggedInRequirement;
+use MediaWiki\Skins\CFrame\FeatureManagement\Requirements\OverridableConfigRequirement;
+use MediaWiki\Skins\CFrame\FeatureManagement\Requirements\UserPreferenceRequirement;
 use MediaWiki\User\Options\UserOptionsLookup;
 
 /**
@@ -36,7 +36,7 @@ use MediaWiki\User\Options\UserOptionsLookup;
  *
  * @unstable
  *
- * @package MediaWiki\Skins\Vector\FeatureManagement
+ * @package MediaWiki\Skins\CFrame\FeatureManagement
  * @internal
  */
 class FeatureManagerFactory {

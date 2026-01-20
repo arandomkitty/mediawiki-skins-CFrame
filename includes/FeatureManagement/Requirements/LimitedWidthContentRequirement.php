@@ -19,18 +19,18 @@
  * @file
  */
 
-namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
+namespace MediaWiki\Skins\CFrame\FeatureManagement\Requirements;
 
 use MediaWiki\Config\Config;
 use MediaWiki\Request\WebRequest;
-use MediaWiki\Skins\Vector\ConfigHelper;
-use MediaWiki\Skins\Vector\Constants;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
+use MediaWiki\Skins\CFrame\ConfigHelper;
+use MediaWiki\Skins\CFrame\Constants;
+use MediaWiki\Skins\CFrame\FeatureManagement\Requirement;
 use MediaWiki\Title\Title;
 
 /**
  * The `MaxWidthRequirement` for content.
- * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements
+ * @package MediaWiki\Skins\CFrame\FeatureManagement\Requirements
  */
 final class LimitedWidthContentRequirement implements Requirement {
 	private Config $config;

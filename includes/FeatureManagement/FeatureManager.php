@@ -20,12 +20,12 @@
  * @since 1.35
  */
 
-namespace MediaWiki\Skins\Vector\FeatureManagement;
+namespace MediaWiki\Skins\CFrame\FeatureManagement;
 
 use MediaWiki\Context\IContextSource;
-use MediaWiki\Skins\Vector\ConfigHelper;
-use MediaWiki\Skins\Vector\Constants;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirements\SimpleRequirement;
+use MediaWiki\Skins\CFrame\ConfigHelper;
+use MediaWiki\Skins\CFrame\Constants;
+use MediaWiki\Skins\CFrame\FeatureManagement\Requirements\SimpleRequirement;
 use MediaWiki\User\Options\UserOptionsLookup;
 use RuntimeException;
 use Wikimedia\Assert\Assert;
@@ -38,7 +38,7 @@ use Wikimedia\Assert\Assert;
  *
  * @unstable
  *
- * @package MediaWiki\Skins\Vector\FeatureManagement
+ * @package MediaWiki\Skins\CFrame\FeatureManagement
  * @internal
  * @final
  */

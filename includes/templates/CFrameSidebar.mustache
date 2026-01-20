@@ -1,0 +1,9 @@
+{{!
+	See @typedef SidebarData
+}}
+<button id="panelCollapse"></button>
+<div id="mw-panel" class="cframe-sidebar">
+	{{#data-portlets-first}}{{>CFrameMenu}}{{/data-portlets-first}}
+	{{#array-portlets-rest}}{{>CFrameMenu}}{{/array-portlets-rest}}
+	{{#data-portlets.data-languages}}{{>CFrameMenu}}{{/data-portlets.data-languages}}
+</div>

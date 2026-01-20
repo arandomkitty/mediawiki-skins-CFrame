@@ -9,65 +9,72 @@
 	string html-subtitle
 	string html-undelete-link
 	string html-newtalk
-	string msg-vector-jumptonavigation
-	string msg-vector-jumptosearch
-	string msg-vector-jumptocontent
+	string msg-cframe-jumptonavigation
+	string msg-cframe-jumptosearch
 	string html-body-content
 	string html-categories
 	string html-after-content
-	LogoOptions data-logos
-	object data-portlets
+	string msg-navigation-heading
 	MenuDefinition data-portlets.data-personal
 	MenuDefinition data-portlets.data-namespaces
 	MenuDefinition data-portlets.data-variants
 	MenuDefinition data-portlets.data-views
 	MenuDefinition data-portlets.data-actions
 	object data-search-box. See SearchBox.mustache for documentation.
-	string msg-vector-action-toggle-sidebar The label used by the sidebar button.
-	string msg-vector-main-menu-tooltip The title attribute for the main menu icon.
-	object data-main-menu. See MainMenu.mustache for documentation.
+	object data-portlets-main-menu. See MainMenu.mustache for documentation.
 	object data-footer for footer template partial. see Footer.mustache for documentation.
 }}
-<a class="mw-jump-link" href="#bodyContent">{{msg-vector-jumptocontent}}</a>
-<div class="vector-header-container">
-	{{>Header}}
+<button id="panelCollapseMobile"></button>
+{{>CFrameLogout}}
+{{^is-anon}}
+	{{>CFrameNotif}}
+{{/is-anon}}
+{{>CFrameLogo}}
+
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	{{#data-portlets-main-menu}}{{>CFrameSidebar}}{{/data-portlets-main-menu}}
+	{{{html-site-notice}}}
+	{{>Indicators}}
+	{{{html-title-heading}}}
+	<div id="bodyContent" class="cframe-body">
+		{{#is-article}}<div id="siteSub" class="noprint">{{msg-tagline}}</div>{{/is-article}}
+		<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>
+		<div id="contentSub2">{{{html-undelete-link}}}</div>
+		{{{html-user-message}}}
+		{{!
+			Keep this empty `div` for compatibility with gadgets and user scripts
+			using this place to insert extra elements before.
+		}}
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">{{msg-vector-jumptonavigation}}</a>
+		<a class="mw-jump-link" href="#searchInput">{{msg-vector-jumptosearch}}</a>
+		{{{html-body-content}}}
+		{{{html-categories}}}
+	</div>
 </div>
-<div class="mw-page-container">
-	<div class="mw-page-container-inner">
-		<div class="vector-sitenotice-container">
-			{{{html-site-notice}}}
+{{{html-after-content}}}
+<div id="mw-navigation">
+	<h2>{{msg-navigation-heading}}</h2>
+	<div id="mw-head">
+		{{>CFrameTopnav}}
+		{{#data-portlets}}
+		{{>CFrameUserLinks}}
+		<div id="left-navigation">
+
+			{{#data-search-box}}{{>CFrameSearchBox}}{{/data-search-box}}
 		</div>
-		{{>ColumnStart}}
-		<div class="mw-content-container">
-			{{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
-			<main id="content" class="mw-body">
-				{{>PageTitlebar}}
-				{{>PageToolbar}}
-				{{>ColumnEnd}}
-				<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading" data-mw-ve-target-container>
-					{{>BeforeContent}}
-					{{! the #contentSub element is currently used by editors, do not hide or remove it
-						until https://phabricator.wikimedia.org/T316830 has been addressed}}
-					<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>
-					{{#html-undelete-link}}<div id="contentSub2">{{{.}}}</div>{{/html-undelete-link}}
-					{{{html-user-message}}}
-					{{{html-body-content}}}
-					{{{html-categories}}}
-					{{#is-language-in-content-bottom}}
-						{{#data-lang-dropdown}}{{>LanguageDropdown}}{{/data-lang-dropdown}}
-					{{/is-language-in-content-bottom}}
-				</div>
-			</main>
-			{{{html-after-content}}}
+		<div id="right-navigation">
+			{{#data-views}}{{>CFrameMenu}}{{/data-views}}
+			{{#data-namespaces}}{{>CFrameMenu}}{{/data-namespaces}}
+			{{#data-actions}}{{>CFrameMenu}}{{/data-actions}}
+			{{#data-variants}}{{>CFrameMenu}}{{/data-variants}}
 		</div>
-		<div class="mw-footer-container">
-			{{#data-footer}}{{>Footer}}{{/data-footer}}
-		</div>
-	</div> {{! END mw-page-container-inner }}
-</div> {{! END mw-page-container }}
-{{#data-vector-sticky-header}}
-<div class="vector-header-container vector-sticky-header-container">
-	{{>StickyHeader}}
+		{{/data-portlets}}
+	</div>
 </div>
-{{/data-vector-sticky-header}}
+{{#data-footer}}{{>Footer}}{{/data-footer}}
 {{>BottomDock}}
+{{>CFrameMobileNav}}

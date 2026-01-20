@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Skins\Vector\Hooks;
+namespace MediaWiki\Skins\CFrame\Hooks;
 
 /**
  * Use the hook name "VectorSearchResourceLoaderConfig" to register

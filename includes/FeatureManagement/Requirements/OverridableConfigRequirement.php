@@ -19,14 +19,14 @@
  * @file
  */
 
-namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
+namespace MediaWiki\Skins\CFrame\FeatureManagement\Requirements;
 
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\BetaFeatures\BetaFeatures;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Request\WebRequest;
-use MediaWiki\Skins\Vector\Constants;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
+use MediaWiki\Skins\CFrame\Constants;
+use MediaWiki\Skins\CFrame\FeatureManagement\Requirement;
 use MediaWiki\User\UserIdentity;
 
 /**
@@ -64,7 +64,7 @@ use MediaWiki\User\UserIdentity;
  * NOTE: This API hasn't settled. It may change at any time without warning. Please don't bind to
  * it unless you absolutely need to
  *
- * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements
+ * @package MediaWiki\Skins\CFrame\FeatureManagement\Requirements
  */
 class OverridableConfigRequirement implements Requirement {
 

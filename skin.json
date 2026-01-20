@@ -2,25 +2,25 @@
 	"name": "CFrame",
 	"version": "1.0.0",
 	"author": "Kittygirl65477",
-	"descriptionmsg": "vector-skin-desc",
-	"namemsg": "vector-specialversion-name",
+	"descriptionmsg": "cframe-skin-desc",
+	"namemsg": "cframe-specialversion-name",
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
 		"MediaWiki": ">= 1.44"
 	},
 	"ValidSkinNames": {
-		"vector": {
-			"class": "MediaWiki\\Skins\\Vector\\SkinVectorLegacy",
+		"cframe": {
+			"class": "MediaWiki\\Skins\\CFrame\\SkinCFrame",
 			"services": [
 				"LanguageConverterFactory"
 			],
 			"args": [
 				{
-					"name": "vector",
+					"name": "cframe",
 					"supportsMwHeading": true,
 					"wrapSiteNotice": true,
-					"template": "skin-legacy",
+					"template": "skin",
 					"clientPrefEnabled": true,
 					"templateDirectory": "includes/templates",
 					"responsive": true,
@@ -30,24 +30,24 @@
 						}
 					},
 					"bodyClasses": [
-						"skin-vector-legacy"
+						"skin-cframe"
 					],
 					"scripts": [
-						"skins.vector.legacy.js"
+						"skins.cframe.js"
 					],
 					"styles": [
-						"skins.vector.styles.legacy"
+						"skins.cframe.styles"
 					],
 					"messages": [
 						"tooltip-p-logo",
-						"vector-opt-out-tooltip",
-						"vector-opt-out",
+						"cframe-opt-out-tooltip",
+						"cframe-opt-out",
 						"navigation-heading",
-						"vector-action-toggle-sidebar",
-						"vector-main-menu-tooltip",
-						"vector-jumptonavigation",
-						"vector-jumptosearch",
-						"vector-jumptocontent",
+						"cframe-action-toggle-sidebar",
+						"cframe-main-menu-tooltip",
+						"cframe-jumptonavigation",
+						"cframe-jumptosearch",
+						"cframe-jumptocontent",
 						"search",
 						"searchbutton",
 						"searcharticle",
@@ -61,15 +61,15 @@
 		}
 	},
 	"SkinLessImportPaths": {
-		"vector": "resources/mediawiki.less/vector"
+		"cframe": "resources/mediawiki.less/cframe"
 	},
 	"MessagesDirs": {
-		"vector-legacy": [
+		"cframe": [
 			"i18n"
 		]
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Skins\\Vector\\": "includes/"
+		"MediaWiki\\Skins\\CFrame\\": "includes/"
 	},
 	"DefaultUserOptions": {
 		"vector-limited-width": 1,
@@ -82,7 +82,7 @@
 	},
 	"HookHandlers": {
 		"VectorHooks": {
-			"class": "MediaWiki\\Skins\\Vector\\Hooks",
+			"class": "MediaWiki\\Skins\\CFrame\\Hooks",
 			"services": [
 				"MainConfig",
 				"UserOptionsManager"
@@ -96,7 +96,6 @@
 		"SkinPageReadyConfig": "VectorHooks",
 		"GetBetaFeaturePreferences": "VectorHooks"
 	},
-	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
 		"skins.vector.search.codex.scripts": {
 			"dependencies": [
@@ -107,7 +106,7 @@
 				"CdxTypeaheadSearch"
 			]
 		},
-		"skins.vector.styles.legacy": {
+		"skins.cframe.styles": {
 			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": {
 				"normalize": true,
@@ -123,18 +122,18 @@
 				"i18n-headings": true
 			},
 			"styles": [
-				"resources/skins.vector.styles.legacy/skin-legacy.less"
+				"resources/skins.cframe.styles/skin.less"
 			]
 		},
-		"skins.vector.legacy.js": {
+		"skins.cframe.js": {
 			"styles": [
-				"resources/skins.vector.legacy.js/index.less"
+				"resources/skins.cframe.js/index.less"
 			],
 			"packageFiles": [
-				"resources/skins.vector.legacy.js/skin-legacy.js",
-				"resources/skins.vector.legacy.js/portlets.js",
-				"resources/skins.vector.legacy.js/collapsibleTabs.js",
-				"resources/skins.vector.legacy.js/vector.js"
+				"resources/skins.cframe.js/skin.js",
+				"resources/skins.cframe.js/portlets.js",
+				"resources/skins.cframe.js/collapsibleTabs.js",
+				"resources/skins.cframe.js/cframe.js"
 			],
 			"dependencies": [
 				"mediawiki.page.ready",
@@ -144,7 +143,7 @@
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
-		"remoteSkinPath": "Vector"
+		"remoteSkinPath": "CFrame"
 	},
 	"config": {
 		"VectorNightMode": {
@@ -225,7 +224,7 @@
 			"value": null,
 			"description": "@var string|null The version ('2' for latest, '1' for legacy) of the Vector skin to **set** for newly created user accounts. **The value is persisted as a user preference.** This configuration is not used for preexisting accounts (see VectorDefaultSkinVersionForExistingAccounts) and only ever executed once at new account creation time. If it is null, no user preference will be set."
 		},
-		"VectorWvuiSearchOptions": {
+		"CFrameWvuiSearchOptions": {
 			"value": {
 				"showThumbnail": true,
 				"showDescription": true

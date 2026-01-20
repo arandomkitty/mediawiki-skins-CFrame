@@ -19,16 +19,16 @@
  * @file
  */
 
-namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
+namespace MediaWiki\Skins\CFrame\FeatureManagement\Requirements;
 
 use MediaWiki\Request\WebRequest;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
+use MediaWiki\Skins\CFrame\FeatureManagement\Requirement;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\UserIdentity;
 
 /**
- * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements
+ * @package MediaWiki\Skins\CFrame\FeatureManagement\Requirements
  */
 final class UserPreferenceRequirement implements Requirement {
 

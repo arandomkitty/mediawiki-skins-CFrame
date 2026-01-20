@@ -1,0 +1,18 @@
+{{#data-toplinks}}
+    <nav id="{{id}}" class="{{#class}}{{.}}{{/class}} cframe-menu" aria-labelledby="{{id}}-label">
+        <div class="cframe-menu-content">
+            {{{html-before-portal}}}
+            <ul class="cframe-menu-content-list">
+                {{#topnav}}
+                    <li id="{{id}}" class="mw-list-item">{{!
+                        }}<a href="{{href}}">{{!
+                            }}{{#icon}}{{>Icon}}{{/icon}}{{!
+                            }}<span>{{text}}</span>{{!
+                        }}</a>{{!
+                    }}</li>
+                {{/topnav}}
+            </ul>
+            {{{html-after-portal}}}
+        </div>
+    </nav>
+{{/data-toplinks}}
