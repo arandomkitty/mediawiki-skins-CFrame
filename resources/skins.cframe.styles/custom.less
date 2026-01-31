@@ -1,0 +1,2175 @@
+/* All CSS here will be loaded for users of the Vector skin */
+/* Common.css failback (dang thing fails to load)*/
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+@font-face {
+	font-display: swap;
+	font-family: "Accanthis ADF Std";
+	font-style: normal;
+	font-weight: 400;
+	src: url("https://static.wikitide.net/damnationwiki/5/55/AccanthisADFStd-Regular.woff2");
+}
+@font-face {
+	font-display: swap;
+	font-family: "Accanthis ADF Std";
+	font-style: italic;
+	font-weight: 400;
+	src: url("https://static.wikitide.net/damnationwiki/c/c8/AccanthisADFStd-Italic.woff2");
+}
+@font-face {
+	font-display: swap;
+	font-family: "Accanthis ADF Std";
+	font-style: normal;
+	font-weight: 700;
+	src: url("https://static.wikitide.net/damnationwiki/b/bb/AccanthisADFStd-Bold.woff2");
+}
+@font-face {
+	font-display: swap;
+	font-family: "Accanthis ADF Std";
+	font-style: italic;
+	font-weight: 700;
+	src: url("https://static.wikitide.net/damnationwiki/c/cb/AccanthisADFStd-BoldItalic.woff2");
+}
+@font-face {
+	font-display: swap;
+	font-family: "W95FA";
+	font-style: normal;
+	font-weight: 400;
+	src: url("https://static.wikitide.net/damnationwiki/b/b1/W95fa.woff2");
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+	}
+}
+.home-header::before {
+	background-image: url(https://static.wikitide.net/damnationwiki/1/1c/LoadingScreen_ThumbnailDark.png) !important;
+}
+.embedvideo-loader__footer {
+	backdrop-filter: blur(8px);
+}
+.home-header__inner {
+	backdrop-filter: blur(0px);
+}
+.update {
+	background-image: url(https://static.wikitide.net/damnationwiki/1/10/C00lestChristmasBanner.webp) !important;
+}
+.update-text {
+	backdrop-filter: blur(5px);
+}
+
+#mw-content-text img:not(td.mbox-image img) {
+	max-width: 100%;
+	height: auto;
+}
+
+.home-gameinfo-list-item + .home-gameinfo-list-item {
+	margin-left: var( --space-sm );
+	padding-left: var( --space-sm );
+}
+
+.home-navigation__card {
+	border-image-source: url(https://forsaken.wiki/w/img_auth.php/2/2d/SideDescriptionUI.png) !important;
+}
+
+.home-navigation__card-text-container {
+    border-image-source: url(https://forsaken.wiki/w/img_auth.php/2/2d/SideDescriptionUI.png) !important;
+}
+
+.mp-mainrail-content.mp-mainrail-content__lu {
+	background-image: url(https://static.wikitide.net/damnationwiki/1/10/C00lestChristmasBanner.webp) !important;
+}
+
+.mp-mainrail-content__lu-text {
+	backdrop-filter: blur(3px);
+}
+
+.mw-prefs-tabs.mw-prefs-tabs-searching .oo-ui-tabPanelLayout.mw-prefs-search-matched > fieldset > legend {
+	background:var(--theme-page-background-color-dark--secondary);
+}
+
+.oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
+	padding-bottom:35px;
+}
+
+.floatright {
+	margin: 0 0 0.5em 0.5em;
+	clear: right;
+	float: right;
+}
+.floatleft {
+	margin: 0 0.5em 0.5em 0;
+	float: left;
+	clear: left;
+}
+/* Hide visual editor buttons */
+#ca-ve-edit {
+	display: none !important;
+}
+/* Forsaken border effect */
+.forsaken-border {
+	background: black;
+	border-image: url("https://forsaken.wiki/w/img_auth.php/2/2d/SideDescriptionUI.png")
+		round;
+	border-image-slice: 5.5% 5% 5% 5%;
+	border-image-width: 24px 24px 24px 24px;
+	border-image-outset: 24px 24px 24px 24px;
+	border-image-repeat: repeat repeat;
+	margin: 24px;
+	color: var(--color-base);
+}
+
+/* Written by Kittygirl65477 */
+/*Used Urbanshade.org as a base for root style colors (thing below), a lot of stuff in it unused lol*/
+:root {
+	--theme-link-color-light: #36c;
+	--theme-link-color-light--hover: #2952a3;
+	--theme-link-color-light--red: #c00;
+	--theme-page-background-color-light: #f5f1e5;
+	--theme-page-background-color-light--secondary: #e6caa6;
+	--theme-page-background-color-light--tertiary: #f7eee3;
+	--theme-page-text-color-light: #3a3a3a;
+	--theme-background-image-light: url(https://static.miraheze.org/urbanshadewiki/7/75/RBM_Medkit_Shop.png);
+	--theme-link-color-dark: #3f6fcf;
+	--theme-link-color-dark--hover: #3162c3;
+	--theme-link-color-dark--red: #c00;
+	--theme-page-background-color-dark: #151515;
+	--theme-page-background-color-dark--secondary: #0a0a0a;
+	--theme-page-background-color-dark--tertiary: #777777;
+	--theme-page-text-color-dark: #e6e6e6;
+	--theme-page-header-color-gradient: #eeeeee;
+	--theme-background-color-main: #1c1c1c;
+	--theme-background-color-accent: #2a2a2a;
+	--theme-background-image-dark: url(https://forsaken.wiki/w/img_auth.php/7/75/Wiki_Skybox.png);
+	--theme-background-color-content-removed: #9637ef;
+	--theme-background-color-content-added: #1c7e56;
+	--logowid: 25em;
+	--logohei: 15.625em;
+	--home-header-title-font-size: clamp(1.5rem, calc(1vw + 1.2rem), 3rem);
+	--home-header-subtitle-font-size: clamp(1rem, calc(1vw + 0.1rem), 2.5rem);
+
+	/* codex variables */
+	--color-base: white;
+	--color-destructive: #fd7865;
+	--color-destructive--hover: #fea898;
+	--color-destructive--active: #ffc8bd;
+	--color-visited: #a799cd;
+	--color-visited--hover: #c5b9dd;
+	--color-visited--active: #d9d0e9;
+	--color-warning: #ca982e;
+	--color-success: #2cb491;
+
+	--background-color-base: #151515;
+	--background-color-backdrop-light: rgba(21, 21, 21, 0.65);
+
+	--background-color-progressive-subtle: #1b223d;
+	--background-color-progressive-subtle--hover: #233566;
+	--background-color-progressive-subtle--active: #3056a9;
+
+	--background-color-destructive-subtle: #3c1a13;
+	--background-color-destructive-subtle--hover: #612419;
+	--background-color-destructive-subtle--active: #9f3526;
+
+	--background-color-error-subtle: #3c1a13;
+	--background-color-error-subtle--hover: #612419;
+	--background-color-error-subtle--active: #9f3526;
+
+	--background-color-warning-subtle: #2d2212;
+
+	--background-color-success-subtle: #132821;
+
+	--background-color-neutral-subtle: #111111;
+
+	--background-color-interactive: #15130f;
+	--background-color-interactive-subtle: #070605;
+	--background-color-interactive-subtle--hover: #15130f;
+
+	--border-color-progressive: #6485d1;
+	--border-color-progressive--hover: #88a3e8;
+	--border-color-progressive--active: #a6bbf5;
+	--border-color-progressive--focus: #6485d1;
+
+	--border-color-destructive: #f54739;
+	--border-color-destructive--hover: #fd7865;
+	--border-color-destructive--active: #fea898;
+	--border-color-destructive--focus: #6485d1;
+
+	--border-color-error: #f54739;
+	--border-color-error--hover: #fd7865;
+	--border-color-error--active: #fea898;
+
+	--border-color-warning: #ab7f2a;
+	--border-color-warning--hover: #ca982e;
+	--border-color-warning--active: #edb537;
+
+	--border-color-success: #099979;
+
+	--header-clip-path: polygon(
+		0 0,
+		calc(100% - sqrt(2) * 0.5em) 0,
+		100% calc(sqrt(2) * 0.5em),
+		100% 100%,
+		0 100%
+	);
+
+	--font-family--default: "Arial", sans-serif;
+}
+
+body {
+	background-image: var(--theme-background-image-dark);
+	background-size: 100%;
+	height: auto;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-color: #0b0101;
+	font-family: var(--font-family--default);
+}
+
+#content {
+	margin: 0 10vw 0 10vw;
+	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+	background: repeating-linear-gradient(
+		225deg,
+		#232222 0px,
+		#232222 25px,
+		#1c1a1a 25px,
+		#1c1a1a 50px
+	);
+	padding-top: 50px;
+	position: relative;
+}
+
+#bodyContent {
+	background: var(--theme-page-background-color-dark);
+	padding: 15px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #777;
+	overflow: hidden;
+}
+
+#mw-page-base {
+	background: transparent;
+}
+.cframe-search-box-input {
+	background: transparent;
+	border: 1px solid var(--theme-page-background-color-dark--tertiary) !important;
+	border-radius: 0 0 6px 6px;
+	border-top-color: transparent !important;
+}
+
+.mw-advancedSearch-namespace-selection {
+	background: var(--theme-page-background-color-dark--secondary);
+}
+
+#pt-notifications-alert,
+#pt-notifications-notice,
+.cframe-menu-dropdown .cframe-menu-heading::after,
+#searchButton,
+.oo-ui-iconElement-icon,
+.oo-ui-indicatorElement-indicator.oo-ui-image-progressive.oo-ui-indicator-up {
+	filter: invert();
+}
+
+.cframe-menu-dropdown .cframe-menu-heading,
+.mw-body {
+	color: var(--theme-page-text-color-dark);
+}
+
+.cframe-menu-tabs .mw-list-item.selected,
+tr:has(.navbox-title),
+td.navbox-group {
+	background: var(--theme-page-background-color-dark--secondary);
+}
+
+.cframe-menu-tabs .mw-list-item.selected:first-of-type {
+	border-bottom-left-radius: 6px;
+}
+
+.cframe-menu-tabs .mw-list-item,
+.cframe-menu-dropdown .cframe-menu-content,
+tr:has(.navbox-group),
+.portal,
+#searchInput {
+	background: var(--theme-page-background-color-dark);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.mw-footer li,
+.mw-heading {
+	color: var(--theme-page-text-color-dark) !important;
+}
+a,
+a:visited,
+a.extiw,
+a.external,
+a.extiw:visited,
+a.external:visited,
+.tools-inline li.selected a {
+	color: var(--theme-link-color-dark) !important;
+}
+a:hover,
+a.extiw:hover,
+a.external:hover,
+a.extiw:visited:hover,
+a.external:visited:hover,
+.tools-inline li.selected a:hover {
+	color: var(--theme-link-color-dark--hover) !important;
+}
+a[href$="redlink=1"],
+a.extiw[href$="redlink=1"],
+a.external[href$="redlink=1"],
+.tools-inline li.selected a[href$="redlink=1"] {
+	color: var(--theme-link-color-dark--red) !important;
+}
+.toc {
+	background-color: var(--theme-page-background-color-dark--secondary);
+	border-color: #1f1f1f;
+	border-radius: 6px;
+}
+
+.toctitle {
+	text-align: left !important;
+	border-bottom: 1px solid #1f1f1f;
+	margin: -7px;
+	padding: 7px;
+	margin-bottom: 7px;
+}
+
+.tocnumber {
+	color: var(--theme-page-text-color-dark);
+}
+
+.mw-heading1,
+h1,
+.mw-heading2,
+h2,
+.navbox,
+td.navbox-list {
+	border-color: var(--theme-page-background-color-dark--tertiary) !important;
+}
+
+.wikitable > tr > th,
+.wikitable > tr > td,
+.wikitable > * > tr > th,
+.wikitable > * > tr > td {
+	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+}
+
+#catlinks {
+	background-color: #010101;
+	padding: 6px 8px;
+	border: 0;
+	border-image: url(https://forsaken.wiki/w/img_auth.php/2/2d/SideDescriptionUI.png)
+		round;
+	border-image-slice: 5.5% 5% 5% 5%;
+	border-image-width: 10px;
+	border-image-outset: 10px;
+	border-image-repeat: repeat;
+}
+#mw-normal-catlinks {
+	font-weight: bold;
+}
+.mw-body-content {
+	min-height: 500px;
+}
+.catlinks ul {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	gap: 5px;
+	border-image: url(https://forsaken.wiki/w/img_auth.php/2/2d/SideDescriptionUI.png)
+		round;
+	border-image-slice: 5.5% 5% 5% 5%;
+	border-image-width: 6px 0 0 0;
+	border-image-outset: 8px;
+	border-image-repeat: repeat;
+	padding-top: 2px;
+	margin-top: 8px;
+}
+
+.catlinks li {
+	display: inline-block;
+	line-height: 1.25em;
+	margin: 0.125em 0;
+	background: #0d0d0d;
+	border: 1px solid #535353 !important;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.catlinks li:first-child {
+	border-left: 1px solid #535353;
+	padding-left: 5px;
+}
+
+.infobox {
+	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+}
+
+.cframe-sidebar .mw-portlet {
+	/*border:1px solid var(--theme-page-background-color-dark--tertiary);*/
+	background: linear-gradient(
+		var(--theme-background-color-accent),
+		var(--theme-page-background-color-dark--secondary)
+	);
+	border-image: url(https://forsaken.wiki/w/img_auth.php/2/2d/SideDescriptionUI.png)
+		round;
+	border-image-slice: 5.5% 5% 5% 5%;
+	border-image-width: 24px;
+	border-image-outset: 24px;
+	border-image-repeat: repeat;
+	margin: 0em 0 3em 2em !important;
+	overflow: hidden;
+}
+
+.cframe-sidebar nav:first-child {
+	background: linear-gradient(
+		var(--theme-background-color-accent),
+		var(--theme-page-background-color-dark--secondary)
+	);
+}
+
+#left-navigation {
+	margin-left: 10vw !important;
+}
+#p-logo {
+	float: left;
+	position: absolute;
+	z-index: 1;
+	left: calc(50% - (var(--logowid) / 2));
+	margin-left: 0;
+	top: 10px;
+	width: var(--logowid);
+	height: var(--logohei);
+}
+
+.cframe-search-box {
+	margin-right: 10vw;
+	margin-left: 2.5em;
+}
+
+#mw-panel {
+	margin-left: 0;
+	padding-left: 0 !important;
+	left: -20px;
+	float: left;
+	position: relative;
+	top: 30px;
+}
+
+#footer {
+	border-style: solid;
+	border-color: var(--theme-page-background-color-dark--tertiary);
+	border-width: 0 1px 1px 1px;
+	margin: 0 10vw 0 10vw;
+	background: var(--theme-page-background-color-dark);
+}
+
+#footer-places li {
+	float: unset;
+	display: inline-block;
+}
+
+.mw-echo-ui-notificationItemWidget-unread {
+	background-color: var(
+		--theme-page-background-color-dark--secondary
+	) !important;
+}
+.mw-echo-ui-notificationItemWidget,
+.oo-ui-popupWidget-popup,
+.oo-ui-buttonElement-button:not(.mw-echo-notifications-badge),
+.mw-echo-ui-placeholderItemWidget {
+	background-color: var(--theme-page-background-color-dark) !important;
+	color: var(--theme-page-text-color-dark);
+	border-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.mw-echo-ui-notificationItemWidget * {
+	color: var(--theme-page-text-color-dark) !important;
+}
+
+.oo-ui-iconElement-icon,
+.oo-ui-indicatorElement-indicator.oo-ui-indicator-down,
+.wikiEditor-ui-toolbar .tabs span.tab a::before,
+.wikiEditor-ui-toolbar .group .tool-select .label::after {
+	filter: invert();
+}
+
+#pt-notifications-alert .mw-echo-notifications-badge::after,
+#pt-notifications-notice .mw-echo-notifications-badge::after {
+	background-color: transparent;
+}
+
+pre {
+	background-color: #202122;
+	color: var(--theme-page-text-color-dark);
+	border: 1px solid #40424475 !important;
+}
+
+#footer-icons a {
+	background-color: var(--theme-page-background-color-dark--secondary);
+	border-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+#p-personal .cframe-menu-content-list,
+#p-toplinks .cframe-menu-content-list {
+	padding-left: 0 !important;
+	justify-content: space-evenly;
+	gap: 1em;
+}
+
+#p-personal .cframe-menu-content,
+#p-toplinks .cframe-menu-content {
+	transform: translate(-50%, 0);
+	left: 50%;
+	position: relative;
+	width: 100%;
+}
+
+#p-personal li {
+	/*margin:0 calc((50vw - 18.5em - 50px - 240px) / 7);*/
+	margin: 0 0 0.1em 0;
+	flex-shrink: 1;
+}
+
+#p-toplinks li {
+	/*margin:0 calc((50vw - 18.5em - 50px - 210px) / 6);*/
+	flex-shrink: 1;
+	margin: 0 0 0.1em 0;
+}
+
+#p-personal,
+#p-toplinks {
+	right: unset !important;
+	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+	padding: 5px 25px 10px 25px;
+	margin: 0 10vw 0 10vw;
+	position: relative;
+	top: 40px;
+}
+
+#p-toplinks {
+	padding: 15px 25px 20px 25px;
+	background: linear-gradient(#333030, #1e1b1b);
+	border-top-width: 2px;
+	border-top-color: #545252;
+	border-bottom: 0;
+}
+
+#p-personal {
+	background: linear-gradient(#1d1d1d, #111111);
+	border-bottom-color: var(
+		--theme-page-background-color-dark--tertiary
+	) !important;
+	border-top-width: 2px;
+	border-top-color: #3a3a3a;
+}
+
+#p-personal span {
+	font-size: 1.25em;
+	font-weight: bold;
+	color: var(--theme-page-text-color-dark);
+}
+
+#p-toplinks span {
+	font-size: 2em;
+	font-family: "Accanthis ADF Std";
+	color: var(--theme-page-text-color-dark);
+	font-weight: bold;
+}
+
+.cframe-user-menu #pt-userpage a {
+	background: none;
+}
+
+#p-search {
+	margin-right: 0;
+	height: calc(3.07692308em - 1px);
+}
+
+#p-search #simpleSearch {
+	width: calc(100vw - 20vw - 370px - 70px - 10px);
+	height: 100%;
+	margin-left: 0;
+	max-width: unset;
+}
+
+.cframe-menu-tabs a {
+	background: none;
+	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+}
+
+:not(#mobilePageLinks) > .cframe-menu-tabs a {
+	border-top-color: transparent !important;
+}
+
+:not(#mobilePageLinks) > .cframe-menu-tabs #ca-edit > a {
+	background-color: #36c;
+	color: #fff !important;
+}
+
+:not(#mobilePageLinks) > .cframe-menu-tabs li[id^="ca-nstab"] > a,
+:not(#mobilePageLinks) > .cframe-menu-tabs #ca-view > a,
+body:has(#bodyContent > #mw-content-text > .noarticletext)
+	:not(#mobilePageLinks)
+	> .cframe-menu-tabs
+	#ca-edit
+	> a {
+	border-bottom-left-radius: 6px;
+}
+
+:not(#mobilePageLinks) > .cframe-menu-tabs #ca-view,
+:not(#mobilePageLinks) > .cframe-menu-tabs li[id^="ca-nstab"] {
+	margin-left: 5px;
+}
+
+:not(#mobilePageLinks) > .cframe-menu-tabs #ca-watch,
+:not(#mobilePageLinks) > .cframe-menu-tabs #ca-unwatch {
+	margin-right: 5px;
+}
+
+:not(#mobilePageLinks) > .cframe-menu-tabs #ca-watch > a,
+:not(#mobilePageLinks) > .cframe-menu-tabs #ca-unwatch > a {
+	border-bottom-right-radius: 6px;
+}
+
+.cframe-menu-tabs li a {
+	padding-top: 10px;
+}
+
+.cframe-menu-tabs,
+.cframe-menu-heading:not(h3) {
+	background: none !important;
+}
+
+nav .cframe-menu-heading {
+	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+	padding-top: calc(1.25em - 2.5px) !important;
+}
+
+.cframe-search-box form {
+	margin-top: 0px !important;
+}
+
+#right-navigation {
+	margin-top: 2.5em;
+	margin-right: calc(10vw + 1px);
+}
+
+.mw-watchlink a {
+	padding-top: calc(3.07692308em - 2px) !important;
+}
+
+.mw-watchlink a::before {
+	top: calc(50% - 8px) !important;
+}
+
+#searchInput {
+	height: calc(3.07692308em - 1px);
+	color: var(--theme-page-text-color-dark);
+}
+
+#p-cactions.cframe-menu {
+	background: var(--theme-page-background-color-dark);
+	margin-right: 0;
+}
+
+#mw-head-base {
+	height: calc(7.5em + 20px + var(--logohei));
+}
+
+#firstHeading {
+	padding-left: 15px;
+	margin-top: 10px;
+	margin-bottom: 0;
+	background: linear-gradient(
+		var(--theme-page-header-color-gradient),
+		var(--theme-page-background-color-dark--tertiary)
+	);
+	border-bottom: 0;
+	border-top-left-radius: 5px;
+	border-spacing: 0;
+	font-family: "Accanthis ADF Std";
+	clip-path: polygon(
+		0 0,
+		calc(100% - sqrt(2) * 0.5em) 0,
+		100% calc(sqrt(2) * 0.5em),
+		100% 100%,
+		0 100%
+	);
+}
+
+#firstHeading {
+	color: black !important;
+}
+
+#mw-head {
+	margin-top: calc(-10px + var(--logohei));
+	pointer-events: none;
+}
+
+#logoutContainer #pt-logout {
+	float: right;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	padding: 5px;
+	background: linear-gradient(
+		var(--theme-background-color-accent),
+		var(--theme-page-background-color-dark)
+	);
+	box-shadow: 0 0 5px var(--theme-page-background-color-dark--tertiary);
+	border-radius: 5px;
+}
+
+#logoutContainer #pt-logout a,
+#logoutContainer #pt-anonuserpage {
+	padding: 5px;
+}
+
+.cframe-menu-content #pt-logout {
+	display:none;
+}
+
+#logoutContainer {
+	margin-left: calc(10vw + 24px);
+	margin-top: 5em;
+	float: left;
+	padding: 10px;
+	position: relative;
+	background: var(--theme-page-background-color-dark);
+	border-image: url(https://forsaken.wiki/w/img_auth.php/2/2d/SideDescriptionUI.png)
+		round;
+	border-image-slice: 5.5% 5% 5% 5%;
+	border-image-width: 24px;
+	border-image-outset: 24px;
+	border-image-repeat: repeat;
+	color: var(--theme-page-text-color-dark);
+	padding-right: 90px;
+}
+
+.mw-htmlform,
+.ext-discussiontools-emptystate,
+.wikiEditor-ui,
+div.mw-warning-with-logexcerpt {
+	clear: none;
+}
+
+#mw-head > * {
+	pointer-events: auto;
+}
+
+#pt-notifications-notice {
+	float: right;
+	position: absolute;
+	left: 25px;
+	top: 15px;
+	padding: 5px;
+	background: linear-gradient(
+		var(--theme-background-color-accent),
+		var(--theme-page-background-color-dark)
+	);
+	box-shadow: 0 0 5px var(--theme-page-background-color-dark--tertiary);
+	border-radius: 5px;
+	filter: none;
+	list-style: none;
+}
+
+#pt-notifications-alert {
+	float: left;
+	position: absolute;
+	right: 25px;
+	top: 15px;
+	padding: 5px;
+	background: linear-gradient(
+		var(--theme-background-color-accent),
+		var(--theme-page-background-color-dark)
+	);
+	box-shadow: 0 0 5px var(--theme-page-background-color-dark--tertiary);
+	border-radius: 5px;
+	filter: none;
+	list-style: none;
+}
+
+#notifContainer {
+	margin-right: calc(10vw + 24px);
+	margin-top: 5em;
+	float: right;
+	padding: 10px;
+	position: relative;
+	background: var(--theme-page-background-color-dark);
+	border-image: url(https://forsaken.wiki/w/img_auth.php/2/2d/SideDescriptionUI.png)
+		round;
+	border-image-slice: 5.5% 5% 5% 5%;
+	border-image-width: 24px;
+	border-image-outset: 24px;
+	border-image-repeat: repeat;
+	color: var(--theme-page-text-color-dark);
+	padding-right: 150px;
+	padding-top: 50px;
+}
+
+.skin-cframe #pt-notifications-notice .mw-echo-notifications-badge,
+.skin-cframe #pt-notifications-alert .mw-echo-notifications-badge {
+	top: 0;
+	filter: invert();
+}
+
+.mw-wiki-logo {
+	background-image: url(https://forsaken.wiki/w/img_auth.php/3/32/ForsakenLogoFinal.png);
+	width: var(--logowid) !important;
+	height: var(--logohei) !important;
+	background-size: 90%;
+}
+
+li.gallerybox div.thumb {
+	background: var(--theme-page-background-color-dark--secondary);
+	border-width: 1px;
+	border-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.cframe-body blockquote {
+	background: var(--theme-page-background-color-dark--secondary);
+	border-color: var(--theme-page-background-color-dark--tertiary);
+	overflow: hidden;
+}
+
+#mw-indicator-mw-helplink {
+	margin-bottom: 30px;
+}
+
+.mw-indicators {
+	display: none;
+}
+
+.ext-WikiEditor-realtimepreview-textbox,
+.mw-editfont-monospace {
+	background-color: var(--theme-page-background-color-dark);
+	color: var(--theme-page-text-color-dark);
+}
+
+.wikiEditor-ui .wikiEditor-ui-view {
+	border-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.wikiEditor-ui-toolbar {
+	background-color: var(--theme-page-background-color-dark--secondary);
+}
+
+.wikiEditor-ui .wikiEditor-ui-top {
+	border-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.editOptions {
+	background-color: var(--theme-page-background-color-dark--secondary);
+	color: var(--theme-page-text-color-dark);
+}
+
+.oo-ui-checkboxInputWidget-checkIcon,
+.oo-ui-image-progressive,
+.oo-ui-iconElement-icon.oo-ui-icon-highlight.oo-ui-image-invert {
+	filter: none;
+}
+
+.oo-ui-textInputWidget .oo-ui-inputWidget-input {
+	border-color: var(--theme-page-background-color-dark--tertiary);
+	background-color: var(--theme-page-background-color-dark--secondary);
+	color: var(--theme-page-text-color-dark);
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
+	color: var(--theme-page-text-color-dark) !important;
+	border-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle {
+	background-color: var(
+		--theme-page-background-color-dark--secondary
+	) !important;
+}
+
+.oo-ui-popupToolGroup-tools,
+.oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active > .oo-ui-tool-link,
+.wikiEditor-ui-toolbar .group .tool-select .menu .options .option,
+.oo-ui-dropdownWidget.oo-ui-widget-enabled.oo-ui-dropdownWidget-open
+	.oo-ui-dropdownWidget-handle,
+.oo-ui-menuSelectWidget,
+.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined,
+.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined
+	.oo-ui-tagItemWidget.oo-ui-widget-enabled,
+.mw-rcfilters-ui-filterMenuHeaderWidget-header,
+.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted:not(
+		.oo-ui-optionWidget-selected
+	),
+.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined
+	.mw-rcfilters-ui-tagItemWidget-selected.oo-ui-tagItemWidget.oo-ui-widget-enabled,
+html.skin-theme-clientpref-night .ext-discussiontools-ui-replyWidget-preview,
+.ve-ui-targetWidget:not(.oo-ui-pendingElement-pending),
+.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-notice,
+.codeEditor-status,
+.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:hover {
+	background-color: var(--theme-page-background-color-dark--secondary);
+	color: var(--theme-page-text-color-dark);
+}
+
+.oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:hover,
+.wikiEditor-ui-toolbar .booklet > .index > .current,
+.wikiEditor-ui-toolbar .booklet > .index > :hover,
+.wikiEditor-ui-toolbar .page-characters div span,
+.wikiEditor-ui-toolbar .page-characters div span:hover,
+.wikiEditor-ui-toolbar .group .tool-select .menu .options .option:hover,
+.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle,
+.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected,
+.oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget-highlighted,
+.mw-rcfilters-container
+	.mw-rcfilters-ui-filterTagMultiselectWidget.oo-ui-widget-enabled
+	.oo-ui-tagMultiselectWidget-handle,
+.mw-rcfilters-ui-filterMenuSectionOptionWidget,
+.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected,
+.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
+.oo-ui-menuOptionWidget.oo-ui-optionWidget-pressed.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
+.mw-rcfilters-ui-menuSelectWidget-footer,
+.diff-context {
+	background-color: var(--theme-page-background-color-dark);
+	color: var(--theme-page-text-color-dark);
+}
+
+.wikiEditor-ui-toolbar .page-table th,
+.wikiEditor-ui-toolbar .page-table td,
+.wikiEditor-ui-toolbar .group .label,
+.oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget,
+.mw-rcfilters-container
+	.mw-rcfilters-ui-filterTagMultiselectWidget-wrapper-content-title,
+.mw-rcfilters-ui-tagItemWidget-popup-content,
+.mw-rcfilters-ui-filterMenuHeaderWidget-title,
+.mw-rcfilters-ui-filterMenuSectionOptionWidget-header-title.oo-ui-labelElement-label,
+.mw-rcfilters-ui-tagItemWidget.oo-ui-flaggedElement-muted.oo-ui-tagItemWidget.oo-ui-widget-enabled
+	.oo-ui-labelElement-label,
+.mw-rcfilters-ui-itemMenuOptionWidget-label-title,
+.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted
+	.mw-rcfilters-ui-itemMenuOptionWidget-label-title,
+.mw-rcfilters-ui-viewSwitchWidget label.oo-ui-labelWidget,
+.oo-ui-tabOptionWidget {
+	color: var(--theme-page-text-color-dark);
+}
+
+.mw-editform .editOptions,
+.wikiEditor-ui-toolbar .sections .section,
+.wikiEditor-ui-toolbar .group,
+.wikiEditor-ui-toolbar .section-secondary .group,
+.ext-WikiEditor-twopanes-TwoPaneLayout .ext-WikiEditor-twopanes-pane1,
+.ext-WikiEditor-twopanes-TwoPaneLayout .ext-WikiEditor-twopanes-pane2 {
+	border-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.oo-ui-dropdownWidget.oo-ui-widget-disabled .oo-ui-dropdownWidget-handle {
+	text-shadow: none;
+	background-color: var(--theme-page-background-color-dark);
+	color: var(--theme-page-text-color-dark);
+	border-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.CodeMirror-gutters,
+.ext-WikiEditor-ResizingDragBar {
+	border-color: var(--theme-page-background-color-dark--tertiary);
+	background-color: var(--theme-page-background-color-dark);
+}
+
+.oo-ui-popupWidget-anchored-bottom .oo-ui-popupWidget-anchor::after {
+	border-top-color: var(--theme-page-background-color-dark);
+}
+
+.oo-ui-checkboxInputWidget [type="checkbox"] + span {
+	background-color: var(--theme-page-background-color-dark);
+}
+
+.mw-rcfilters-ui-itemMenuOptionWidget:not(:last-child):not(
+		.mw-rcfilters-ui-itemMenuOptionWidget-identifier-talk
+	) {
+	border-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.mw-rcfilters-ui-changesListWrapperWidget .mw-changeslist-legend {
+	border-color: var(--theme-page-background-color-dark--tertiary);
+	background-color: var(--theme-page-background-color-dark--secondary);
+}
+
+.wikiEditor-ui .wikiEditor-ui-clear,
+.mw-specialpagesgroup {
+	clear: right;
+}
+
+.cdx-message--warning p {
+	color: inherit !important;
+}
+
+textarea {
+	background: #333;
+	color: white;
+}
+
+#wpDestFile,
+#wpSummary {
+	background: #333;
+	color: white;
+	border-radius: 2px;
+	border-width: 1px;
+}
+
+#filetoc {
+	background-color: var(--theme-page-background-color-dark--secondary);
+}
+
+#mw_metadata {
+	background-color: var(--theme-page-background-color-dark--secondary);
+}
+
+ul {
+	list-style: disc;
+}
+
+.oo-ui-fieldLayout::after {
+	clear: right;
+}
+
+.oo-ui-tabSelectWidget-framed {
+	background-color: var(--theme-page-background-color-dark--secondary);
+	padding-bottom: 6px;
+}
+
+.oo-ui-tabOptionWidget {
+	background: linear-gradient(
+		var(--theme-background-color-accent),
+		var(--theme-page-background-color-dark)
+	);
+}
+
+.oo-ui-tabSelectWidget-framed
+	> .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
+	background: linear-gradient(
+		var(--theme-page-header-color-gradient),
+		var(--theme-page-background-color-dark--tertiary)
+	);
+}
+
+.oo-ui-tabSelectWidget-framed
+	.oo-ui-tabOptionWidget.oo-ui-widget-enabled:hover {
+	color: #7a7a7a;
+}
+
+.oo-ui-tabSelectWidget-framed
+	.oo-ui-tabOptionWidget.oo-ui-optionWidget-selected
+	.oo-ui-labelElement-label {
+	border-color: transparent;
+}
+
+#managewiki .managewiki-submit-formfields {
+	background: var(--theme-page-background-color-dark--secondary);
+	border-style: solid;
+	border-top-width: 1px;
+	padding-left: 6px;
+}
+
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"] + span {
+	background-color: var(--theme-page-background-color-dark--secondary);
+}
+
+.oo-ui-checkboxInputWidget [type="checkbox"]:disabled + span {
+	background: var(--theme-link-color-dark--red);
+}
+
+.diff-deletedline {
+	border-color: var(--theme-background-color-content-removed);
+}
+
+.diff-deletedline .diffchange {
+	background: var(--theme-background-color-content-removed);
+}
+
+.diff-addedline {
+	border-color: var(--theme-background-color-content-added);
+}
+
+.diff-addedline .diffchange {
+	background: var(--theme-background-color-content-added);
+}
+
+.modconflict {
+	background-color: #faa;
+	border-style: dashed;
+	border-width: 2px;
+	border-color: #a06b6b;
+	padding: 0 2px;
+	color: black;
+}
+
+#pt-notifications-alert .mw-echo-notifications-badge::after,
+#pt-notifications-notice .mw-echo-notifications-badge::after {
+	background: linear-gradient(#0027ff, #7f94ff);
+	border-style: hidden;
+	border-radius: 5px;
+}
+
+.wikitable > tr > th,
+.wikitable > * > tr > th,
+.mw-datatable td,
+.mw-apisandbox-toolbar {
+	background-color: var(--theme-page-background-color-dark--secondary);
+	color: var(--theme-page-text-color-dark);
+}
+
+.wikitable {
+	background-color: transparent;
+	color: var(--theme-page-text-color-dark);
+}
+
+code {
+	background-color: var(--theme-page-background-color-dark--secondary);
+	color: var(--theme-page-text-color-dark);
+	border-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.mw-datatable tr:hover td,
+.oo-ui-toggleSwitchWidget,
+.mw-widgets-datetime-dateTimeInputWidget.oo-ui-widget-enabled
+	.mw-widgets-datetime-dateTimeInputWidget-editField:hover {
+	background-color: var(--theme-page-background-color-dark);
+	color: var(--theme-page-text-color-dark);
+}
+
+.oo-ui-outlineOptionWidget.oo-ui-optionWidget-selected,
+.oo-ui-outlineOptionWidget.oo-ui-optionWidget-highlighted,
+.oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:hover {
+	background-color: var(--theme-page-background-color-dark--secondary);
+	color: var(--theme-page-text-color-dark);
+}
+
+.oo-ui-outlineOptionWidget.oo-ui-optionWidget-selected {
+	color: #36c;
+}
+
+.oo-ui-image-invert {
+	filter: none;
+}
+
+.oo-ui-textInputWidget.oo-ui-widget-disabled .oo-ui-inputWidget-input,
+.mw-widgets-datetime-dateTimeInputWidget-handle,
+.mw-widgets-datetime-calendarWidget,
+.mw-widget-dateInputWidget-handle,
+.mw-widget-dateInputWidget-calendar,
+.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled,
+#preferences .mw-htmlform-submit-buttons,
+.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:hover td,
+.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:nth-child(2n) td,
+.suggestions-special,
+.suggestions-results,
+.mw-changeslist-legend {
+	background-color: var(--theme-page-background-color-dark--secondary);
+	color: var(--theme-page-text-color-dark);
+	text-shadow: none;
+}
+
+.mw-widget-calendarWidget-day,
+.cdx-message,
+.suggestions-special .special-label,
+.suggestions-special .special-query,
+.suggestions-result {
+	color: var(--theme-page-text-color-dark);
+}
+
+.mw-echo-ui-pageNotificationsOptionWidget.oo-ui-optionWidget-selected,
+.mw-echo-ui-notificationsInboxWidget-toolbarWrapper,
+.mw-search-profile-tabs,
+#mw-searchoptions {
+	background-color: var(--theme-page-background-color-dark--secondary);
+}
+
+@keyframes contentHideTimeout {
+	from {
+		visibility: hidden;
+	}
+	to {
+		visibility: visible !important;
+	}
+}
+
+body:not(:has(> #p-logo)) {
+	animation: contentHideTimeout 5s steps(1, end);
+}
+
+@keyframes opacit {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+body {
+	animation-name: opacit;
+	animation-duration: 0.25s;
+	animation-timing-function: ease-out;
+}
+
+#left-navigation {
+	pointer-events: none;
+}
+
+#left-navigation #simpleSearch {
+	pointer-events: auto;
+}
+
+body > * {
+	opacity: 1;
+}
+
+.cframe-menu-tabs {
+	padding-left: 0;
+}
+
+[rel="veEditSwitch"] {
+	display: none;
+}
+
+.mw-notification-area-modqueued .mw-notification {
+	background-color: var(--theme-page-background-color-dark);
+	border-color: var(--theme-page-background-color-dark--tertiary);
+	color: var(--theme-page-text-color-dark);
+}
+
+.mw-notification {
+	background-color: var(--theme-page-background-color-dark);
+	border-color: var(--theme-page-background-color-dark--tertiary);
+	color: var(--theme-page-text-color-dark);
+}
+
+.mw-notification-area-modqueued #pending-review {
+	color: var(--theme-page-text-color-dark);
+}
+
+.mw-notification-area-overlay {
+	z-index: 1;
+}
+
+#mw-imagepage-section-filehistory {
+	overflow: scroll;
+}
+
+.managewiki-search-highlight,
+.managewiki-tabs.managewiki-tabs-searching
+	.oo-ui-tabPanelLayout.managewiki-search-matched
+	> fieldset
+	> legend {
+	background-color: var(
+		--theme-page-background-color-dark--secondary
+	) !important;
+	color: var(--theme-page-text-color-dark) !important;
+}
+
+ol.references li:target,
+sup.reference:target,
+figure[typeof~="mw:File/Thumb"] > figcaption,
+figure[typeof~="mw:File/Frame"] > figcaption {
+	background-color: var(--theme-background-color-accent) !important;
+}
+
+figure[typeof~="mw:File/Thumb"],
+figure[typeof~="mw:File/Frame"] {
+	background-color: var(--theme-page-background-color-dark) !important;
+	color: var(--theme-page-text-color-dark);
+}
+
+.mwe-popups-container {
+	background-color: var(--theme-page-background-color-dark--secondary);
+}
+#ca-logout {
+	display: none;
+}
+
+#mw-panel {
+	transition:
+		transform 0.5s,
+		opacity 0.5s,
+		width 0.5s;
+	z-index: 2;
+	transform-origin: 20px 0;
+	text-wrap: nowrap;
+}
+#mw-panel.collapsed {
+	width: 0;
+	transform: scaleX(0);
+	opacity: 0;
+}
+#content:has(#mw-panel.expanded) #bodyContent {
+	margin-left: 12em;
+}
+#bodyContent {
+	transition: margin 0.5s;
+}
+body:has(> #content #mw-panel.collapsed) #mw-navigation #p-search {
+	margin-left: 0;
+}
+#p-search {
+	transition: margin 0.5s;
+}
+body:has(> #content #mw-panel.collapsed)
+	#mw-navigation
+	#p-search
+	#simpleSearch {
+	margin-left: 2.5em;
+}
+#p-search #simpleSearch {
+	transition:
+		width 0.5s,
+		margin 0.5s;
+}
+
+#panelCollapse::after {
+	background: url(https://forsaken.wiki/w/load.php?modules=skins.vector.icons&image=menu)
+		no-repeat;
+	content: "";
+	width: 24px;
+	height: 24px;
+	left: 8px;
+	position: absolute;
+	top: 8px;
+	background-size: contain;
+	filter: invert() brightness(70%);
+}
+
+#panelCollapse {
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	z-index: 2;
+	float: left;
+	cursor: pointer;
+}
+
+#panelCollapseMobile {
+	display: none;
+}
+
+#mobileDropdown {
+	display: none;
+}
+
+#mobileDropdown .cframe-menu-content {
+	width: 100%;
+	text-align: center;
+}
+
+#p-search {
+	margin-right: 5px;
+}
+
+#firstHeading {
+	transition: margin 0.5s;
+}
+
+html.defaultExpanded #firstHeading,
+html.defaultExpanded #bodyContent {
+	animation: 0.5s 1 widthSetOpen;
+	animation-timing-function: steps(1, jump-end);
+}
+
+html.defaultCollapsed #firstHeading,
+html.defaultCollapsed #bodyContent {
+	animation: 0.5s 1 widthSetClosed;
+	animation-timing-function: steps(1, jump-end);
+}
+
+#content:has(> #mw-panel.collapsed) #firstHeading {
+	margin-left: 0px;
+}
+
+#content:has(> #mw-panel.expanded) #firstHeading {
+	margin-left: 168px;
+}
+
+@keyframes widthSetOpen {
+	from {
+		margin-left: 168px;
+	}
+}
+@keyframes widthSetClosed {
+	from {
+		margin-left: 0px;
+	}
+}
+
+@media (max-width: 1120px) {
+	#p-logo {
+		width: 20em !important;
+		height: 12.5em !important;
+		/*Offset so it wont clip into logout box*/
+		left: calc(50% - 10em + 45px);
+	}
+	.mw-wiki-logo {
+		width: 20em !important;
+		height: 12.5em !important;
+	}
+	#mw-head-base {
+		height: calc(7.5em + 20px + 12.5em);
+	}
+	#mw-head {
+		margin-top: calc(-10px + 12.5em);
+	}
+
+	body:has(> #logoutContainer #pt-login) #mw-head-base {
+		height: calc(1.5em + 20px + var(--logohei)) !important;
+	}
+}
+
+@media (max-width: 980px) {
+	.infobox {
+		margin: 0 auto 0.5em auto;
+	}
+	.wikitable {
+		width: 100% !important;
+	}
+	#footer,
+	#content,
+	#p-personal,
+	#p-toplinks {
+		margin: 0;
+	}
+	#notifContainer {
+		margin-right: 24px;
+	}
+	#logoutContainer {
+		margin-left: 24px;
+	}
+	#right-navigation {
+		margin-right: 18px;
+	}
+	#left-navigation {
+		margin-left: 0;
+	}
+	#panelCollapse,
+	#mw-panel {
+		display: none;
+	}
+	body:not(.rootpage-Main_Page) .usermessage {
+		margin-left: 0 !important;
+	}
+	#panelCollapseMobile::after {
+		background: url(https://forsaken.wiki/w/load.php?modules=skins.vector.icons&image=menu)
+			no-repeat;
+		content: "";
+		width: 32px;
+		height: 32px;
+		left: 16px;
+		z-index: 2;
+		display: flex;
+		position: sticky;
+		top: 16px;
+		background-size: contain;
+		filter: invert() brightness(80%);
+	}
+	#panelCollapseMobile {
+		cursor: pointer;
+		padding: 0;
+		background-color: transparent;
+		border: none;
+		z-index: 2;
+		float: left;
+		display: inherit;
+		position: sticky;
+		top: 8px;
+		left: 8px;
+		height: 48px;
+		width: 48px;
+	}
+
+	#mobileDropdown {
+		display: inherit;
+		float: left;
+		width: 100%;
+		z-index: 500;
+		position: fixed;
+		background-color: #333030;
+		top: 50px;
+		transition: 0.5s height;
+		height: 100%;
+		overflow: auto;
+		max-height: calc(100dvh - 50px);
+	}
+	#mobileDropdown ul {
+		list-style: none;
+	}
+	#mobileDropdown li {
+		background-color: #1e1b1b;
+		margin: 3px;
+	}
+	#mobileDropdown nav:not(.cframe-menu-tabs) li span {
+		color: var(--theme-page-text-color-dark) !important;
+	}
+	#mobileDropdown li a {
+		text-decoration: none;
+		padding: 7.5px 0;
+		display: inline-block;
+		width: 100%;
+	}
+	#mobileDropdown .cframe-menu-content-list {
+		margin-left: 0;
+		background: #111111;
+		margin-top: 0;
+	}
+	#mobileDropdown #simpleSearch {
+		width: 100%;
+		max-width: unset;
+	}
+	.cframe-menu-dropdown .cframe-menu-content {
+		left: -61px;
+	}
+	.mw-dismissable-notice-body table,
+	#bodyContent,
+	.cframe-search-box {
+		margin-left: 0 !important;
+	}
+	#mobileDropdown.collapsed {
+		height: 0;
+	}
+	#mobileDropdown .cframe-search-box-inner {
+		height: fit-content;
+	}
+	body:has(> #mobileDropdown.expanded) {
+		overflow: hidden;
+	}
+	#p-toplinks,
+	#p-personal {
+		display: none;
+	}
+	#mw-head-base {
+		height: 224px !important;
+	}
+	body:has(> #logoutContainer #pt-login) #mw-head-base {
+		height: 224px !important;
+	}
+	#right-navigation,
+	#left-navigation {
+		display: none;
+	}
+
+	#mobileDropdown #n-userTools,
+	#mobileDropdown #n-nav,
+	#mobileDropdown #n-extraNav,
+	#mobileDropdown #n-pageTools {
+		text-align: center;
+		margin: 0;
+		border: 3px solid var(--theme-page-background-color-dark--tertiary);
+		border-bottom: 0;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 1.6;
+	}
+
+	#mobileDropdown > .cframe-menu-content .cframe-menu-content-list .mw-list-item:first-child {
+		margin-top: 0;
+	}
+
+	#mobileDropdown > .cframe-menu-content .cframe-menu-content-list .mw-list-item:last-child {
+		margin-bottom: 0;
+	}
+	#mobileDropdown #mobilePageLinks .cframe-menu-content-list {
+		background-color: transparent;
+		float: none;
+	}
+	#mobilePageLinks nav {
+		float: none;
+	}
+	#mobilePageLinks #ca-watch a,
+	#mobilePageLinks #ca-unwatch a {
+		padding: 0;
+	}
+	#mobilePageLinks #ca-watch a::before,
+	#mobilePageLinks #ca-unwatch a::before {
+		padding: 0;
+		left: calc(50% - 9px);
+		top: calc(50% - 9px);
+	}
+	#mobileDropdown .cframe-menu-tabs li a {
+		padding: 0.8em 8px 0 8px;
+	}
+	#mobilePageLinks {
+		padding: 5px 0;
+		background-color: var(--theme-page-background-color-dark);
+		margin: 3px;
+		margin-top: 40px;
+	}
+
+	#mobilePageLinks .cframe-menu-content ul {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+	#mobilePageLinks .cframe-menu-content {
+		width: fit-content;
+		margin: auto;
+	}
+
+	#mobilePageLinks .cframe-menu-tabs {
+		height: unset;
+	}
+	#content {
+		padding-top: 0;
+	}
+
+	#firstHeading {
+		margin-left: 0 !important;
+	}
+	#mobileDropdown #searchform {
+		z-index: 1;
+		position: fixed;
+		width: 100%;
+		transition: width 0.5s;
+	}
+
+	#mobileDropdown #simpleSearch {
+		min-width: unset;
+	}
+
+	#mobileDropdown #searchInput {
+		transition: padding 0.5s;
+	}
+
+	#mobileDropdown.collapsed #searchform {
+		width: 0%;
+	}
+
+	#mobileDropdown.collapsed #searchInput {
+		padding: 0;
+		border: none !important;
+	}
+}
+
+@media (max-width: 800px) {
+	.infobox {
+		width: fit-content !important;
+		float: none !important;
+	}
+	.toc {
+		width: calc(100% - 16px);
+	}
+	#p-toplinks span {
+		font-size: 1.5em;
+	}
+	#p-personal span {
+		font-size: 0.9375em;
+	}
+}
+
+@media (max-width: 780px) {
+	#logoutContainer {
+		display: none;
+	}
+	#ca-logout {
+		display: inline !important;
+	}
+	#mobilePageLinks #pt-login,
+	#mobilePageLinks #pt-createaccount{
+		display: inline !important;
+	}
+	#p-logo {
+		left: 38px;
+	}
+}
+
+@media (max-width: 610px) {
+	#p-toplinks span {
+		font-size: 1.1em;
+	}
+	#p-personal span {
+		font-size: 0.6875em;
+	}
+	#p-personal .cframe-menu-content-list,
+	#p-toplinks .cframe-menu-content-list {
+		gap: 0;
+	}
+	#p-personal,
+	#p-toplinks {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	#mw-head-base {
+		height: 224px !important;
+	}
+	figure[typeof="mw:File/Thumb"] {
+		float: none !important;
+		margin: auto !important;
+	}
+}
+
+@media (max-width: 540px) {
+	#p-logo {
+		width: 15em !important;
+		height: 0.375em !important;
+	}
+	.mw-wiki-logo {
+		width: 15em !important;
+		height: 9.375em !important;
+	}
+	#mw-head-base {
+		height: 174px !important;
+	}
+	body:has(> #logoutContainer #pt-login) #mw-head-base {
+		height: 174px !important;
+	}
+	#mw-head {
+		margin-top: calc(-10px + 149px) !important;
+	}
+	#mobileDropdown {
+		top: 50px;
+		max-height: calc(100dvh - 50px);
+	}
+}
+
+@media (max-width: 470px) {
+	#notifContainer {
+		display: none;
+	}
+	#p-logo {
+		left: calc(50% - 120px);
+	}
+}
+
+@media (max-width: 450px) {
+	#p-toplinks span {
+		font-size: 1em;
+	}
+	#p-personal span {
+		font-size: 0.625em;
+	}
+}
+
+.mw-destfile-warning,
+div.mw-warning-with-logexcerpt,
+div.mw-lag-warn-high,
+div.mw-cascadeprotectedwarning,
+div#mw-protect-cascadeon,
+div.titleblacklist-warning,
+div.locked-warning {
+	background-color: var(--background-color-warning-subtle);
+	border-color: var(--border-color-warning);
+	color: var(--theme-page-text-color-dark);
+}
+
+body:has(> #logoutContainer #pt-login) #p-personal {
+	display: none;
+}
+
+body:has(> #logoutContainer #pt-login) #p-toplinks {
+	border-bottom: 1px solid var(--theme-page-background-color-dark--tertiary) !important;
+}
+
+body:has(> #logoutContainer #pt-login) #mw-head-base {
+	height: calc(4.5em + 25px + var(--logohei));
+}
+
+div:has(> #pt-login) #pt-createaccount,
+#logoutContainer > #pt-login {
+	background: var(--theme-page-background-color-dark--secondary);
+	border: 2px solid var(--theme-page-background-color-dark--tertiary);
+	border-radius: 5px;
+	margin: 10px;
+	padding: 5px;
+}
+
+#logoutContainer:has(> #pt-login) {
+	padding: 15px;
+}
+
+#mobilePageLinks #pt-login,
+#mobilePageLinks #pt-createaccount {
+	display:none;
+}
+
+.mw-dismissable-notice-body table {
+	width: unset !important;
+	margin-left: 0;
+	transition: margin 0.5s;
+}
+
+#content:has(> #mw-panel.expanded) .mw-dismissable-notice-body table {
+	margin-left: 12em;
+}
+
+.mw-dismissable-notice-close {
+	position: absolute;
+	right: 5px;
+	top: 10px;
+	color: var(--theme-page-text-color-light);
+}
+
+.mwe-popups {
+	border-image: url(https://forsaken.wiki/w/img_auth.php/2/2d/SideDescriptionUI.png)
+		round;
+	border-image-slice: 5.5% 5% 5% 5%;
+	border-image-width: 24px;
+	border-image-outset: 24px;
+	border-image-repeat: repeat;
+	margin: 0em 0 3em 2em !important;
+}
+
+.mwe-popups-container {
+	background-color: var(--theme-page-background-color-dark) !important;
+}
+
+.popups-icon--settings {
+	background-color: var(--theme-page-text-color-dark);
+}
+
+.mwe-popups-extract::after {
+	background-image: linear-gradient(
+		to right,
+		transparent,
+		var(--background-color-base, var(--theme-page-background-color-dark)) 50%
+	) !important;
+}
+
+.mwe-popups-discreet {
+	margin: 0;
+	border: 2px solid var(--theme-page-background-color-dark--tertiary);
+	background: var(--theme-background-color-accent);
+}
+
+.mwe-popups-extract {
+	color: var(--theme-page-text-color-dark) !important;
+}
+
+.popups-icon.popups-icon--reference-generic {
+	background-color: var(--theme-page-background-color-dark--tertiary);
+}
+#mw-editing-your-version {
+	border: 2px solid var(--theme-page-background-color-dark--tertiary);
+	background-color: var(--theme-page-background-color-dark--secondary);
+}
+
+.oo-ui-windowManager-modal > .oo-ui-dialog {
+	background-color: rgba(0, 0, 0, 0.65);
+}
+.oo-ui-windowManager-modal > .oo-ui-dialog > .oo-ui-window-frame,
+.mw-specialCiteThisPage-bibliographic {
+	background-color: var(--theme-page-background-color-dark--secondary);
+}
+.oo-ui-textInputWidget.oo-ui-widget-enabled
+	.oo-ui-inputWidget-input[readonly]:not(.oo-ui-pendingElement-pending) {
+	background-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.oo-ui-messageDialog-message,
+.oo-ui-labelWidget.oo-ui-inline-help {
+	color: var(--theme-page-text-color-dark);
+}
+
+@media print {
+	#notifContainer,
+	#logoutContainer,
+	#mw-panel,
+	#p-logo,
+	#panelCollapse,
+	#panelCollapseMobile {
+		display: none;
+	}
+
+	#bodyContent {
+		margin-left: 0;
+	}
+}
+.ext-discussiontools-init-publishedcomment {
+	background-color: var(--theme-page-background-color-dark--secondary);
+}
+
+.mw-search-visualclear {
+	clear: right;
+}
+.mw-search-profile-tabs {
+	height: 36.4px;
+	clear: none;
+}
+.mw-search-profile-tabs > div,
+#mw-searchoptions {
+	clear: none !important;
+}
+
+table.infobox tr th,
+table.infobox tr td {
+	width: 50%;
+}
+
+#pt-talk-alert {
+	display: none;
+}
+
+#siteNotice {
+	pointer-events: none;
+}
+
+.mw-dismissable-notice-close,
+.mw-dismissable-notice-body > table {
+	pointer-events: auto;
+}
+
+#editform {
+	clear: right;
+}
+
+#p-cactions-label {
+	height: 28px;
+	border-top: none;
+	padding-bottom: 0;
+	padding-top: 11px !important;
+}
+
+#p-cactions-label::after {
+	height: 16px;
+}
+
+#contentSub:not(:has(> *:not(#mw-content-subtitle))) #mw-content-subtitle,
+#contentSub2:not(:has(> *)) {
+	margin: 0;
+}
+
+.usermessage {
+	margin: 1em 0;
+	font-weight: bold;
+	padding: 0.5em 15px !important;
+	transition: margin 0.5s;
+}
+body:has(> #content #mw-panel.expanded):not(.rootpage-Main_Page) .usermessage {
+	margin-left: calc(12em - 24px);
+}
+body:has(> #content #mw-panel.collapsed):not(.rootpage-Main_Page) .usermessage {
+	margin-left: 0;
+}
+
+.mw-datatable,
+.wikitable {
+	max-width: 100%;
+	overflow: visible;
+	border: none;
+}
+
+.mw-mmv-post-image {
+	background-color: var(--theme-page-background-color-dark);
+}
+
+.mw-mmv-image-metadata {
+	background-color: var(--theme-page-background-color-dark--tertiary);
+	border-top-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.mw-mmv-post-image {
+	color: var(--theme-page-text-color-dark);
+}
+
+.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive {
+	color: var(--theme-page-text-color-dark) !important;
+}
+
+.oo-ui-icon-success {
+	filter: none;
+}
+
+.profile-avatar-image[src="//static.wikitide.net/damnationwiki/upv2avatars/default.png"],
+#current-avatar
+	img[src="//static.wikitide.net/damnationwiki/upv2avatars/default.png"] {
+	filter: invert();
+}
+
+.oo-ui-selectFileInputWidget.oo-ui-widget-enabled.oo-ui-selectFileInputWidget-dropTarget {
+	background-color: var(--theme-page-background-color-dark);
+	color: var(--theme-page-text-color-dark);
+}
+
+.profile-user-group {
+	background-color: var(--theme-page-background-color-dark--tertiary);
+}
+
+.oo-ui-window-head,
+.oo-ui-window-body {
+	color: var(--theme-page-text-color-dark);
+}
+
+#content::after {
+	clear: both;
+	display: block;
+	content: "";
+}
+
+.profile-externalLinks svg path {
+	stroke: var(--theme-page-text-color-dark);
+}
+
+.external-link.tooltip:hover::after {
+	background: var(--theme-page-background-color-dark--tertiary);
+}
+
+#mw-panel h3#p-tb-label {
+	padding-top: 0 !important;
+}
+
+.mw-enhancedchanges-checkbox + * .mw-enhancedchanges-arrow {
+	background-color: var(--theme-page-text-color-dark);
+}
+
+.cframe-user-menu #pt-anonuserpage,
+.cframe-user-menu #pt-userpage a {
+	padding-left: 0 !important;
+	padding-top: 0 !important;
+}
+
+/* per doggo's request */
+div.tabber table {
+	margin-left: 1px !important;
+}
+
+.home-header {
+	animation-timeline: scroll();
+}
+.searchButton {
+	width: 5em;
+	margin-top: -0.6px;
+
+	background-color: fade(#cbcbcb, 7%) !important;
+	border-left: 1px solid #ababab !important;
+	border-radius: 0px 0px 6px 0px !important;
+}
+.home-header__title {
+	font-size: var(--home-header-title-font-size) !important;
+}
+.home-header__subtitle {
+	font-size: var(--home-header-subtitle-font-size) !important;
+}
+.mw-collapsible-toggle.mw-collapsible-toggle-collapsed:before {
+	transform: rotate3d(1, 0, 0, 180deg);
+}
+.mw-content-ltr.mw-highlight-lines pre,
+.mw-content-ltr.content .mw-highlight-lines pre {
+	padding-left: 3.5em;
+	box-shadow: inset 2.75em 0 0 #27292d !important;
+}
+.mw-highlight-copy--bound button {
+	border-radius: 4px;
+	background: #101418;
+	color: #36c;
+	border: 1px solid #404244 !important;
+}
+.mw-highlight-copy--bound button:hover {
+	cursor: pointer;
+	color: #a6bbf5;
+	background: #202122;
+	border-color: #88a3e8;
+}
+.mw-highlight-copy--bound button:active {
+	color: #b6d4fb;
+	background: #27292d;
+	border-color: #a6bbf5;
+}
+.bordertable {
+	border-image: url(https://forsaken.wiki/w/img_auth.php/2/2d/SideDescriptionUI.png)
+		round !important;
+	border-image-slice: 5.5% 5% 5% 5% !important;
+	border-image-width: 10px !important;
+	border-image-outset: 10px !important;
+	border-image-repeat: repeat !important;
+}
+.tabletitle {
+	clip-path: var(--header-clip-path);
+}
+
+.p-Forsaken-label,
+.p-Gameplay-label,
+.p-More-label {
+	padding-top: 3px !important;
+}
+.tabber__tab,
+.tabber__tab:visited {
+	box-shadow: none !important;
+	border: 1px solid #444;
+	border-bottom: none;
+	color: var(--theme-page-text-color-dark) !important;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	position: relative;
+	margin: 0 1px 1px;
+	opacity: 0.7;
+	font-weight: normal;
+	font-size: 0.9rem;
+	transition: padding 0.5s;
+}
+.tabber__tab[aria-selected="true"],
+.tabber__tab[aria-selected="true"]:visited {
+	background: var(--theme-page-background-color-dark);
+	border-color: #777;
+	font-weight: bold;
+	opacity: 1;
+	padding: 0.55em 1em;
+}
+.mw-advancedSearch-fieldContainer {
+	background: var(--theme-page-background-color-dark--secondary);
+}
+.mw-advancedSearch-fieldContainer
+	.oo-ui-labelElement
+	> .oo-ui-fieldsetLayout-header
+	> .oo-ui-labelElement-label {
+	background: var(--theme-page-background-color-dark--secondary);
+}
+.ext-floatingui-floating-content:has(.characterAppearanceFloatingContent) {
+	background-color: #0c0c0d;
+	color: black !important;
+}
+.ext-floatingui-floating-inner:has(.characterAppearanceFloatingContent) {
+	border-color: #4e4e52;
+}
+.ext-floatingui-floating-inner:has(.characterAppearanceFloatingContent)
+	.ext-floatingui-floating-arrow {
+	background-color: #0c0c0d;
+}
+
+h3#p-Gameplay-label,
+h3#p-Forsaken-label,
+h3#p-Wiki-label {
+	margin-top: -0.2em !important;
+}
+/* CSS for the messages from Big Miraheze */
+.mw-dismissable-notice-body > table {
+	background:white !important;
+	border:4px solid #0f0c2e !important;
+	margin:20px;
+	padding:0 !important;
+	color:white !important;
+}
+.mw-dismissable-notice-body > table > tbody {
+	margin:2px;
+	background:radial-gradient(#ad7f00, #d19a00) !important;
+	padding:10px;
+	display:block;
+}
+.mw-dismissable-notice-body div {
+	color:white !important;
+}
+.mw-dismissable-notice-body table td[rowspan="2"] div {
+	margin-top:-20px;
+}
+.mw-dismissable-notice-body img {
+	height:100px !important;
+	width:100px !important;
+	transform:scaleX(-1);
+}
+#content:has(#firstHeading) #bodyContent {
+	border-top:0;
+}
