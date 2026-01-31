@@ -15,6 +15,8 @@ function main() {
 	pageReady.loadSearchModule( 'mediawiki.searchSuggest' );
 	teleportTarget.classList.add( 'cframe-body' );
 
+	document.documentElement.classList.add('skin-theme-clientpref-night');
+
 	document.querySelector('#mobileDropdown').addEventListener("click", (event) => event.stopPropagation());
 
 	const collapse = document.querySelector("#panelCollapse");
@@ -51,14 +53,14 @@ function main() {
 
 	if (state == true) {
 		sidebar.setAttribute("class", "cframe-sidebar collapsed");
-		document.documentElement.classList.add("defaultCollapsed");
+		document.body.classList.add("defaultCollapsed");
 	} else if (screen.width <= 980) {
 		sidebar.setAttribute("class", "cframe-sidebar collapsed");
-		document.documentElement.classList.add("defaultCollapsed");
+		document.body.classList.add("defaultCollapsed");
 		state = true;
 	} else if (state == false) {
 		sidebar.setAttribute("class", "cframe-sidebar expanded");
-		document.documentElement.classList.add("defaultExpanded");
+		document.body.classList.add("defaultExpanded");
 	}
 
 	collapse.addEventListener("click", () => {

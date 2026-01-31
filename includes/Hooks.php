@@ -520,7 +520,6 @@ class Hooks implements
 		$services = MediaWikiServices::getInstance();
 		$featureManagerFactory = $services->getService( 'Vector.FeatureManagerFactory' );
 		$featureManager = $featureManagerFactory->createFeatureManager( RequestContext::getMain() );
-		$isNightModeEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_NIGHT_MODE );
 
 		$vectorPrefs = [
 			Constants::PREF_KEY_PAGE_TOOLS_PINNED => [

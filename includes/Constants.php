@@ -251,11 +251,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const PREF_KEY_NIGHT_MODE = 'vector-theme';
-
-	/**
-	 * @var string
-	 */
 	public const REQUIREMENT_PREF_NIGHT_MODE = 'PrefNightMode';
 
 	/**

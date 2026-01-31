@@ -234,7 +234,7 @@ class SkinCFrame extends SkinMustache {
 				// is primary mode of search
 				true,
 				'searchform',
-				//json_encode($parentData),
+				//json_encode(Constants::CONFIG_KEY_NIGHT_MODE),
 				//json_encode($parentData),
 				true,
 				$this->getConfig(),

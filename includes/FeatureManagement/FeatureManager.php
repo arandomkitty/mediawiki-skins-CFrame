@@ -191,29 +191,6 @@ class FeatureManager {
 					$suffixEnabled = 'clientpref-' . $this->getUserPreferenceValue( CONSTANTS::PREF_KEY_FONT_SIZE );
 					$suffixDisabled = 'clientpref-0';
 					break;
-				// This feature has 4 possible states: day, night, os and -excluded.
-				// It persists for all users.
-				case CONSTANTS::PREF_NIGHT_MODE:
-					// if night mode is disabled for the page, add the exclude class instead and return early
-					if ( ConfigHelper::shouldDisable( $config->get( 'VectorNightModeOptions' ), $request, $title ) ) {
-						// The additional "-" prefix, makes this an invalid client preference for anonymous users.
-						return 'skin-theme-clientpref--excluded';
-					}
-
-					$prefix = '';
-					$valueRequest = $request->getRawVal( 'vectornightmode' );
-					// If night mode query string is used, hardcode pref value to the night mode value
-					// NOTE: The query string parameter only works for logged in users.
-					// IF you have set a cookie locally this will be overriden.
-					$value = $valueRequest !== null ? self::resolveNightModeQueryValue( $valueRequest ) :
-						$this->getUserPreferenceValue( CONSTANTS::PREF_KEY_NIGHT_MODE );
-					$suffixEnabled = 'clientpref-' . $value;
-					$suffixDisabled = 'clientpref-day';
-					// Must be hardcoded to 'skin-theme-' to be consistent with Minerva
-					// So that editors can target the same class across skins
-					$prefix .= 'skin-theme-';
-					break;
-				// These features persist for all users and have two valid states: 0 and 1.
 				case CONSTANTS::FEATURE_LIMITED_WIDTH:
 				case CONSTANTS::FEATURE_TOC_PINNED:
 				case CONSTANTS::FEATURE_APPEARANCE_PINNED:

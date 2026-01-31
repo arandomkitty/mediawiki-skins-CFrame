@@ -1,6 +1,5 @@
 /* All CSS here will be loaded for users of the Vector skin */
 /* Common.css failback (dang thing fails to load)*/
-@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 @font-face {
 	font-display: swap;
 	font-family: "Accanthis ADF Std";
@@ -88,7 +87,7 @@
 	background:var(--theme-page-background-color-dark--secondary);
 }
 
-.oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
+html .oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
 	padding-bottom:35px;
 }
 
@@ -484,10 +483,10 @@ td.navbox-list {
 		--theme-page-background-color-dark--secondary
 	) !important;
 }
-.mw-echo-ui-notificationItemWidget,
-.oo-ui-popupWidget-popup,
-.oo-ui-buttonElement-button:not(.mw-echo-notifications-badge),
-.mw-echo-ui-placeholderItemWidget {
+html .mw-echo-ui-notificationItemWidget,
+html .oo-ui-popupWidget-popup,
+html .oo-ui-buttonElement-button:not(.mw-echo-notifications-badge),
+html .mw-echo-ui-placeholderItemWidget {
 	background-color: var(--theme-page-background-color-dark) !important;
 	color: var(--theme-page-text-color-dark);
 	border-color: var(--theme-page-background-color-dark--tertiary);
@@ -512,7 +511,7 @@ td.navbox-list {
 pre {
 	background-color: #202122;
 	color: var(--theme-page-text-color-dark);
-	border: 1px solid #40424475 !important;
+	border: 1px solid fade(#404244, 46%) !important;
 }
 
 #footer-icons a {
@@ -597,7 +596,7 @@ pre {
 }
 
 #p-search #simpleSearch {
-	width: calc(100vw - 20vw - 370px - 70px - 10px);
+	width: calc(100vw - 20vw - 370px - 70px - 30px);
 	height: 100%;
 	margin-left: 0;
 	max-width: unset;
@@ -857,16 +856,15 @@ li.gallerybox div.thumb {
 	color: var(--theme-page-text-color-dark);
 }
 
-.wikiEditor-ui .wikiEditor-ui-view {
-	border-color: var(--theme-page-background-color-dark--tertiary);
+html .wikiEditor-ui {
+	.wikiEditor-ui-view,
+	.wikiEditor-ui-top {
+		border-color: var(--theme-page-background-color-dark--tertiary);
+	}
 }
 
-.wikiEditor-ui-toolbar {
+html .wikiEditor-ui-toolbar {
 	background-color: var(--theme-page-background-color-dark--secondary);
-}
-
-.wikiEditor-ui .wikiEditor-ui-top {
-	border-color: var(--theme-page-background-color-dark--tertiary);
 }
 
 .editOptions {
@@ -880,13 +878,13 @@ li.gallerybox div.thumb {
 	filter: none;
 }
 
-.oo-ui-textInputWidget .oo-ui-inputWidget-input {
+html .oo-ui-textInputWidget .oo-ui-inputWidget-input {
 	border-color: var(--theme-page-background-color-dark--tertiary);
 	background-color: var(--theme-page-background-color-dark--secondary);
 	color: var(--theme-page-text-color-dark);
 }
 
-.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
+html .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
 	color: var(--theme-page-text-color-dark) !important;
 	border-color: var(--theme-page-background-color-dark--tertiary);
 }
@@ -896,79 +894,70 @@ li.gallerybox div.thumb {
 		--theme-page-background-color-dark--secondary
 	) !important;
 }
+html {
 
-.oo-ui-popupToolGroup-tools,
-.oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active > .oo-ui-tool-link,
-.wikiEditor-ui-toolbar .group .tool-select .menu .options .option,
-.oo-ui-dropdownWidget.oo-ui-widget-enabled.oo-ui-dropdownWidget-open
-	.oo-ui-dropdownWidget-handle,
-.oo-ui-menuSelectWidget,
-.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined,
-.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined
-	.oo-ui-tagItemWidget.oo-ui-widget-enabled,
-.mw-rcfilters-ui-filterMenuHeaderWidget-header,
-.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted:not(
-		.oo-ui-optionWidget-selected
-	),
-.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined
-	.mw-rcfilters-ui-tagItemWidget-selected.oo-ui-tagItemWidget.oo-ui-widget-enabled,
-html.skin-theme-clientpref-night .ext-discussiontools-ui-replyWidget-preview,
-.ve-ui-targetWidget:not(.oo-ui-pendingElement-pending),
-.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-notice,
-.codeEditor-status,
-.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:hover {
-	background-color: var(--theme-page-background-color-dark--secondary);
-	color: var(--theme-page-text-color-dark);
-}
-
-.oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:hover,
-.wikiEditor-ui-toolbar .booklet > .index > .current,
-.wikiEditor-ui-toolbar .booklet > .index > :hover,
-.wikiEditor-ui-toolbar .page-characters div span,
-.wikiEditor-ui-toolbar .page-characters div span:hover,
-.wikiEditor-ui-toolbar .group .tool-select .menu .options .option:hover,
-.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle,
-.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected,
-.oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget-highlighted,
-.mw-rcfilters-container
-	.mw-rcfilters-ui-filterTagMultiselectWidget.oo-ui-widget-enabled
-	.oo-ui-tagMultiselectWidget-handle,
-.mw-rcfilters-ui-filterMenuSectionOptionWidget,
-.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected,
-.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
-.oo-ui-menuOptionWidget.oo-ui-optionWidget-pressed.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
-.mw-rcfilters-ui-menuSelectWidget-footer,
-.diff-context {
-	background-color: var(--theme-page-background-color-dark);
-	color: var(--theme-page-text-color-dark);
-}
-
-.wikiEditor-ui-toolbar .page-table th,
-.wikiEditor-ui-toolbar .page-table td,
-.wikiEditor-ui-toolbar .group .label,
-.oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget,
-.mw-rcfilters-container
-	.mw-rcfilters-ui-filterTagMultiselectWidget-wrapper-content-title,
-.mw-rcfilters-ui-tagItemWidget-popup-content,
-.mw-rcfilters-ui-filterMenuHeaderWidget-title,
-.mw-rcfilters-ui-filterMenuSectionOptionWidget-header-title.oo-ui-labelElement-label,
-.mw-rcfilters-ui-tagItemWidget.oo-ui-flaggedElement-muted.oo-ui-tagItemWidget.oo-ui-widget-enabled
-	.oo-ui-labelElement-label,
-.mw-rcfilters-ui-itemMenuOptionWidget-label-title,
-.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted
+	.oo-ui-popupToolGroup-tools,
+	.oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active > .oo-ui-tool-link,
+	.wikiEditor-ui-toolbar .group .tool-select .menu .options .option,
+	.oo-ui-dropdownWidget.oo-ui-widget-enabled.oo-ui-dropdownWidget-open .oo-ui-dropdownWidget-handle,
+	.oo-ui-menuSelectWidget,
+	.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined,
+	.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined .oo-ui-tagItemWidget.oo-ui-widget-enabled,
+	.mw-rcfilters-ui-filterMenuHeaderWidget-header,
+	.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted:not(.oo-ui-optionWidget-selected),
+	.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined .mw-rcfilters-ui-tagItemWidget-selected.oo-ui-tagItemWidget.oo-ui-widget-enabled,
+	.ext-discussiontools-ui-replyWidget-preview,
+	.ve-ui-targetWidget:not(.oo-ui-pendingElement-pending),
+	.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-notice,
+	.codeEditor-status,
+	.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:hover {
+		background-color: var(--theme-page-background-color-dark--secondary);
+		color: var(--theme-page-text-color-dark);
+	}
+	
+	.oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:hover,
+	.wikiEditor-ui-toolbar .booklet > .index > .current,
+	.wikiEditor-ui-toolbar .booklet > .index > :hover,
+	.wikiEditor-ui-toolbar .page-characters div span,
+	.wikiEditor-ui-toolbar .page-characters div span:hover,
+	.wikiEditor-ui-toolbar .group .tool-select .menu .options .option:hover,
+	.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle,
+	.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected,
+	.oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget-highlighted,
+	.mw-rcfilters-container .mw-rcfilters-ui-filterTagMultiselectWidget.oo-ui-widget-enabled .oo-ui-tagMultiselectWidget-handle,
+	.mw-rcfilters-ui-filterMenuSectionOptionWidget,
+	.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected,
+	.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
+	.oo-ui-menuOptionWidget.oo-ui-optionWidget-pressed.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
+	.mw-rcfilters-ui-menuSelectWidget-footer,
+	.diff-context {
+		background-color: var(--theme-page-background-color-dark);
+		color: var(--theme-page-text-color-dark);
+	}
+	
+	.wikiEditor-ui-toolbar .page-table th,
+	.wikiEditor-ui-toolbar .page-table td,
+	.wikiEditor-ui-toolbar .group .label,
+	.oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget,
+	.mw-rcfilters-container .mw-rcfilters-ui-filterTagMultiselectWidget-wrapper-content-title,
+	.mw-rcfilters-ui-tagItemWidget-popup-content,
+	.mw-rcfilters-ui-filterMenuHeaderWidget-title,
+	.mw-rcfilters-ui-filterMenuSectionOptionWidget-header-title.oo-ui-labelElement-label,
+	.mw-rcfilters-ui-tagItemWidget.oo-ui-flaggedElement-muted.oo-ui-tagItemWidget.oo-ui-widget-enabled .oo-ui-labelElement-label,
 	.mw-rcfilters-ui-itemMenuOptionWidget-label-title,
-.mw-rcfilters-ui-viewSwitchWidget label.oo-ui-labelWidget,
-.oo-ui-tabOptionWidget {
-	color: var(--theme-page-text-color-dark);
-}
-
-.mw-editform .editOptions,
-.wikiEditor-ui-toolbar .sections .section,
-.wikiEditor-ui-toolbar .group,
-.wikiEditor-ui-toolbar .section-secondary .group,
-.ext-WikiEditor-twopanes-TwoPaneLayout .ext-WikiEditor-twopanes-pane1,
-.ext-WikiEditor-twopanes-TwoPaneLayout .ext-WikiEditor-twopanes-pane2 {
-	border-color: var(--theme-page-background-color-dark--tertiary);
+	.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted .mw-rcfilters-ui-itemMenuOptionWidget-label-title,
+	.mw-rcfilters-ui-viewSwitchWidget label.oo-ui-labelWidget,
+	.oo-ui-tabOptionWidget {
+		color: var(--theme-page-text-color-dark);
+	}
+	.mw-editform .editOptions,
+	.wikiEditor-ui-toolbar .sections .section,
+	.wikiEditor-ui-toolbar .group,
+	.wikiEditor-ui-toolbar .section-secondary .group,
+	.ext-WikiEditor-twopanes-TwoPaneLayout .ext-WikiEditor-twopanes-pane1,
+	.ext-WikiEditor-twopanes-TwoPaneLayout .ext-WikiEditor-twopanes-pane2 {
+		border-color: var(--theme-page-background-color-dark--tertiary);
+	}
 }
 
 .oo-ui-dropdownWidget.oo-ui-widget-disabled .oo-ui-dropdownWidget-handle {
@@ -978,8 +967,8 @@ html.skin-theme-clientpref-night .ext-discussiontools-ui-replyWidget-preview,
 	border-color: var(--theme-page-background-color-dark--tertiary);
 }
 
-.CodeMirror-gutters,
-.ext-WikiEditor-ResizingDragBar {
+html .CodeMirror-gutters,
+html .ext-WikiEditor-ResizingDragBar {
 	border-color: var(--theme-page-background-color-dark--tertiary);
 	background-color: var(--theme-page-background-color-dark);
 }
@@ -992,13 +981,13 @@ html.skin-theme-clientpref-night .ext-discussiontools-ui-replyWidget-preview,
 	background-color: var(--theme-page-background-color-dark);
 }
 
-.mw-rcfilters-ui-itemMenuOptionWidget:not(:last-child):not(
+html .mw-rcfilters-ui-itemMenuOptionWidget:not(:last-child):not(
 		.mw-rcfilters-ui-itemMenuOptionWidget-identifier-talk
 	) {
 	border-color: var(--theme-page-background-color-dark--tertiary);
 }
 
-.mw-rcfilters-ui-changesListWrapperWidget .mw-changeslist-legend {
+html .mw-rcfilters-ui-changesListWrapperWidget .mw-changeslist-legend {
 	border-color: var(--theme-page-background-color-dark--tertiary);
 	background-color: var(--theme-page-background-color-dark--secondary);
 }
@@ -1041,19 +1030,19 @@ ul {
 	clear: right;
 }
 
-.oo-ui-tabSelectWidget-framed {
+html .oo-ui-tabSelectWidget-framed {
 	background-color: var(--theme-page-background-color-dark--secondary);
 	padding-bottom: 6px;
 }
 
-.oo-ui-tabOptionWidget {
+html .oo-ui-tabOptionWidget {
 	background: linear-gradient(
 		var(--theme-background-color-accent),
 		var(--theme-page-background-color-dark)
 	);
 }
 
-.oo-ui-tabSelectWidget-framed
+html .oo-ui-tabSelectWidget-framed
 	> .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
 	background: linear-gradient(
 		var(--theme-page-header-color-gradient),
@@ -1061,12 +1050,12 @@ ul {
 	);
 }
 
-.oo-ui-tabSelectWidget-framed
+html .oo-ui-tabSelectWidget-framed
 	.oo-ui-tabOptionWidget.oo-ui-widget-enabled:hover {
 	color: #7a7a7a;
 }
 
-.oo-ui-tabSelectWidget-framed
+html .oo-ui-tabSelectWidget-framed
 	.oo-ui-tabOptionWidget.oo-ui-optionWidget-selected
 	.oo-ui-labelElement-label {
 	border-color: transparent;
@@ -1160,36 +1149,36 @@ code {
 .oo-ui-image-invert {
 	filter: none;
 }
+html {
+	.oo-ui-textInputWidget.oo-ui-widget-disabled .oo-ui-inputWidget-input,
+	.mw-widgets-datetime-dateTimeInputWidget-handle,
+	.mw-widgets-datetime-calendarWidget,
+	.mw-widget-dateInputWidget-handle,
+	.mw-widget-dateInputWidget-calendar,
+	.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled,
+	#preferences .mw-htmlform-submit-buttons,
+	.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:hover td,
+	.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:nth-child(2n) td,
+	.suggestions-special,
+	.suggestions-results,
+	.mw-changeslist-legend {
+		background-color: var(--theme-page-background-color-dark--secondary);
+		color: var(--theme-page-text-color-dark);
+		text-shadow: none;
+	}
 
-.oo-ui-textInputWidget.oo-ui-widget-disabled .oo-ui-inputWidget-input,
-.mw-widgets-datetime-dateTimeInputWidget-handle,
-.mw-widgets-datetime-calendarWidget,
-.mw-widget-dateInputWidget-handle,
-.mw-widget-dateInputWidget-calendar,
-.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled,
-#preferences .mw-htmlform-submit-buttons,
-.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:hover td,
-.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:nth-child(2n) td,
-.suggestions-special,
-.suggestions-results,
-.mw-changeslist-legend {
-	background-color: var(--theme-page-background-color-dark--secondary);
-	color: var(--theme-page-text-color-dark);
-	text-shadow: none;
+	.mw-widget-calendarWidget-day,
+	.cdx-message,
+	.suggestions-special .special-label,
+	.suggestions-special .special-query,
+	.suggestions-result {
+		color: var(--theme-page-text-color-dark);
+	}
 }
-
-.mw-widget-calendarWidget-day,
-.cdx-message,
-.suggestions-special .special-label,
-.suggestions-special .special-query,
-.suggestions-result {
-	color: var(--theme-page-text-color-dark);
-}
-
-.mw-echo-ui-pageNotificationsOptionWidget.oo-ui-optionWidget-selected,
-.mw-echo-ui-notificationsInboxWidget-toolbarWrapper,
-.mw-search-profile-tabs,
-#mw-searchoptions {
+html .mw-echo-ui-pageNotificationsOptionWidget.oo-ui-optionWidget-selected,
+html .mw-echo-ui-notificationsInboxWidget-toolbarWrapper,
+html .mw-search-profile-tabs,
+html #mw-searchoptions {
 	background-color: var(--theme-page-background-color-dark--secondary);
 }
 
@@ -1377,14 +1366,14 @@ body:has(> #content #mw-panel.collapsed)
 	transition: margin 0.5s;
 }
 
-html.defaultExpanded #firstHeading,
-html.defaultExpanded #bodyContent {
+body.defaultExpanded #firstHeading,
+body.defaultExpanded #bodyContent {
 	animation: 0.5s 1 widthSetOpen;
 	animation-timing-function: steps(1, jump-end);
 }
 
-html.defaultCollapsed #firstHeading,
-html.defaultCollapsed #bodyContent {
+body.defaultCollapsed #firstHeading,
+body.defaultCollapsed #bodyContent {
 	animation: 0.5s 1 widthSetClosed;
 	animation-timing-function: steps(1, jump-end);
 }
@@ -1754,17 +1743,18 @@ html.defaultCollapsed #bodyContent {
 		font-size: 0.625em;
 	}
 }
-
-.mw-destfile-warning,
-div.mw-warning-with-logexcerpt,
-div.mw-lag-warn-high,
-div.mw-cascadeprotectedwarning,
-div#mw-protect-cascadeon,
-div.titleblacklist-warning,
-div.locked-warning {
-	background-color: var(--background-color-warning-subtle);
-	border-color: var(--border-color-warning);
-	color: var(--theme-page-text-color-dark);
+html {
+	.mw-destfile-warning,
+	div.mw-warning-with-logexcerpt,
+	div.mw-lag-warn-high,
+	div.mw-cascadeprotectedwarning,
+	div#mw-protect-cascadeon,
+	div.titleblacklist-warning,
+	div.locked-warning {
+		background-color: var(--background-color-warning-subtle);
+		border-color: var(--border-color-warning);
+		color: var(--theme-page-text-color-dark);
+	}
 }
 
 body:has(> #logoutContainer #pt-login) #p-personal {
@@ -2172,4 +2162,7 @@ h3#p-Wiki-label {
 }
 #content:has(#firstHeading) #bodyContent {
 	border-top:0;
+}
+.mw-portlet-managewiki-sidebar-header a {
+	text-wrap: wrap;
 }

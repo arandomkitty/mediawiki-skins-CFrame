@@ -77,8 +77,7 @@
 		"vector-main-menu-pinned": 1,
 		"vector-toc-pinned": 1,
 		"vector-appearance-pinned": 1,
-		"vector-font-size": 0,
-		"vector-theme": "day"
+		"vector-font-size": 0
 	},
 	"HookHandlers": {
 		"VectorHooks": {
