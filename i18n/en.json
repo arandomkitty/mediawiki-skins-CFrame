@@ -4,7 +4,7 @@
 	},
 	"skinname-cframe": "CFrame",
 	"cframe-specialversion-name": "CFrame",
-	"cframe-skin-desc": "Provides 2 Vector skins:\n* 2011 - The Modern version of MonoBook with fresh look and many usability improvements.\n* 2022 - The Vector built as part of the WMF [https://www.mediawiki.org/wiki/Desktop_Improvements Desktop Improvements] project.",
+	"cframe-skin-desc": "A fork of Vector Legacy made to look like the legacy Roblox webpage.",
 	"prefs-cframe-enable-cframe-1-label": "Use Legacy Vector",
 	"prefs-cframe-enable-cframe-1-help": "Over the next few years, we will be gradually updating the Vector skin. Legacy Vector will allow you to view the old version of Vector (as of December 2019). To learn more about the updates, go to our [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements project page].",
 	"cframe.css": "/* All CSS here will be loaded for users of the CFrame skin */",

@@ -1,13 +1,14 @@
 {
 	"name": "CFrame",
-	"version": "1.0.0",
+	"version": "–",
 	"author": "Kittygirl65477",
 	"descriptionmsg": "cframe-skin-desc",
 	"namemsg": "cframe-specialversion-name",
+	"url": "https://github.com/arandomkitty/mediawiki-skins-CFrame",
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.44"
+		"MediaWiki": ">= 1.45"
 	},
 	"ValidSkinNames": {
 		"cframe": {
