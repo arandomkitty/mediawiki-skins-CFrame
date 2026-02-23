@@ -41,46 +41,9 @@
 		color-scheme: dark;
 	}
 }
-.home-header::before {
-	background-image: url("./Others/LoadingScreen_ThumbnailDark.png") !important;
-}
-.embedvideo-loader__footer {
-	backdrop-filter: blur(8px);
-}
-.home-header__inner {
-	backdrop-filter: blur(0px);
-}
-.update {
-	background-image: url("./Others/C00lestChristmasBanner.webp") !important;
-}
-.update-text {
-	backdrop-filter: blur(5px);
-}
-
 #mw-content-text img:not(td.mbox-image img) {
 	max-width: 100%;
 	height: auto;
-}
-
-.home-gameinfo-list-item + .home-gameinfo-list-item {
-	margin-left: var( --space-sm );
-	padding-left: var( --space-sm );
-}
-
-.home-navigation__card {
-	border-image-source: url("./Others/SideDescriptionUI.png") !important;
-}
-
-.home-navigation__card-text-container {
-    border-image-source: url("./Others/SideDescriptionUI.png") !important;
-}
-
-.mp-mainrail-content.mp-mainrail-content__lu {
-	background-image: url("./Others/C00lestChristmasBanner.webp") !important;
-}
-
-.mp-mainrail-content__lu-text {
-	backdrop-filter: blur(3px);
 }
 
 .mw-prefs-tabs.mw-prefs-tabs-searching .oo-ui-tabPanelLayout.mw-prefs-search-matched > fieldset > legend {
@@ -615,16 +578,6 @@ pre {
 	color: #fff !important;
 }
 
-:not(#mobilePageLinks) > .cframe-menu-tabs li[id^="ca-nstab"] > a,
-:not(#mobilePageLinks) > .cframe-menu-tabs #ca-view > a,
-body:has(#bodyContent > #mw-content-text > .noarticletext)
-	:not(#mobilePageLinks)
-	> .cframe-menu-tabs
-	#ca-edit
-	> a {
-	border-bottom-left-radius: 6px;
-}
-
 :not(#mobilePageLinks) > .cframe-menu-tabs #ca-view,
 :not(#mobilePageLinks) > .cframe-menu-tabs li[id^="ca-nstab"] {
 	margin-left: 5px;
@@ -633,11 +586,6 @@ body:has(#bodyContent > #mw-content-text > .noarticletext)
 :not(#mobilePageLinks) > .cframe-menu-tabs #ca-watch,
 :not(#mobilePageLinks) > .cframe-menu-tabs #ca-unwatch {
 	margin-right: 5px;
-}
-
-:not(#mobilePageLinks) > .cframe-menu-tabs #ca-watch > a,
-:not(#mobilePageLinks) > .cframe-menu-tabs #ca-unwatch > a {
-	border-bottom-right-radius: 6px;
 }
 
 .cframe-menu-tabs li a {
@@ -688,7 +636,7 @@ nav .cframe-menu-heading {
 #firstHeading {
 	padding-left: 15px;
 	margin-top: 10px;
-	margin-bottom: 0;
+	margin-bottom: -1px;
 	background: linear-gradient(
 		var(--theme-page-header-color-gradient),
 		var(--theme-page-background-color-dark--tertiary)
@@ -823,7 +771,7 @@ div.mw-warning-with-logexcerpt {
 }
 
 .mw-wiki-logo {
-	background-image: url("./Others/ForsakenLogoFinal.png");
+	//background-image: url("./Others/ForsakenLogoFinal.png");
 	width: var(--logowid) !important;
 	height: var(--logohei) !important;
 	background-size: 90%;
@@ -1903,10 +1851,6 @@ table.infobox tr td {
 	display: none;
 }
 
-#siteNotice {
-	pointer-events: none;
-}
-
 .mw-dismissable-notice-close,
 .mw-dismissable-notice-body > table {
 	pointer-events: auto;
@@ -1971,12 +1915,6 @@ body:has(> #content #mw-panel.collapsed):not(.rootpage-Main_Page) .usermessage {
 
 .oo-ui-icon-success {
 	filter: none;
-}
-
-.profile-avatar-image[src="//static.wikitide.net/damnationwiki/upv2avatars/default.png"],
-#current-avatar
-	img[src="//static.wikitide.net/damnationwiki/upv2avatars/default.png"] {
-	filter: invert();
 }
 
 .oo-ui-selectFileInputWidget.oo-ui-widget-enabled.oo-ui-selectFileInputWidget-dropTarget {
@@ -2134,6 +2072,11 @@ h3#p-Forsaken-label,
 h3#p-Wiki-label {
 	margin-top: -0.2em !important;
 }
+
+.cdx-button:enabled.cdx-button--weight-quiet:hover, .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet:hover {
+	mix-blend-mode: exclusion;
+}
+
 /* CSS for the messages from Big Miraheze */
 .mw-dismissable-notice-body > table {
 	background:white !important;
@@ -2159,9 +2102,17 @@ h3#p-Wiki-label {
 	width:100px !important;
 	transform:scaleX(-1);
 }
-#content:has(#firstHeading) #bodyContent {
-	border-top:0;
-}
 .mw-portlet-managewiki-sidebar-header a {
 	text-wrap: wrap;
+}
+
+/* Ensures that corners are properly applied to the top bar icons. */
+#p-views:not(#mobilePageLinks) .cframe-menu-content-list .mw-list-item:first-of-type a {
+	border-bottom-left-radius:6px;
+}
+#p-views:not(#mobilePageLinks) .cframe-menu-content-list .mw-list-item:last-of-type a {
+	border-bottom-right-radius:6px;
+}
+#p-namespaces:not(#mobilePageLinks) .cframe-menu-content-list .mw-list-item:first-of-type a {
+	border-bottom-left-radius:6px;
 }
