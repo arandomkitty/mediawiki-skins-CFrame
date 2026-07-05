@@ -1,5 +1,3 @@
-/* All CSS here will be loaded for users of the Vector skin */
-/* Common.css failback (dang thing fails to load)*/
 @font-face {
 	font-display: swap;
 	font-family: "Accanthis ADF Std";
@@ -78,39 +76,54 @@ html .oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
 	border-image-outset: 24px 24px 24px 24px;
 	border-image-repeat: repeat repeat;
 	margin: 24px;
-	color: var(--color-base);
+	color: white;
 }
 
-/* Written by Kittygirl65477 */
-/*Used Urbanshade.org as a base for root style colors (thing below), a lot of stuff in it unused lol*/
+/* Written by DoggoWhoAsked (more recently) and Kittygirl65477 */
 :root {
-	--theme-link-color-light: #36c;
-	--theme-link-color-light--hover: #2952a3;
-	--theme-link-color-light--red: #c00;
-	--theme-page-background-color-light: #f5f1e5;
-	--theme-page-background-color-light--secondary: #e6caa6;
-	--theme-page-background-color-light--tertiary: #f7eee3;
-	--theme-page-text-color-light: #3a3a3a;
-	--theme-link-color-dark: #3f6fcf;
-	--theme-link-color-dark--hover: #3162c3;
-	--theme-link-color-dark--red: #c00;
-	--theme-page-background-color-dark: #151515;
-	--theme-page-background-color-dark--secondary: #0a0a0a;
-	--theme-page-background-color-dark--tertiary: #777777;
-	--theme-page-text-color-dark: #e6e6e6;
-	--theme-page-header-color-gradient: #eeeeee;
-	--theme-background-color-main: #1c1c1c;
-	--theme-background-color-accent: #2a2a2a;
-	--theme-background-image-dark: url("./Others/Wiki_Skybox.png");
-	--theme-background-color-content-removed: #9637ef;
-	--theme-background-color-content-added: #1c7e56;
-	--logowid: 25em;
-	--logohei: 15.625em;
-	--home-header-title-font-size: clamp(1.5rem, calc(1vw + 1.2rem), 3rem);
-	--home-header-subtitle-font-size: clamp(1rem, calc(1vw + 0.1rem), 2.5rem);
+	/* Links */
+	--cframe-link-color: #3f6fcf;
+	--cframe-link-color-hover: #3162c3;
+	--cframe-link-color-red: #c00;
+	
+	/* Page */
+	--cframe-header-background-color: #eeeeee;
+	--cframe-header-color: black;
+	--cframe-header-clip-path: polygon(0 0,calc(100% - sqrt(2) * 0.5em) 0,100% calc(sqrt(2) * 0.5em),100% 100%,0 100%);
+	
+	--cframe-page-background-color: #151515;
+	--cframe-text-color: #e6e6e6;
+	--cframe-page-border-color: #777;
+	
+	/* Background */
+	--cframe-outer-border-color: #777777;
+	--cframe-background-image: url("./Others/Wiki_Skybox.png");
+	--cframe-outer-background: repeating-linear-gradient(225deg,#232222 0px,#232222 25px,#1c1a1a 25px,#1c1a1a 50px);
+	--cframe-background-color: #0b0101;
+	
+	/* Navigation */
+	--cframe-toplinks-background: linear-gradient(#333030, #1e1b1b);
+	--cframe-toplinks-hover: white;
+	--cframe-toplinks-color: white;
+	--cframe-personal-background: linear-gradient(#1d1d1d, #111111);
+	--cframe-sidebar-background: linear-gradient(#2a2a2a, #0a0a0a);
+	
+	/* Changes */
+	--cframe-content-changed: #9637ef;
+	--cframe-content-added: #1c7e56;
+	
+	/* logo */
+	--cframe-logo-width: 25em;
+	--cframe-logo-height: 15.625em;
+	
+	/* Misc */
+	--cframe-other-color-1: #0a0a0a;
+	--cframe-other-color-2: #2a2a2a;
 
-	/* codex variables */
+	/* codex variables - im not touching this in fear that everything WILL shit itself */
+	/* iirc these are the variables that define the colors for wiki notices like "hey this page is protected" or "hey you got an edit conflict" */
 	--color-base: white;
+	--color-progressive: var(--cframe-link-color);
 	--color-destructive: #fd7865;
 	--color-destructive--hover: #fea898;
 	--color-destructive--active: #ffc8bd;
@@ -165,47 +178,33 @@ html .oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
 
 	--border-color-success: #099979;
 
-	--header-clip-path: polygon(
-		0 0,
-		calc(100% - sqrt(2) * 0.5em) 0,
-		100% calc(sqrt(2) * 0.5em),
-		100% 100%,
-		0 100%
-	);
-
 	--font-family--default: "Arial", sans-serif;
 }
 
 body {
-	background-image: var(--theme-background-image-dark);
+	background-image: var(--cframe-background-image);
 	background-size: 100%;
 	height: auto;
 	background-repeat: no-repeat;
 	background-attachment: scroll;
-	background-color: #0b0101;
+	background-color: var(--cframe-background-color);
 	font-family: var(--font-family--default);
 }
 
 #content {
 	margin: 0 10vw 0 10vw;
-	border: 1px solid var(--theme-page-background-color-dark--tertiary);
-	background: repeating-linear-gradient(
-		225deg,
-		#232222 0px,
-		#232222 25px,
-		#1c1a1a 25px,
-		#1c1a1a 50px
-	);
+	border: 1px solid var(--cframe-outer-border-color);
+	background: var(--cframe-outer-background);
 	padding-top: 50px;
 	position: relative;
 }
 
 #bodyContent {
-	background: var(--theme-page-background-color-dark);
+	background: var(--cframe-page-background-color);
 	padding: 15px;
 	border-style: solid;
 	border-width: 1px;
-	border-color: #777;
+	border-color: var(--cframe-page-border-color);
 	overflow: hidden;
 }
 
@@ -214,13 +213,13 @@ body {
 }
 .cframe-search-box-input {
 	background: transparent;
-	border: 1px solid var(--theme-page-background-color-dark--tertiary) !important;
+	border: 1px solid var(--cframe-outer-border-color) !important;
 	border-radius: 0 0 6px 6px;
 	border-top-color: transparent !important;
 }
 
 .mw-advancedSearch-namespace-selection {
-	background: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 
 #pt-notifications-alert,
@@ -234,13 +233,13 @@ body {
 
 .cframe-menu-dropdown .cframe-menu-heading,
 .mw-body {
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 }
 
 .cframe-menu-tabs .mw-list-item.selected,
 tr:has(.navbox-title),
 td.navbox-group {
-	background: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 
 .cframe-menu-tabs .mw-list-item.selected:first-of-type {
@@ -252,7 +251,7 @@ td.navbox-group {
 tr:has(.navbox-group),
 .portal,
 #searchInput {
-	background: var(--theme-page-background-color-dark);
+	background: var(--cframe-page-background-color);
 }
 
 p,
@@ -264,7 +263,7 @@ h5,
 h6,
 .mw-footer li,
 .mw-heading {
-	color: var(--theme-page-text-color-dark) !important;
+	color: var(--cframe-text-color) !important;
 }
 a,
 a:visited,
@@ -273,7 +272,7 @@ a.external,
 a.extiw:visited,
 a.external:visited,
 .tools-inline li.selected a {
-	color: var(--theme-link-color-dark) !important;
+	color: var(--cframe-link-color) !important;
 }
 a:hover,
 a.extiw:hover,
@@ -281,16 +280,16 @@ a.external:hover,
 a.extiw:visited:hover,
 a.external:visited:hover,
 .tools-inline li.selected a:hover {
-	color: var(--theme-link-color-dark--hover) !important;
+	color: var(--cframe-link-color-hover) !important;
 }
 a[href$="redlink=1"],
 a.extiw[href$="redlink=1"],
 a.external[href$="redlink=1"],
 .tools-inline li.selected a[href$="redlink=1"] {
-	color: var(--theme-link-color-dark--red) !important;
+	color: var(--cframe-link-color-red) !important;
 }
 .toc {
-	background-color: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 	border-color: #1f1f1f;
 	border-radius: 6px;
 }
@@ -304,7 +303,7 @@ a.external[href$="redlink=1"],
 }
 
 .tocnumber {
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 }
 
 .mw-heading1,
@@ -313,14 +312,14 @@ h1,
 h2,
 .navbox,
 td.navbox-list {
-	border-color: var(--theme-page-background-color-dark--tertiary) !important;
+	border-color: var(--cframe-outer-border-color) !important;
 }
 
 .wikitable > tr > th,
 .wikitable > tr > td,
 .wikitable > * > tr > th,
 .wikitable > * > tr > td {
-	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+	border: 1px solid var(--cframe-outer-border-color);
 }
 
 #catlinks {
@@ -373,15 +372,16 @@ td.navbox-list {
 }
 
 .infobox {
-	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+	border: 1px solid var(--cframe-outer-border-color);
+}
+
+.cframe-sidebar .cframe-menu-portal .cframe-menu-content li a, .cframe-sidebar .cframe-menu-portal .cframe-menu-content li a:visited {
+	color: var(--cframe-link-color) !important;
 }
 
 .cframe-sidebar .mw-portlet {
-	/*border:1px solid var(--theme-page-background-color-dark--tertiary);*/
-	background: linear-gradient(
-		var(--theme-background-color-accent),
-		var(--theme-page-background-color-dark--secondary)
-	);
+	/*border:1px solid var(--cframe-outer-border-color);*/
+	background: var(--cframe-sidebar-background);
 	border-image: url("./Others/SideDescriptionUI.png")
 		round;
 	border-image-slice: 5.5% 5% 5% 5%;
@@ -392,11 +392,10 @@ td.navbox-list {
 	overflow: hidden;
 }
 
+
+
 .cframe-sidebar nav:first-child {
-	background: linear-gradient(
-		var(--theme-background-color-accent),
-		var(--theme-page-background-color-dark--secondary)
-	);
+	background: var(--cframe-sidebar-background);
 }
 
 #left-navigation {
@@ -406,11 +405,11 @@ td.navbox-list {
 	float: left;
 	position: absolute;
 	z-index: 1;
-	left: calc(50% - (var(--logowid) / 2));
+	left: calc(50% - (var(--cframe-logo-width) / 2));
 	margin-left: 0;
 	top: 10px;
-	width: var(--logowid);
-	height: var(--logohei);
+	width: var(--cframe-logo-width);
+	height: var(--cframe-logo-height);
 }
 
 .cframe-search-box {
@@ -429,10 +428,10 @@ td.navbox-list {
 
 #footer {
 	border-style: solid;
-	border-color: var(--theme-page-background-color-dark--tertiary);
+	border-color: var(--cframe-outer-border-color);
 	border-width: 0 1px 1px 1px;
 	margin: 0 10vw 0 10vw;
-	background: var(--theme-page-background-color-dark);
+	background: var(--cframe-page-background-color);
 }
 
 #footer-places li {
@@ -441,21 +440,21 @@ td.navbox-list {
 }
 
 .mw-echo-ui-notificationItemWidget-unread {
-	background-color: var(
-		--theme-page-background-color-dark--secondary
+	background: var(
+		--cframe-other-color-1
 	) !important;
 }
 html .mw-echo-ui-notificationItemWidget,
 html .oo-ui-popupWidget-popup,
 html .oo-ui-buttonElement-button:not(.mw-echo-notifications-badge),
 html .mw-echo-ui-placeholderItemWidget {
-	background-color: var(--theme-page-background-color-dark) !important;
-	color: var(--theme-page-text-color-dark);
-	border-color: var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-page-background-color) !important;
+	color: var(--cframe-text-color);
+	border-color: var(--cframe-outer-border-color);
 }
 
 .mw-echo-ui-notificationItemWidget * {
-	color: var(--theme-page-text-color-dark) !important;
+	color: var(--cframe-text-color) !important;
 }
 
 .oo-ui-iconElement-icon,
@@ -472,13 +471,13 @@ html .mw-echo-ui-placeholderItemWidget {
 
 pre {
 	background-color: #202122;
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 	border: 1px solid fade(#404244, 46%) !important;
 }
 
 #footer-icons a {
-	background-color: var(--theme-page-background-color-dark--secondary);
-	border-color: var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-other-color-1);
+	border-color: var(--cframe-outer-border-color);
 }
 
 #p-personal .cframe-menu-content-list,
@@ -511,7 +510,7 @@ pre {
 #p-personal,
 #p-toplinks {
 	right: unset !important;
-	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+	border: 1px solid var(--cframe-outer-border-color);
 	padding: 5px 25px 10px 25px;
 	margin: 0 10vw 0 10vw;
 	position: relative;
@@ -520,31 +519,40 @@ pre {
 
 #p-toplinks {
 	padding: 15px 25px 20px 25px;
-	background: linear-gradient(#333030, #1e1b1b);
+	background: var(--cframe-toplinks-background);
 	border-top-width: 2px;
-	border-top-color: #545252;
+	border-top-color: var(--cframe-outer-border-color);
 	border-bottom: 0;
+	transition: all 0.2s ease;
+}
+
+#p-toplinks span, #p-personal span {
+	color: var(--cframe-toplinks-color);
+}
+
+#p-toplinks span:hover, #p-personal span:hover {
+	color: var(--cframe-toplinks-hover) !important;
 }
 
 #p-personal {
-	background: linear-gradient(#1d1d1d, #111111);
+	background: var(--cframe-personal-background);
 	border-bottom-color: var(
-		--theme-page-background-color-dark--tertiary
+		--cframe-outer-border-color
 	) !important;
 	border-top-width: 2px;
-	border-top-color: #3a3a3a;
+	border-top-color: var(--cframe-outer-border-color);
 }
 
 #p-personal span {
 	font-size: 1.25em;
 	font-weight: bold;
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 }
 
 #p-toplinks span {
 	font-size: 2em;
 	font-family: "Accanthis ADF Std";
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 	font-weight: bold;
 }
 
@@ -558,7 +566,7 @@ pre {
 }
 
 #p-search #simpleSearch {
-	width: calc(100vw - 20vw - 370px - 70px - 30px);
+	width: calc(100vw - 20vw - 370px - 70px - 10px);
 	height: 100%;
 	margin-left: 0;
 	max-width: unset;
@@ -566,7 +574,7 @@ pre {
 
 .cframe-menu-tabs a {
 	background: none;
-	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+	border: 1px solid var(--cframe-outer-border-color);
 }
 
 :not(#mobilePageLinks) > .cframe-menu-tabs a {
@@ -574,7 +582,7 @@ pre {
 }
 
 :not(#mobilePageLinks) > .cframe-menu-tabs #ca-edit > a {
-	background-color: #36c;
+	background: var(--cframe-link-color);
 	color: #fff !important;
 }
 
@@ -598,7 +606,7 @@ pre {
 }
 
 nav .cframe-menu-heading {
-	border: 1px solid var(--theme-page-background-color-dark--tertiary);
+	border: 1px solid var(--cframe-outer-border-color);
 	padding-top: calc(1.25em - 2.5px) !important;
 }
 
@@ -621,16 +629,16 @@ nav .cframe-menu-heading {
 
 #searchInput {
 	height: calc(3.07692308em - 1px);
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 }
 
 #p-cactions.cframe-menu {
-	background: var(--theme-page-background-color-dark);
+	background: var(--cframe-page-background-color);
 	margin-right: 0;
 }
 
 #mw-head-base {
-	height: calc(7.5em + 20px + var(--logohei));
+	height: calc(7.5em + 20px + var(--cframe-logo-height));
 }
 
 #firstHeading {
@@ -638,28 +646,19 @@ nav .cframe-menu-heading {
 	margin-top: 10px;
 	margin-bottom: -1px;
 	background: linear-gradient(
-		var(--theme-page-header-color-gradient),
-		var(--theme-page-background-color-dark--tertiary)
+		var(--cframe-header-background-color),
+		var(--cframe-page-border-color)
 	);
 	border-bottom: 0;
 	border-top-left-radius: 5px;
 	border-spacing: 0;
 	font-family: "Accanthis ADF Std";
-	clip-path: polygon(
-		0 0,
-		calc(100% - sqrt(2) * 0.5em) 0,
-		100% calc(sqrt(2) * 0.5em),
-		100% 100%,
-		0 100%
-	);
-}
-
-#firstHeading {
-	color: black !important;
+	clip-path: var(--cframe-header-clip-path);
+	color: var(--cframe-header-color) !important;
 }
 
 #mw-head {
-	margin-top: calc(-10px + var(--logohei));
+	margin-top: calc(-10px + var(--cframe-logo-height));
 	pointer-events: none;
 }
 
@@ -670,10 +669,10 @@ nav .cframe-menu-heading {
 	top: 5px;
 	padding: 5px;
 	background: linear-gradient(
-		var(--theme-background-color-accent),
-		var(--theme-page-background-color-dark)
+		var(--cframe-other-color-2),
+		var(--cframe-page-background-color)
 	);
-	box-shadow: 0 0 5px var(--theme-page-background-color-dark--tertiary);
+	box-shadow: 0 0 5px var(--cframe-outer-border-color);
 	border-radius: 5px;
 }
 
@@ -692,14 +691,14 @@ nav .cframe-menu-heading {
 	float: left;
 	padding: 10px;
 	position: relative;
-	background: var(--theme-page-background-color-dark);
+	background: var(--cframe-page-background-color);
 	border-image: url("./Others/SideDescriptionUI.png")
 		round;
 	border-image-slice: 5.5% 5% 5% 5%;
 	border-image-width: 24px;
 	border-image-outset: 24px;
 	border-image-repeat: repeat;
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 	padding-right: 90px;
 }
 
@@ -721,10 +720,10 @@ div.mw-warning-with-logexcerpt {
 	top: 15px;
 	padding: 5px;
 	background: linear-gradient(
-		var(--theme-background-color-accent),
-		var(--theme-page-background-color-dark)
+		var(--cframe-other-color-2),
+		var(--cframe-page-background-color)
 	);
-	box-shadow: 0 0 5px var(--theme-page-background-color-dark--tertiary);
+	box-shadow: 0 0 5px var(--cframe-outer-border-color);
 	border-radius: 5px;
 	filter: none;
 	list-style: none;
@@ -737,10 +736,10 @@ div.mw-warning-with-logexcerpt {
 	top: 15px;
 	padding: 5px;
 	background: linear-gradient(
-		var(--theme-background-color-accent),
-		var(--theme-page-background-color-dark)
+		var(--cframe-other-color-2),
+		var(--cframe-page-background-color)
 	);
-	box-shadow: 0 0 5px var(--theme-page-background-color-dark--tertiary);
+	box-shadow: 0 0 5px var(--cframe-outer-border-color);
 	border-radius: 5px;
 	filter: none;
 	list-style: none;
@@ -752,14 +751,14 @@ div.mw-warning-with-logexcerpt {
 	float: right;
 	padding: 10px;
 	position: relative;
-	background: var(--theme-page-background-color-dark);
+	background: var(--cframe-page-background-color);
 	border-image: url("./Others/SideDescriptionUI.png")
 		round;
 	border-image-slice: 5.5% 5% 5% 5%;
 	border-image-width: 24px;
 	border-image-outset: 24px;
 	border-image-repeat: repeat;
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 	padding-right: 150px;
 	padding-top: 50px;
 }
@@ -772,20 +771,20 @@ div.mw-warning-with-logexcerpt {
 
 .mw-wiki-logo {
 	//background-image: url("./Others/ForsakenLogoFinal.png");
-	width: var(--logowid) !important;
-	height: var(--logohei) !important;
+	width: var(--cframe-logo-width) !important;
+	height: var(--cframe-logo-height) !important;
 	background-size: 90%;
 }
 
 li.gallerybox div.thumb {
-	background: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 	border-width: 1px;
-	border-color: var(--theme-page-background-color-dark--tertiary);
+	border-color: var(--cframe-outer-border-color);
 }
 
 .cframe-body blockquote {
-	background: var(--theme-page-background-color-dark--secondary);
-	border-color: var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-other-color-1);
+	border-color: var(--cframe-outer-border-color);
 	overflow: hidden;
 }
 
@@ -799,24 +798,25 @@ li.gallerybox div.thumb {
 
 .ext-WikiEditor-realtimepreview-textbox,
 .mw-editfont-monospace {
-	background-color: var(--theme-page-background-color-dark);
-	color: var(--theme-page-text-color-dark);
+	background: var(--cframe-page-background-color);
+	color: var(--cframe-text-color);
 }
 
-html .wikiEditor-ui {
-	.wikiEditor-ui-view,
-	.wikiEditor-ui-top {
-		border-color: var(--theme-page-background-color-dark--tertiary);
-	}
+html .wikiEditor-ui { 
+    .wikiEditor-ui-view,
+    .wikiEditor-ui-top {
+        border-color: var(--cframe-outer-border-color);
+    }
 }
+
 
 html .wikiEditor-ui-toolbar {
-	background-color: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 
 .editOptions {
-	background-color: var(--theme-page-background-color-dark--secondary);
-	color: var(--theme-page-text-color-dark);
+	background: var(--cframe-other-color-1);
+	color: var(--cframe-text-color);
 }
 
 .oo-ui-checkboxInputWidget-checkIcon,
@@ -826,117 +826,126 @@ html .wikiEditor-ui-toolbar {
 }
 
 html .oo-ui-textInputWidget .oo-ui-inputWidget-input {
-	border-color: var(--theme-page-background-color-dark--tertiary);
-	background-color: var(--theme-page-background-color-dark--secondary);
-	color: var(--theme-page-text-color-dark);
+	border-color: var(--cframe-outer-border-color);
+	background: var(--cframe-other-color-1);
+	color: var(--cframe-text-color);
 }
 
 html .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
-	color: var(--theme-page-text-color-dark) !important;
-	border-color: var(--theme-page-background-color-dark--tertiary);
+	color: var(--cframe-text-color) !important;
+	border-color: var(--cframe-outer-border-color);
 }
 
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle {
-	background-color: var(
-		--theme-page-background-color-dark--secondary
+	background: var(
+		--cframe-other-color-1
 	) !important;
 }
 html {
 
-	.oo-ui-popupToolGroup-tools,
-	.oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active > .oo-ui-tool-link,
-	.wikiEditor-ui-toolbar .group .tool-select .menu .options .option,
-	.oo-ui-dropdownWidget.oo-ui-widget-enabled.oo-ui-dropdownWidget-open .oo-ui-dropdownWidget-handle,
-	.oo-ui-menuSelectWidget,
-	.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined,
-	.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined .oo-ui-tagItemWidget.oo-ui-widget-enabled,
-	.mw-rcfilters-ui-filterMenuHeaderWidget-header,
-	.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted:not(.oo-ui-optionWidget-selected),
-	.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined .mw-rcfilters-ui-tagItemWidget-selected.oo-ui-tagItemWidget.oo-ui-widget-enabled,
-	.ext-discussiontools-ui-replyWidget-preview,
-	.ve-ui-targetWidget:not(.oo-ui-pendingElement-pending),
-	.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-notice,
-	.codeEditor-status,
-	.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:hover {
-		background-color: var(--theme-page-background-color-dark--secondary);
-		color: var(--theme-page-text-color-dark);
-	}
-	
-	.oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:hover,
-	.wikiEditor-ui-toolbar .booklet > .index > .current,
-	.wikiEditor-ui-toolbar .booklet > .index > :hover,
-	.wikiEditor-ui-toolbar .page-characters div span,
-	.wikiEditor-ui-toolbar .page-characters div span:hover,
-	.wikiEditor-ui-toolbar .group .tool-select .menu .options .option:hover,
-	.oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle,
-	.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected,
-	.oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget-highlighted,
-	.mw-rcfilters-container .mw-rcfilters-ui-filterTagMultiselectWidget.oo-ui-widget-enabled .oo-ui-tagMultiselectWidget-handle,
-	.mw-rcfilters-ui-filterMenuSectionOptionWidget,
-	.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected,
-	.oo-ui-menuOptionWidget.oo-ui-optionWidget-selected.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
-	.oo-ui-menuOptionWidget.oo-ui-optionWidget-pressed.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
-	.mw-rcfilters-ui-menuSelectWidget-footer,
-	.diff-context {
-		background-color: var(--theme-page-background-color-dark);
-		color: var(--theme-page-text-color-dark);
-	}
-	
-	.wikiEditor-ui-toolbar .page-table th,
-	.wikiEditor-ui-toolbar .page-table td,
-	.wikiEditor-ui-toolbar .group .label,
-	.oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget,
-	.mw-rcfilters-container .mw-rcfilters-ui-filterTagMultiselectWidget-wrapper-content-title,
-	.mw-rcfilters-ui-tagItemWidget-popup-content,
-	.mw-rcfilters-ui-filterMenuHeaderWidget-title,
-	.mw-rcfilters-ui-filterMenuSectionOptionWidget-header-title.oo-ui-labelElement-label,
-	.mw-rcfilters-ui-tagItemWidget.oo-ui-flaggedElement-muted.oo-ui-tagItemWidget.oo-ui-widget-enabled .oo-ui-labelElement-label,
-	.mw-rcfilters-ui-itemMenuOptionWidget-label-title,
-	.mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted .mw-rcfilters-ui-itemMenuOptionWidget-label-title,
-	.mw-rcfilters-ui-viewSwitchWidget label.oo-ui-labelWidget,
-	.oo-ui-tabOptionWidget {
-		color: var(--theme-page-text-color-dark);
-	}
-	.mw-editform .editOptions,
-	.wikiEditor-ui-toolbar .sections .section,
-	.wikiEditor-ui-toolbar .group,
-	.wikiEditor-ui-toolbar .section-secondary .group,
-	.ext-WikiEditor-twopanes-TwoPaneLayout .ext-WikiEditor-twopanes-pane1,
-	.ext-WikiEditor-twopanes-TwoPaneLayout .ext-WikiEditor-twopanes-pane2 {
-		border-color: var(--theme-page-background-color-dark--tertiary);
-	}
+    .oo-ui-popupToolGroup-tools,
+    .oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active > .oo-ui-tool-link,
+    .wikiEditor-ui-toolbar .group .tool-select .menu .options .option,
+    .oo-ui-dropdownWidget.oo-ui-widget-enabled.oo-ui-dropdownWidget-open .oo-ui-dropdownWidget-handle,
+    .oo-ui-menuSelectWidget,
+    .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined,
+    .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined .oo-ui-tagItemWidget.oo-ui-widget-enabled,
+    .mw-rcfilters-ui-filterMenuHeaderWidget-header,
+    .mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted:not(.oo-ui-optionWidget-selected),
+    .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined .mw-rcfilters-ui-tagItemWidget-selected.oo-ui-tagItemWidget.oo-ui-widget-enabled,
+    .ext-discussiontools-ui-replyWidget-preview,
+    .ve-ui-targetWidget:not(.oo-ui-pendingElement-pending),
+    .oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-notice,
+    .codeEditor-status,
+    .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle:hover {
+        background: var(--cframe-other-color-1);
+        color: var(--cframe-text-color);
+    }
+
+    .oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:hover,
+    .wikiEditor-ui-toolbar .booklet > .index > .current,
+    .wikiEditor-ui-toolbar .booklet > .index > :hover,
+    .wikiEditor-ui-toolbar .page-characters div span,
+    .wikiEditor-ui-toolbar .page-characters div span:hover,
+    .wikiEditor-ui-toolbar .group .tool-select .menu .options .option:hover,
+    .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle,
+    .oo-ui-menuOptionWidget.oo-ui-optionWidget-selected,
+    .oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget-highlighted,
+    .mw-rcfilters-container .mw-rcfilters-ui-filterTagMultiselectWidget.oo-ui-widget-enabled .oo-ui-tagMultiselectWidget-handle,
+    .mw-rcfilters-ui-filterMenuSectionOptionWidget,
+    .oo-ui-menuOptionWidget.oo-ui-optionWidget-selected,
+    .oo-ui-menuOptionWidget.oo-ui-optionWidget-selected.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
+    .oo-ui-menuOptionWidget.oo-ui-optionWidget-pressed.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted,
+    .mw-rcfilters-ui-menuSelectWidget-footer,
+    .diff-context {
+        background: var(--cframe-page-background-color);
+        color: var(--cframe-text-color);
+    }
+
+    .wikiEditor-ui-toolbar .page-table th,
+    .wikiEditor-ui-toolbar .page-table td,
+    .wikiEditor-ui-toolbar .group .label,
+    .oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget,
+    .mw-rcfilters-container .mw-rcfilters-ui-filterTagMultiselectWidget-wrapper-content-title,
+    .mw-rcfilters-ui-tagItemWidget-popup-content,
+    .mw-rcfilters-ui-filterMenuHeaderWidget-title,
+    .mw-rcfilters-ui-filterMenuSectionOptionWidget-header-title.oo-ui-labelElement-label,
+    .mw-rcfilters-ui-tagItemWidget.oo-ui-flaggedElement-muted.oo-ui-tagItemWidget.oo-ui-widget-enabled .oo-ui-labelElement-label,
+    .mw-rcfilters-ui-itemMenuOptionWidget-label-title,
+    .mw-rcfilters-ui-filterMenuOptionWidget.oo-ui-flaggedElement-muted .mw-rcfilters-ui-itemMenuOptionWidget-label-title,
+    .mw-rcfilters-ui-viewSwitchWidget label.oo-ui-labelWidget,
+    .oo-ui-tabOptionWidget {
+        color: var(--cframe-text-color);
+    }
+    .mw-editform .editOptions,
+    .wikiEditor-ui-toolbar .sections .section,
+    .wikiEditor-ui-toolbar .group,
+    .wikiEditor-ui-toolbar .section-secondary .group,
+    .ext-WikiEditor-twopanes-TwoPaneLayout .ext-WikiEditor-twopanes-pane1,
+    .ext-WikiEditor-twopanes-TwoPaneLayout .ext-WikiEditor-twopanes-pane2 {
+        border-color: var(--cframe-outer-border-color);
+    }
 }
 
 .oo-ui-dropdownWidget.oo-ui-widget-disabled .oo-ui-dropdownWidget-handle {
 	text-shadow: none;
-	background-color: var(--theme-page-background-color-dark);
-	color: var(--theme-page-text-color-dark);
-	border-color: var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-page-background-color);
+	color: var(--cframe-text-color);
+	border-color: var(--cframe-outer-border-color);
 }
 
 html .CodeMirror-gutters,
 html .ext-WikiEditor-ResizingDragBar {
-	border-color: var(--theme-page-background-color-dark--tertiary);
-	background-color: var(--theme-page-background-color-dark);
+	border-color: var(--cframe-outer-border-color);
+	background: var(--cframe-page-background-color);
 }
 
 .oo-ui-popupWidget-anchored-bottom .oo-ui-popupWidget-anchor::after {
-	border-top-color: var(--theme-page-background-color-dark);
+	border-top-color: var(--cframe-page-background-color);
+}
+
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:checked:hover + span, .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:indeterminate:hover + span, .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:checked + span, .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:indeterminate + span {
+	background: var(--cframe-link-color) !important;
+	border-color: var(--cframe-link-color) !important;
+}
+
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:focus + span {
+	box-shadow: inset 0 0 0 1px var(--cframe-link-color),inset 0 0 0 2px !important;
 }
 
 .oo-ui-checkboxInputWidget [type="checkbox"] + span {
-	background-color: var(--theme-page-background-color-dark);
+	background: var(--cframe-page-background-color);
 }
 
 html .mw-rcfilters-ui-itemMenuOptionWidget:not(:last-child):not(
 		.mw-rcfilters-ui-itemMenuOptionWidget-identifier-talk
 	) {
-	border-color: var(--theme-page-background-color-dark--tertiary);
+	border-color: var(--cframe-outer-border-color);
 }
 
 html .mw-rcfilters-ui-changesListWrapperWidget .mw-changeslist-legend {
-	border-color: var(--theme-page-background-color-dark--tertiary);
-	background-color: var(--theme-page-background-color-dark--secondary);
+	border-color: var(--cframe-outer-border-color);
+	background: var(--cframe-other-color-1);
 }
 
 .wikiEditor-ui .wikiEditor-ui-clear,
@@ -962,11 +971,11 @@ textarea {
 }
 
 #filetoc {
-	background-color: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 
 #mw_metadata {
-	background-color: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 
 ul {
@@ -978,22 +987,22 @@ ul {
 }
 
 html .oo-ui-tabSelectWidget-framed {
-	background-color: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 	padding-bottom: 6px;
 }
 
 html .oo-ui-tabOptionWidget {
 	background: linear-gradient(
-		var(--theme-background-color-accent),
-		var(--theme-page-background-color-dark)
+		var(--cframe-other-color-2),
+		var(--cframe-page-background-color)
 	);
 }
 
 html .oo-ui-tabSelectWidget-framed
 	> .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
 	background: linear-gradient(
-		var(--theme-page-header-color-gradient),
-		var(--theme-page-background-color-dark--tertiary)
+		var(--cframe-header-background-color),
+		var(--cframe-page-border-color)
 	);
 }
 
@@ -1009,34 +1018,34 @@ html .oo-ui-tabSelectWidget-framed
 }
 
 #managewiki .managewiki-submit-formfields {
-	background: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 	border-style: solid;
 	border-top-width: 1px;
 	padding-left: 6px;
 }
 
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"] + span {
-	background-color: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 
 .oo-ui-checkboxInputWidget [type="checkbox"]:disabled + span {
-	background: var(--theme-link-color-dark--red);
+	background: var(--cframe-link-color-red);
 }
 
 .diff-deletedline {
-	border-color: var(--theme-background-color-content-removed);
+	border-color: var(--cframe-content-changed);
 }
 
 .diff-deletedline .diffchange {
-	background: var(--theme-background-color-content-removed);
+	background: var(--cframe-content-changed);
 }
 
 .diff-addedline {
-	border-color: var(--theme-background-color-content-added);
+	border-color: var(--cframe-content-added);
 }
 
 .diff-addedline .diffchange {
-	background: var(--theme-background-color-content-added);
+	background: var(--cframe-content-added);
 }
 
 .modconflict {
@@ -1059,34 +1068,34 @@ html .oo-ui-tabSelectWidget-framed
 .wikitable > * > tr > th,
 .mw-datatable td,
 .mw-apisandbox-toolbar {
-	background-color: var(--theme-page-background-color-dark--secondary);
-	color: var(--theme-page-text-color-dark);
+	background: var(--cframe-other-color-1);
+	color: var(--cframe-text-color);
 }
 
 .wikitable {
 	background-color: transparent;
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 }
 
 code {
-	background-color: var(--theme-page-background-color-dark--secondary);
-	color: var(--theme-page-text-color-dark);
-	border-color: var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-other-color-1);
+	color: var(--cframe-text-color);
+	border-color: var(--cframe-outer-border-color);
 }
 
 .mw-datatable tr:hover td,
 .oo-ui-toggleSwitchWidget,
 .mw-widgets-datetime-dateTimeInputWidget.oo-ui-widget-enabled
 	.mw-widgets-datetime-dateTimeInputWidget-editField:hover {
-	background-color: var(--theme-page-background-color-dark);
-	color: var(--theme-page-text-color-dark);
+	background: var(--cframe-page-background-color);
+	color: var(--cframe-text-color);
 }
 
 .oo-ui-outlineOptionWidget.oo-ui-optionWidget-selected,
 .oo-ui-outlineOptionWidget.oo-ui-optionWidget-highlighted,
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:hover {
-	background-color: var(--theme-page-background-color-dark--secondary);
-	color: var(--theme-page-text-color-dark);
+	background: var(--cframe-other-color-1);
+	color: var(--cframe-text-color);
 }
 
 .oo-ui-outlineOptionWidget.oo-ui-optionWidget-selected {
@@ -1097,36 +1106,37 @@ code {
 	filter: none;
 }
 html {
-	.oo-ui-textInputWidget.oo-ui-widget-disabled .oo-ui-inputWidget-input,
-	.mw-widgets-datetime-dateTimeInputWidget-handle,
-	.mw-widgets-datetime-calendarWidget,
-	.mw-widget-dateInputWidget-handle,
-	.mw-widget-dateInputWidget-calendar,
-	.oo-ui-tagMultiselectWidget.oo-ui-widget-enabled,
-	#preferences .mw-htmlform-submit-buttons,
-	.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:hover td,
-	.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:nth-child(2n) td,
-	.suggestions-special,
-	.suggestions-results,
-	.mw-changeslist-legend {
-		background-color: var(--theme-page-background-color-dark--secondary);
-		color: var(--theme-page-text-color-dark);
-		text-shadow: none;
-	}
+    .oo-ui-textInputWidget.oo-ui-widget-disabled .oo-ui-inputWidget-input,
+    .mw-widgets-datetime-dateTimeInputWidget-handle,
+    .mw-widgets-datetime-calendarWidget,
+    .mw-widget-dateInputWidget-handle,
+    .mw-widget-dateInputWidget-calendar,
+    .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled,
+    #preferences .mw-htmlform-submit-buttons,
+    .mw-htmlform-ooui .mw-htmlform-matrix tbody tr:hover td,
+    .mw-htmlform-ooui .mw-htmlform-matrix tbody tr:nth-child(2n) td,
+    .suggestions-special,
+    .suggestions-results,
+    .mw-changeslist-legend {
+        background: var(--cframe-other-color-1);
+        color: var(--cframe-text-color);
+        text-shadow: none;
+    }
 
-	.mw-widget-calendarWidget-day,
-	.cdx-message,
-	.suggestions-special .special-label,
-	.suggestions-special .special-query,
-	.suggestions-result {
-		color: var(--theme-page-text-color-dark);
-	}
-}
-html .mw-echo-ui-pageNotificationsOptionWidget.oo-ui-optionWidget-selected,
-html .mw-echo-ui-notificationsInboxWidget-toolbarWrapper,
-html .mw-search-profile-tabs,
-html #mw-searchoptions {
-	background-color: var(--theme-page-background-color-dark--secondary);
+    .mw-widget-calendarWidget-day,
+    .cdx-message,
+    .suggestions-special .special-label,
+    .suggestions-special .special-query,
+    .suggestions-result {
+        color: var(--cframe-text-color);
+    }
+
+    .mw-echo-ui-pageNotificationsOptionWidget.oo-ui-optionWidget-selected,
+    .mw-echo-ui-notificationsInboxWidget-toolbarWrapper,
+    .mw-search-profile-tabs,
+    #mw-searchoptions {
+        background: var(--cframe-other-color-1);
+    }
 }
 
 @keyframes contentHideTimeout {
@@ -1178,19 +1188,19 @@ body > * {
 }
 
 .mw-notification-area-modqueued .mw-notification {
-	background-color: var(--theme-page-background-color-dark);
-	border-color: var(--theme-page-background-color-dark--tertiary);
-	color: var(--theme-page-text-color-dark);
+	background: var(--cframe-page-background-color);
+	border-color: var(--cframe-outer-border-color);
+	color: var(--cframe-text-color);
 }
 
 .mw-notification {
-	background-color: var(--theme-page-background-color-dark);
-	border-color: var(--theme-page-background-color-dark--tertiary);
-	color: var(--theme-page-text-color-dark);
+	background: var(--cframe-page-background-color);
+	border-color: var(--cframe-outer-border-color);
+	color: var(--cframe-text-color);
 }
 
 .mw-notification-area-modqueued #pending-review {
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 }
 
 .mw-notification-area-overlay {
@@ -1206,27 +1216,27 @@ body > * {
 	.oo-ui-tabPanelLayout.managewiki-search-matched
 	> fieldset
 	> legend {
-	background-color: var(
-		--theme-page-background-color-dark--secondary
+	background: var(
+		--cframe-other-color-1
 	) !important;
-	color: var(--theme-page-text-color-dark) !important;
+	color: var(--cframe-text-color) !important;
 }
 
 ol.references li:target,
 sup.reference:target,
 figure[typeof~="mw:File/Thumb"] > figcaption,
 figure[typeof~="mw:File/Frame"] > figcaption {
-	background-color: var(--theme-background-color-accent) !important;
+	background: var(--cframe-other-color-2) !important;
 }
 
 figure[typeof~="mw:File/Thumb"],
 figure[typeof~="mw:File/Frame"] {
-	background-color: var(--theme-page-background-color-dark) !important;
-	color: var(--theme-page-text-color-dark);
+	background: var(--cframe-page-background-color) !important;
+	color: var(--cframe-text-color);
 }
 
 .mwe-popups-container {
-	background-color: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 #ca-logout {
 	display: none;
@@ -1313,14 +1323,14 @@ body:has(> #content #mw-panel.collapsed)
 	transition: margin 0.5s;
 }
 
-body.defaultExpanded #firstHeading,
-body.defaultExpanded #bodyContent {
+html.defaultExpanded #firstHeading,
+html.defaultExpanded #bodyContent {
 	animation: 0.5s 1 widthSetOpen;
 	animation-timing-function: steps(1, jump-end);
 }
 
-body.defaultCollapsed #firstHeading,
-body.defaultCollapsed #bodyContent {
+html.defaultCollapsed #firstHeading,
+html.defaultCollapsed #bodyContent {
 	animation: 0.5s 1 widthSetClosed;
 	animation-timing-function: steps(1, jump-end);
 }
@@ -1363,7 +1373,7 @@ body.defaultCollapsed #bodyContent {
 	}
 
 	body:has(> #logoutContainer #pt-login) #mw-head-base {
-		height: calc(1.5em + 20px + var(--logohei)) !important;
+		height: calc(1.5em + 20px + var(--cframe-logo-height)) !important;
 	}
 }
 
@@ -1449,7 +1459,7 @@ body.defaultCollapsed #bodyContent {
 		margin: 3px;
 	}
 	#mobileDropdown nav:not(.cframe-menu-tabs) li span {
-		color: var(--theme-page-text-color-dark) !important;
+		color: var(--cframe-text-color) !important;
 	}
 	#mobileDropdown li a {
 		text-decoration: none;
@@ -1504,7 +1514,7 @@ body.defaultCollapsed #bodyContent {
 	#mobileDropdown #n-pageTools {
 		text-align: center;
 		margin: 0;
-		border: 3px solid var(--theme-page-background-color-dark--tertiary);
+		border: 3px solid var(--cframe-outer-border-color);
 		border-bottom: 0;
 		font-size: 20px;
 		font-weight: bold;
@@ -1540,7 +1550,7 @@ body.defaultCollapsed #bodyContent {
 	}
 	#mobilePageLinks {
 		padding: 5px 0;
-		background-color: var(--theme-page-background-color-dark);
+		background: var(--cframe-page-background-color);
 		margin: 3px;
 		margin-top: 40px;
 	}
@@ -1691,35 +1701,34 @@ body.defaultCollapsed #bodyContent {
 	}
 }
 html {
-	.mw-destfile-warning,
-	div.mw-warning-with-logexcerpt,
-	div.mw-lag-warn-high,
-	div.mw-cascadeprotectedwarning,
-	div#mw-protect-cascadeon,
-	div.titleblacklist-warning,
-	div.locked-warning {
-		background-color: var(--background-color-warning-subtle);
-		border-color: var(--border-color-warning);
-		color: var(--theme-page-text-color-dark);
-	}
+    .mw-destfile-warning,
+    div.mw-warning-with-logexcerpt,
+    div.mw-lag-warn-high,
+    div.mw-cascadeprotectedwarning,
+    div#mw-protect-cascadeon,
+    div.titleblacklist-warning,
+    div.locked-warning {
+        background: var(--background-color-warning-subtle);
+        border-color: var(--border-color-warning);
+        color: var(--cframe-text-color);
+    }
 }
-
 body:has(> #logoutContainer #pt-login) #p-personal {
 	display: none;
 }
 
 body:has(> #logoutContainer #pt-login) #p-toplinks {
-	border-bottom: 1px solid var(--theme-page-background-color-dark--tertiary) !important;
+	border-bottom: 1px solid var(--cframe-outer-border-color) !important;
 }
 
 body:has(> #logoutContainer #pt-login) #mw-head-base {
-	height: calc(4.5em + 25px + var(--logohei));
+	height: calc(4.5em + 25px + var(--cframe-logo-height));
 }
 
 div:has(> #pt-login) #pt-createaccount,
 #logoutContainer > #pt-login {
-	background: var(--theme-page-background-color-dark--secondary);
-	border: 2px solid var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-other-color-1);
+	border: 2px solid var(--cframe-outer-border-color);
 	border-radius: 5px;
 	margin: 10px;
 	padding: 5px;
@@ -1762,37 +1771,37 @@ div:has(> #pt-login) #pt-createaccount,
 }
 
 .mwe-popups-container {
-	background-color: var(--theme-page-background-color-dark) !important;
+	background: var(--cframe-page-background-color) !important;
 }
 
 .popups-icon--settings {
-	background-color: var(--theme-page-text-color-dark);
+	background: var(--cframe-text-color);
 }
 
 .mwe-popups-extract::after {
 	background-image: linear-gradient(
 		to right,
 		transparent,
-		var(--background-color-base, var(--theme-page-background-color-dark)) 50%
+		var(--background-color-base, var(--cframe-page-background-color)) 50%
 	) !important;
 }
 
 .mwe-popups-discreet {
 	margin: 0;
-	border: 2px solid var(--theme-page-background-color-dark--tertiary);
-	background: var(--theme-background-color-accent);
+	border: 2px solid var(--cframe-outer-border-color);
+	background: var(--cframe-other-color-2);
 }
 
 .mwe-popups-extract {
-	color: var(--theme-page-text-color-dark) !important;
+	color: var(--cframe-text-color) !important;
 }
 
 .popups-icon.popups-icon--reference-generic {
-	background-color: var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-outer-border-color);
 }
 #mw-editing-your-version {
-	border: 2px solid var(--theme-page-background-color-dark--tertiary);
-	background-color: var(--theme-page-background-color-dark--secondary);
+	border: 2px solid var(--cframe-outer-border-color);
+	background: var(--cframe-other-color-1);
 }
 
 .oo-ui-windowManager-modal > .oo-ui-dialog {
@@ -1800,16 +1809,16 @@ div:has(> #pt-login) #pt-createaccount,
 }
 .oo-ui-windowManager-modal > .oo-ui-dialog > .oo-ui-window-frame,
 .mw-specialCiteThisPage-bibliographic {
-	background-color: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled
 	.oo-ui-inputWidget-input[readonly]:not(.oo-ui-pendingElement-pending) {
-	background-color: var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-outer-border-color);
 }
 
 .oo-ui-messageDialog-message,
 .oo-ui-labelWidget.oo-ui-inline-help {
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 }
 
 @media print {
@@ -1827,7 +1836,7 @@ div:has(> #pt-login) #pt-createaccount,
 	}
 }
 .ext-discussiontools-init-publishedcomment {
-	background-color: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 
 .mw-search-visualclear {
@@ -1897,20 +1906,20 @@ body:has(> #content #mw-panel.collapsed):not(.rootpage-Main_Page) .usermessage {
 }
 
 .mw-mmv-post-image {
-	background-color: var(--theme-page-background-color-dark);
+	background: var(--cframe-page-background-color);
 }
 
 .mw-mmv-image-metadata {
-	background-color: var(--theme-page-background-color-dark--tertiary);
-	border-top-color: var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-outer-border-color);
+	border-top-color: var(--cframe-outer-border-color);
 }
 
 .mw-mmv-post-image {
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 }
 
 .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive {
-	color: var(--theme-page-text-color-dark) !important;
+	color: var(--cframe-text-color) !important;
 }
 
 .oo-ui-icon-success {
@@ -1918,17 +1927,17 @@ body:has(> #content #mw-panel.collapsed):not(.rootpage-Main_Page) .usermessage {
 }
 
 .oo-ui-selectFileInputWidget.oo-ui-widget-enabled.oo-ui-selectFileInputWidget-dropTarget {
-	background-color: var(--theme-page-background-color-dark);
-	color: var(--theme-page-text-color-dark);
+	background: var(--cframe-page-background-color);
+	color: var(--cframe-text-color);
 }
 
 .profile-user-group {
-	background-color: var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-outer-border-color);
 }
 
 .oo-ui-window-head,
 .oo-ui-window-body {
-	color: var(--theme-page-text-color-dark);
+	color: var(--cframe-text-color);
 }
 
 #content::after {
@@ -1938,11 +1947,11 @@ body:has(> #content #mw-panel.collapsed):not(.rootpage-Main_Page) .usermessage {
 }
 
 .profile-externalLinks svg path {
-	stroke: var(--theme-page-text-color-dark);
+	stroke: var(--cframe-text-color);
 }
 
 .external-link.tooltip:hover::after {
-	background: var(--theme-page-background-color-dark--tertiary);
+	background: var(--cframe-outer-border-color);
 }
 
 #mw-panel h3#p-tb-label {
@@ -1950,7 +1959,7 @@ body:has(> #content #mw-panel.collapsed):not(.rootpage-Main_Page) .usermessage {
 }
 
 .mw-enhancedchanges-checkbox + * .mw-enhancedchanges-arrow {
-	background-color: var(--theme-page-text-color-dark);
+	background: var(--cframe-text-color);
 }
 
 .cframe-user-menu #pt-anonuserpage,
@@ -1970,7 +1979,6 @@ div.tabber table {
 .searchButton {
 	width: 5em;
 	margin-top: -0.6px;
-
 	background-color: fade(#cbcbcb, 7%) !important;
 	border-left: 1px solid #ababab !important;
 	border-radius: 0px 0px 6px 0px !important;
@@ -2015,7 +2023,7 @@ div.tabber table {
 	border-image-repeat: repeat !important;
 }
 .tabletitle {
-	clip-path: var(--header-clip-path);
+	clip-path: var(--cframe-header-clip-path);
 }
 
 .p-Forsaken-label,
@@ -2028,7 +2036,7 @@ div.tabber table {
 	box-shadow: none !important;
 	border: 1px solid #444;
 	border-bottom: none;
-	color: var(--theme-page-text-color-dark) !important;
+	color: var(--cframe-text-color) !important;
 	border-top-left-radius: 7px;
 	border-top-right-radius: 7px;
 	position: relative;
@@ -2040,20 +2048,23 @@ div.tabber table {
 }
 .tabber__tab[aria-selected="true"],
 .tabber__tab[aria-selected="true"]:visited {
-	background: var(--theme-page-background-color-dark);
+	background: var(--cframe-page-background-color);
 	border-color: #777;
 	font-weight: bold;
 	opacity: 1;
 	padding: 0.55em 1em;
 }
+.tabber__tab:hover, .tabber__tab:visited:hover {
+	color: var(--cframe-text-color) !important;
+}
 .mw-advancedSearch-fieldContainer {
-	background: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 .mw-advancedSearch-fieldContainer
 	.oo-ui-labelElement
 	> .oo-ui-fieldsetLayout-header
 	> .oo-ui-labelElement-label {
-	background: var(--theme-page-background-color-dark--secondary);
+	background: var(--cframe-other-color-1);
 }
 .ext-floatingui-floating-content:has(.characterAppearanceFloatingContent) {
 	background-color: #0c0c0d;
@@ -2071,6 +2082,10 @@ h3#p-Gameplay-label,
 h3#p-Forsaken-label,
 h3#p-Wiki-label {
 	margin-top: -0.2em !important;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
+	border-color: var(--cframe-link-color) !important;
 }
 
 .cdx-button:enabled.cdx-button--weight-quiet:hover, .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet:hover {
@@ -2116,3 +2131,4 @@ h3#p-Wiki-label {
 #p-namespaces:not(#mobilePageLinks) .cframe-menu-content-list .mw-list-item:first-of-type a {
 	border-bottom-left-radius:6px;
 }
+
